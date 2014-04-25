@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425195246) do
+ActiveRecord::Schema.define(version: 20140425213018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "rsvps", force: true do |t|
     t.string  "name"
-    t.boolean "guest?"
+    t.boolean "attending"
+    t.boolean "guest"
   end
 
 end

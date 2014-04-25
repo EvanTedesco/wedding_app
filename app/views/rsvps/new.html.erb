@@ -1,0 +1,7 @@
+<%= form_for(@rsvp) do |f| %>
+    <%= f.label :name  %>
+    <%= f.text_field :name %>
+    <%= f.label :attending %>
+    <%= f.radio_button(:attending, true) %>
+    <%= f.submit 'RSVP' %>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>RSVP list:</h1>
+<% @rsvp.each do |rsvp| %>
+    <p><%= rsvp.name %>
+      <%= rsvp.attending %>
+      <%= rsvp.guest %></p>
+<% end %>
