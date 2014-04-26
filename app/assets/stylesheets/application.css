@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+table#rsvp th {
+    border: 2px solid black;
+    text-align: left;
+    background-color: darkgrey;
+}
+
+table#rsvp td {
+    border-style: none solid;
+    padding-right: 15px;
+}
+
+table#rsvp tr:nth-child(even) {
+    background-color: lightgrey;
+}
+
+table#rsvp td#id {
+    text-align: center;
+    padding-left: 5px;
+}
+

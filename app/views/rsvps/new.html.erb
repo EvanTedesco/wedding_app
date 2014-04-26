@@ -3,5 +3,7 @@
     <%= f.text_field :name %>
     <%= f.label :attending %>
     <%= f.radio_button(:attending, true) %>
+    <%= f.label :guest %>
+    <%= f.radio_button(:guest, true) %>
     <%= f.submit 'RSVP' %>
 <% end %>
