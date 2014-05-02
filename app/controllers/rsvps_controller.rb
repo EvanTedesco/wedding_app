@@ -1,7 +1,7 @@
 class RsvpsController < ApplicationController
+
   def index
     @rsvp = Rsvp.all
-    p @rsvp
   end
 
   def new

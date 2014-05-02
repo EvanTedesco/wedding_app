@@ -1,0 +1,215 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+table#rsvp th {
+  /*border: 2px solid black;*/
+  text-align: left;
+  background-color: darkgrey;
+}
+
+table#rsvp td {
+  border-style: none solid;
+  padding-right: 15px;
+}
+
+table#rsvp tr:nth-child(even) {
+  background-color: lightgrey;
+}
+
+table#rsvp td#id {
+  text-align: center;
+  padding-left: 5px;
+}
+
+header {
+  position: relative;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: #737373;
+  font: italic 700 20px/1.2 "playfair display";
+  color: #F2F2F2;
+  padding-top: 30px;
+
+}
+
+html {
+
+}
+
+a {
+  color: #A6A6A6;
+}
+
+#content-wrapper {
+  width: 100%;
+  background: url(http://itsthejumpoff.com/images/bg_site.jpg) repeat;
+  height: 2000px;
+  padding-top: 100px;
+}
+
+.content {
+  position: relative;
+  margin: auto;
+  width: 830px;
+  height: 800px;
+  background: url(http://itsthejumpoff.com/images/bg_site.jpg) repeat;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+body {
+  margin: 0;
+}
+
+#paper-top {
+  margin: auto;
+  height: 67px;
+  background: url(http://itsthejumpoff.com/images/bg_10.jpg) no-repeat;
+}
+
+#paper-middle {
+  background: url(http://itsthejumpoff.com/images/bg_12.jpg) repeat-y;
+  padding: 75px 133px;
+  height: 900px;
+}
+
+#paper-bottom {
+  height: 90px;
+  background: url(http://itsthejumpoff.com/images/bg_22.jpg) no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+.container {
+  margin-top: 20px;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+/* Carousel Styles */
+.carousel-indicators .active {
+  background-color: #2980b9;
+}
+
+.carousel-inner img {
+  width: 100%;
+  max-height: 460px
+}
+
+.carousel-control {
+  width: 0;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  background-image: none;
+  background-repeat: no-repeat;
+  text-shadow: none;
+}
+
+.carousel-control.left span {
+  padding: 15px;
+}
+
+.carousel-control.right span {
+  padding: 15px;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  position: absolute;
+  top: 45%;
+  z-index: 5;
+  display: inline-block;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .icon-prev {
+  left: 0;
+}
+
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next {
+  right: 0;
+}
+
+.carousel-control.left span,
+.carousel-control.right span {
+  background-color: #000;
+}
+
+.carousel-control.left span:hover,
+.carousel-control.right span:hover {
+  opacity: .7;
+  filter: alpha(opacity=70);
+}
+
+/* Carousel Header Styles */
+.header-text {
+  position: absolute;
+  top: 20%;
+  left: 1.8%;
+  right: auto;
+  width: 96.66666666666666%;
+  color: #fff;
+}
+
+.header-text h2 {
+  font-size: 40px;
+}
+
+.header-text h2 span {
+  background-color: #2980b9;
+  padding: 10px;
+}
+
+.header-text h3 span {
+  background-color: #000;
+  padding: 15px;
+}
+
+.btn-min-block {
+  min-width: 170px;
+  line-height: 26px;
+}
+
+.btn-theme {
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  margin-right: 15px;
+}
+
+.btn-theme:hover {
+  color: #000;
+  background-color: #fff;
+  border-color: #fff;
+}
