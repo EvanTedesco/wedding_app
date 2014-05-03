@@ -1,18 +1,6 @@
 
 
-<h1>RSVP list:</h1>
 
-<table id="rsvp">
-  <tr>
-    <th>Name</th>
-    <th>Attending</th>
-    <th>Bringing Guest</th>
-  </tr>
-  <% @rsvp.each do |rsvp| %>
-      <tr>
-        <td><%= rsvp.name %></td>
-        <td><%= rsvp.attending ? 'Yes' : 'No' %></td>
-        <td><%= rsvp.guest ? 'Yes' : 'No' %></td>
-      </tr>
-  <% end %>
-</table>
+<%= render 'rsvp_table' %>
+
+
