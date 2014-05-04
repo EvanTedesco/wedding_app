@@ -3,14 +3,16 @@
 <head>
   <title>WeddingApp</title>
   <%= stylesheet_link_tag 'application', "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application',"//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
 <header>
   <h1>Evan and Crystal Tedesco's Awesome Wedding Site</h1>
-  <%= link_to 'RSVP', new_rsvp_path(@rsvp) %>
+
+    <%= link_to 'RSVP', new_rsvp_path(@rsvp) %>
+    <%= link_to 'Home', root_path %>
 </header>
 
 <div id="content-wrapper">

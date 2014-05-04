@@ -8,7 +8,7 @@ feature 'Rsvp manager' do
     fill_in 'Name', with: 'Your mom'
     choose'rsvp_attending_true'
     choose'rsvp_guest_true'
-    click_on 'RSVP'
+    click_button 'RSVP'
     expect(page).to have_content'Your mom'
   end
 end
