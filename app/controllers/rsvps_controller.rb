@@ -11,11 +11,13 @@ class RsvpsController < ApplicationController
   def create
     @rsvp = Rsvp.new(
         name: params[:rsvp][:name],
+        email: params[:rsvp][:email],
         attending: params[:rsvp][:attending],
-        guest: params[:rsvp][:guest]
+        comments: params[:rsvp][:comments]
+
     )
     if @rsvp.save
-      redirect_to rsvps_path
+      redirect_to root_path
     else
       render :new
     end
