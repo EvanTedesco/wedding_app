@@ -1,12 +1,45 @@
+<div class="page-title">RSVP</div>
+<div id="rsvp-container">
+  <div class="page-title">Evan & Crystal</div>
+  <div class="date" id="rsvp">April 20, 2015</div>
+  <p>You're invited to come celebrate with us! If you have not done so already, please RSVP
+    so that we can accommodate you. </p>
+  </br>
+  -------------------------------------------------------------------------------------------------------------------------------------------------------
 
+  <div class="form">
+    <%= form_for(@rsvp) do |f| %>
+        <div id="name">
+          <%= f.text_field :name, size: '50', placeholder: '*Full Name' %>
+          <br>
+        </div>
+        <div id="name">
+          <%= f.text_field :email, size: '50x1', placeholder: '*Email' %>
+          <br>
+        </div>
+        <div id="attending">
+          *Will you be attending?<br>
 
-<h1>RSVP</h1>
-<%= form_for(@rsvp) do |f| %>
-    <%= f.label :name  %>
-    <%= f.text_field :name %>
-    <%= f.label :attending %>
-    <%= f.radio_button(:attending, true) %>
-    <%= f.label :guest %>
-    <%= f.radio_button(:guest, true) %>
-    <%= f.submit 'RSVP' %>
-<% end %>
+          <div dir="rtl">
+            <%= f.label :Accept_with_pleasure %>
+            <%= f.radio_button :attending, true %>
+            <br>
+            <%= f.label :Decline_with_regret %>
+            <%= f.radio_button :attending, false %>
+            <br>
+          </div>
+        </div>
+        <div id="comments">
+            Comments or Questions?<br>
+          <%= f.text_area :comments, size: '50x5' %>
+        </div>
+        <div>
+          <%= f.submit 'submit' %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="quote-bar">After all these years, I see that I was mistaken about Eve in the beginning;
+  it is better to live outside the Garden with her than inside it without her.” ~ Mark Twain
+</div>

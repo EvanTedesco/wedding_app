@@ -9,16 +9,13 @@
 
 <body>
 <header>
-  <h1>Evan and Crystal Tedesco's Awesome Wedding Site</h1>
-
     <%= link_to 'RSVP', new_rsvp_path(@rsvp) %>
     <%= link_to 'Home', root_path %>
 </header>
 
 <div id="content-wrapper">
-  <div class="content">
+
     <%= yield %>
-  </div>
 </div>
 </body>
 </html>
