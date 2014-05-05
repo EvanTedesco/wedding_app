@@ -18,12 +18,10 @@ class RsvpsController < ApplicationController
     )
     if @rsvp.save && @rsvp[:attending] == true
       flash[:partial] = 'dance'
-      flash[:message] = "Let's Party Down!"
       redirect_to root_path
     elsif
       @rsvp.save && @rsvp[:attending] == false
       flash[:partial] = 'cry'
-      flash[:message] = 'Whack attack'
       redirect_to root_path
       else
       render :new

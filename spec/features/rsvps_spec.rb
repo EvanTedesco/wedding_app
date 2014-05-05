@@ -38,7 +38,7 @@ feature 'Rsvp manager' do
     fill_in '*Email', with: 'mom@example.com'
     choose'rsvp_attending_false'
     click_button 'submit'
-    expect(page).to have_content "Whack attack"
+    expect(page).to have_content "Whack Attack!"
 
   end
 end
