@@ -16,9 +16,16 @@ class RsvpsController < ApplicationController
         comments: params[:rsvp][:comments]
 
     )
-    if @rsvp.save
+    if @rsvp.save && @rsvp[:attending] == true
+      flash[:partial] = 'dance'
+      flash[:message] = "Let's Party Down!"
       redirect_to root_path
-    else
+    elsif
+      @rsvp.save && @rsvp[:attending] == false
+      flash[:partial] = 'cry'
+      flash[:message] = 'Whack attack'
+      redirect_to root_path
+      else
       render :new
     end
   end
