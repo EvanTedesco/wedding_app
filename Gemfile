@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 
 
 group :test, :development do
+  gem 'dotenv-rails', '~> 0.11.1'
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.2.1'
   gem 'pry'
