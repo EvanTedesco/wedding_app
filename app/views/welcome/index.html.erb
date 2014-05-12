@@ -7,15 +7,6 @@
 <div class="date">April 20, 2015</div>
 <div class="location">Costa Rica</div>
 
-<% if session[:logged_in] %>
-    <%= link_to 'RSVP', new_rsvp_path(@rsvp) %>
-<% else %>
-    <form method="post" action="/login">
-      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-      <input type="text" name="password" placeholder="Enter Password">
-      <input type="submit" value="Login">
-    </form>
-<% end %>
 
 
 <%= render 'carousel' %>

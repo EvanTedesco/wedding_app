@@ -2,10 +2,11 @@ require 'spec_helper'
 
 feature 'Rsvp manager' do
   scenario 'It allows guests to RSVP with a password' do
-    visit '/'
+    visit '/login/new'
     # log in
+    fill_in 'Email address', with: 'Joe@example.com'
     fill_in 'password', with: 'password'
-    click_button 'Login'
+    click_button 'Sign In'
 
     click_on 'RSVP'
     fill_in '*Full Name', with: 'Your mom'
@@ -18,33 +19,21 @@ feature 'Rsvp manager' do
   end
 
   scenario 'It prevents guests from RSVPing without a password' do
-    visit '/'
+    visit '/login/new'
     # log in
     fill_in 'password', with: 'wrong_password'
-    click_button 'Login'
+    click_button 'Sign In'
 
     expect(page).to have_no_link('RSVP')
   end
 
-  scenario 'It renders an error if required field is blank' do
-    visit '/'
-    # log in
-    fill_in 'password', with: 'password'
-    click_button 'Login'
-    click_on 'RSVP'
-    fill_in '*Full Name', with: ''
-    fill_in '*Email', with: ''
-    click_button 'submit'
-    expect(page).to have_content "Name can't be blank"
-    expect(page).to have_content "Email can't be blank"
-    expect(page).to have_content "Attending is not included in the list"
-  end
+
 
   scenario 'A gif is displayed depending on attending choice' do
 
-    visit '/'
+    visit '/login/new'
     fill_in 'password', with: 'password'
-    click_button 'Login'
+    click_button 'Sign In'
     click_on 'RSVP'
     fill_in '*Full Name', with: 'Your mom'
     fill_in '*Email', with: 'mom@example.com'
@@ -57,6 +46,5 @@ feature 'Rsvp manager' do
     choose 'rsvp_attending_false'
     click_button 'submit'
     expect(page).to have_content "Whack Attack!"
-
   end
 end

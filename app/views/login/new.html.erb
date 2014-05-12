@@ -1,0 +1,22 @@
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<div class="container">
+
+  <form class="form-signin" method="post" action="/login">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+    <h1 class="form-signin-heading text-muted">Login</h1>
+
+    <div id="error_explanation" class="error">
+      <% if flash[:login_error] %>
+          <%= flash[:login_error] %>
+      <% end %>
+    </div>
+    <input type="text" class="form-control" placeholder="Email address" required="" autofocus="">
+    <input type="password" name="password" class="form-control" placeholder="Password" required="">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Sign In
+    </button>
+  </form>
+
+</div>

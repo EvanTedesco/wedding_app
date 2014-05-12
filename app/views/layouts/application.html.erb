@@ -8,13 +8,19 @@
 </head>
 
 <body>
-<header>
-    <%= link_to 'Home', root_path %>
-</header>
+<% if session[:logged_in] %>
+    <header>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'RSVP', new_rsvp_path(@rsvp) %>
+    </header>
+
+<% end %>
+
+
 
 <div id="content-wrapper">
 
-    <%= yield %>
+  <%= yield %>
 </div>
 </body>
 </html>
