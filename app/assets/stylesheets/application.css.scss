@@ -98,14 +98,28 @@ img.desaturate {
   border: 2px solid;
   border-radius: 4%;
   box-shadow: 5px 5px 2.5px #888888;
-  text-align: center;
   display: block;
   position: relative;
-  margin: auto;
-  margin-bottom: 30px;
-  margin-top: 30px;
-
+  margin: 30px auto;
+  padding: 30px
 }
+
+
+#rsvp-container .header p{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.rsvp-form {
+  border-top: 1px dashed black ;
+
+  form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}
+
 
 .date#rsvp {
   padding-bottom: 50px;
@@ -123,10 +137,6 @@ p {
   font-size: 30pt;
 }
 
-#name {
-  margin-bottom: 15px;
-}
-
 #attending {
   margin: auto;
   padding-bottom: 20px;
@@ -140,7 +150,11 @@ input[type="radio"] {
   -o-appearance: checkbox;
 }
 
-input[type=submit] {
+input[type="text"], input[type="email"] {
+  margin-top: 25px;
+}
+
+input[type='submit'] {
   padding: 5px 15px;
   background: #4BACC6;
   border: 0 none;
@@ -151,18 +165,19 @@ input[type=submit] {
   border-radius: 5px;
 }
 
-#comments {
-  min-height: 150px;
-  max-height: 150px;
-  overflow-y: scroll;
-  border: 1px solid-black;
-  padding-top: 20px;
-  display: inline-block;
+.rsvp-submit {
+  height: 30px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.comments {
+  margin-top: 30px;
 }
 
 
-#error_explanation.error {
-  margin: auto;
+.error {
+  margin: 10px auto;
   color: red;
   text-align: center;
 }
@@ -187,6 +202,16 @@ input[type=submit] {
   float: none;
 }
 
+@media (max-width: 780px) {
+
+  #rsvp-container {
+    width: 100%;
+  }
+
+  .rsvp-form form {
+    width: 90%;
+  }
+}
 
 
 .container {
@@ -369,25 +394,21 @@ span {
 
 
 
-
-
-
-
-.btn
-{
+.btn{
   outline:0;
   border:none;
   border-top:none;
   border-bottom:none;
   border-left:none;
   border-right:none;
+
+  &:focus{
+    outline:0;
+    -webkit-outline:0;
+    -moz-outline:0;
+  }
 }
-.btn:focus
-{
-  outline:0;
-  -webkit-outline:0;
-  -moz-outline:0;
-}
+
 .fullscreen_bg {
   position: fixed;
   top: 0;

@@ -1,49 +1,50 @@
 <div class="page-title">RSVP</div>
 <div id="rsvp-container">
-  <div class="page-title">Evan & Crystal</div>
-  <div class="date" id="rsvp">April 20, 2015</div>
-  <p>You're invited to come celebrate with us! If you have not done so already, please RSVP
-    so that we can accommodate you. </p>
-  </br>
-  -------------------------------------------------------------------------------------------------------------------------------------------------------
+  <div class="header">
+    <div class="page-title">Evan & Crystal</div>
+    <div class="date" id="rsvp">April 5, 2015</div>
+    <p>You're invited to come celebrate with us! If you have not done so already, please RSVP
+      so that we can accommodate you. </p>
+  </div>
 
-  <div class="form">
+
+  <div class="rsvp-form">
     <% if @rsvp.errors.any? %>
-        <div id="error_explanation" class="error">
+        <div class="error">
           <% @rsvp.errors.full_messages.each do |msg| %>
-              <ul><%= msg %></ul>
+              <div><%= msg %></div>
           <% end %>
-          </ul>
         </div>
     <% end %>
 
     <%= form_for(@rsvp) do |f| %>
-        <div id="name">
-          <%= f.text_field :name, size: '50', placeholder: '*Full Name' %>
-          <br>
-        </div>
-        <div id="name">
+        <%= f.text_field :name, class: 'form-control', placeholder: '*Full Name' %>
 
-          <%= f.text_field :email, size: '50x1', placeholder: '*Email' %>
-          <br>
-        </div>
+        <%= f.email_field :email, class: 'form-control', placeholder: '*Email' %>
         <div id="attending">
-          *Will you be attending?<br>
+          *Will you be attending?
+        </div>
 
-          <div dir="rtl">
-            <%= f.label :Accept_with_pleasure %>
+        <div class="radio">
+          <label>
             <%= f.radio_button :attending, true %>
-            <br>
-            <%= f.label :Decline_with_regret %>
+            Accept with Pleasure
+          </label>
+        </div>
+
+        <div class="radio">
+          <label>
             <%= f.radio_button :attending, false %>
-            <br>
-          </div>
+            Decline with Regret
+          </label>
+
         </div>
-        <div id="comments">
-          Comments or Questions?<br>
-          <%= f.text_area :comments, size: '50x5' %>
+
+        <div class="comments">
+          Comments or Questions?
         </div>
-        <div>
+        <%= f.text_area :comments, class: 'form-control' %>
+        <div class="rsvp-submit">
           <%= f.submit 'submit' %>
         </div>
     <% end %>

@@ -10,6 +10,9 @@
 <body>
 <% if session[:logged_in] %>
     <header>
+      <% if session[:admin] %>
+          <%= link_to 'All RSVPS', rsvps_path %>
+      <% end %>
       <%= link_to 'Home', root_path %>
       <%= link_to 'RSVP', new_rsvp_path(@rsvp) %>
     </header>

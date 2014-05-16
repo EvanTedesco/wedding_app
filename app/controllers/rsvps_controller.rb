@@ -4,7 +4,13 @@ class RsvpsController < ApplicationController
 
   def index
     @rsvp = Rsvp.all
+    if session[:admin]
+      render :index
+    else
+      redirect_to root_path
+    end
   end
+
 
   def new
     @rsvp = Rsvp.new

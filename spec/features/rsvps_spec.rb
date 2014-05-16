@@ -3,9 +3,8 @@ require 'spec_helper'
 feature 'Rsvp manager' do
   scenario 'It allows guests to RSVP with a password' do
     visit '/login/new'
-    # log in
     fill_in 'Email address', with: 'Joe@example.com'
-    fill_in 'password', with: 'password'
+    fill_in 'password', with: ENV['ADMIN']
     click_button 'Sign In'
 
     click_on 'RSVP'
@@ -20,7 +19,6 @@ feature 'Rsvp manager' do
 
   scenario 'It prevents guests from RSVPing without a password' do
     visit '/login/new'
-    # log in
     fill_in 'password', with: 'wrong_password'
     click_button 'Sign In'
 
@@ -32,7 +30,7 @@ feature 'Rsvp manager' do
   scenario 'A gif is displayed depending on attending choice' do
 
     visit '/login/new'
-    fill_in 'password', with: 'password'
+    fill_in 'password', with: ENV['PASSWORD']
     click_button 'Sign In'
     click_on 'RSVP'
     fill_in '*Full Name', with: 'Your mom'
