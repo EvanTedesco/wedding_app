@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :rsvps
   resources :login
+  resources :admins
   post '/login' => 'session#create'
 
 

@@ -19,3 +19,4 @@ $ bin/rake db:migrate
 
 To run the test suite run the following from the command line:
 $ rspec
+
