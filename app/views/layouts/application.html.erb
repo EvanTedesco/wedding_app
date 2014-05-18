@@ -8,17 +8,18 @@
 </head>
 
 <body>
-<% if session[:logged_in] %>
-    <header>
+<header>
+  <%= link_to 'Login', new_login_path %>
+  <%= link_to 'Home', root_path %>
+
+  <% if session[:logged_in] %>
       <% if session[:admin] %>
           <%= link_to 'Admin', admins_path %>
       <% end %>
-      <%= link_to 'Home', root_path %>
       <%= link_to 'RSVP', new_rsvp_path(@rsvp) %>
-    </header>
+  <% end %>
 
-<% end %>
-
+</header>
 
 
 <div id="content-wrapper">
