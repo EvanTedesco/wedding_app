@@ -6,6 +6,6 @@ class AdminsController < ApplicationController
   end
 
   def confirm_admin
-    redirect_to '/' unless session[:logged_in]
+    redirect_to '/' unless session[:user_id]
   end
 end

@@ -1,14 +1,14 @@
 class RsvpsController < ApplicationController
 
-  before_action :confirm_logged_in
+  before_action do
+    confirm_logged_in
+    @user = User.find(params[:user_id])
+
+  end
+
 
   def index
     @rsvp = Rsvp.all
-    if session[:admin]
-      render :index
-    else
-      redirect_to root_path
-    end
   end
 
 
@@ -18,11 +18,8 @@ class RsvpsController < ApplicationController
 
   def create
     @rsvp = Rsvp.new(
-        name: params[:rsvp][:name],
-        email: params[:rsvp][:email],
         attending: params[:rsvp][:attending],
         comments: params[:rsvp][:comments]
-
     )
     if @rsvp.save && @rsvp[:attending] == true
       flash[:partial] = 'dance'
@@ -36,11 +33,8 @@ class RsvpsController < ApplicationController
   end
 
   def confirm_logged_in
-    redirect_to '/' unless session[:logged_in]
+    redirect_to '/' unless session[:user_id]
   end
 
-  #private
-  #def allowed_parameters
-  #  params.require(:rsvp).permit(:name,:attending,:guest)
-  #end
+
 end

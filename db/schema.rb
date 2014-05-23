@@ -11,21 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504213133) do
+ActiveRecord::Schema.define(version: 20140520232247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "rsvps", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.boolean  "attending"
-    t.integer  "max_guests"
-    t.integer  "number_of_guests"
-    t.string   "comments"
-    t.string   "meal_preference"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "user_id"
+    t.boolean "attending"
+    t.integer "max_guests"
+    t.integer "number_of_guests"
+    t.string  "comments"
+    t.string  "meal_preference"
+  end
+
+  add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string  "name"
+    t.string  "email"
+    t.string  "password_digest"
+    t.boolean "admin"
   end
 
 end

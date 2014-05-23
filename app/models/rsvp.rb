@@ -1,5 +1,7 @@
 class Rsvp < ActiveRecord::Base
-  validates :name, presence: true
-  validates :email, presence: true
-  validates :attending, inclusion: [true,false]
+
+
+  validates :attending, inclusion: [true, false]
+
+  belongs_to :user
 end

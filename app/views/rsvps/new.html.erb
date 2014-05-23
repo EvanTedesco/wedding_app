@@ -8,19 +8,9 @@
   </div>
 
 
-  <div class="rsvp-form">
-    <% if @rsvp.errors.any? %>
-        <div class="error">
-          <% @rsvp.errors.full_messages.each do |msg| %>
-              <div><%= msg %></div>
-          <% end %>
-        </div>
-    <% end %>
 
-    <%= form_for(@rsvp) do |f| %>
-        <%= f.text_field :name, class: 'form-control', placeholder: '*Full Name' %>
 
-        <%= f.email_field :email, class: 'form-control', placeholder: '*Email' %>
+    <%= form_for [@user,@rsvp] do |f| %>
         <div id="attending">
           *Will you be attending?
         </div>

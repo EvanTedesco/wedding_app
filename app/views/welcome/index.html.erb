@@ -1,8 +1,11 @@
+<%= flash[:success] %>
+
 <% if flash[:partial] %>
     <% partial = flash[:partial].to_s %>
 
     <%= render partial %>
 <% end %>
+
 <div class="page-title">Evan & Crystal</div>
 <div class="date">April 5, 2015</div>
 <div class="location">Costa Rica</div>

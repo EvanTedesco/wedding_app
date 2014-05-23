@@ -9,15 +9,16 @@
 
 <body>
 <header>
-  <%= link_to 'Login', new_login_path %>
-  <%= link_to 'Home', root_path %>
-
-  <% if session[:logged_in] %>
-      <% if session[:admin] %>
-          <%= link_to 'Admin', admins_path %>
-      <% end %>
-      <%= link_to 'RSVP', new_rsvp_path(@rsvp) %>
+  <% if session[:user_id] == nil %>
+      <%= link_to 'Login', new_session_path %>
+  <% else %>
+      <%= link_to 'Logout', "/sessions/#{current_user.id}", method: :delete %>
+      <%= link_to 'RSVP', "/users/#{current_user.id}/rsvps/new" %>
   <% end %>
+
+  <%= link_to 'Admin', admins_path %>
+
+  <%= link_to 'Home', root_path %>
 
 </header>
 

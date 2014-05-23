@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
+  resources :sessions
+  resources :users do
   resources :rsvps
-  resources :login
+  end
+
   resources :admins
-  post '/login' => 'session#create'
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
