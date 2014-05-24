@@ -19,8 +19,8 @@
         <tbody>
         <% @rsvp.each do |rsvp| %>
             <tr>
-              <td data-title="Name"><%= rsvp.name %></td>
-              <td data-title="Email">joe@example.com</td>
+              <td data-title="Name"><%= rsvp.user.name %></td>
+              <td data-title="Email"><%= rsvp.user.email %></td>
               <td data-title="Attending?"><%= rsvp.attending ? 'Yes' : 'No' %></td>
             </tr>
         <% end %>
