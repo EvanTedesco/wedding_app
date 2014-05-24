@@ -3,7 +3,7 @@
       <%= link_to 'Login', new_session_path %>
   <% else %>
       <%= link_to 'Logout', "/sessions/#{current_user.id}", method: :delete %>
-      <%= link_to 'RSVP', "/users/#{current_user.id}/rsvps/new" %>
+      <%= link_to 'RSVP', new_rsvp_path %>
       <% if session[:admin] == true %>
           <%= link_to 'Admin', admins_path %>
       <% end %>

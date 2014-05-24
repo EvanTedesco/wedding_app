@@ -2,10 +2,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   resources :sessions
-  resources :users do
+  resources :users
   resources :rsvps
-  end
-
   resources :admins
 
   # The priority is based upon order of creation: first created -> highest priority.

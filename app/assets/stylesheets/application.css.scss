@@ -55,7 +55,7 @@ body {
   width: 100%;
   height: 90px;
   background-color: #f2f2f2;
-  opacity: 1;
+  opacity: .5;
   font-size: 13pt;
   padding-top: 37px;
   font-family: 'Open Sans';
@@ -178,7 +178,7 @@ input[type='submit'] {
 
 .error {
   margin: 10px auto;
-  color: red;
+  color: #4BACC6;
   text-align: center;
 }
 

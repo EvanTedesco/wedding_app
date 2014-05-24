@@ -1,11 +1,10 @@
-<%= flash[:success] %>
-
 <% if flash[:partial] %>
     <% partial = flash[:partial].to_s %>
 
     <%= render partial %>
 <% end %>
-
+<div class="error"><%= flash[:success]%> <%= flash[:rsvp_error]%>
+</div>
 <div class="page-title">Evan & Crystal</div>
 <div class="date">April 5, 2015</div>
 <div class="location">Costa Rica</div>
