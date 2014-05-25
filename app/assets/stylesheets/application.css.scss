@@ -141,6 +141,7 @@ p {
   margin: auto;
   padding-bottom: 20px;
   padding-top: 20px;
+  text-align: center;
 }
 
 input[type="radio"] {
@@ -148,6 +149,7 @@ input[type="radio"] {
   -moz-appearance: checkbox;
   -ms-appearance: checkbox;
   -o-appearance: checkbox;
+  text-align: center;
 }
 
 input[type="text"], input[type="email"] {
