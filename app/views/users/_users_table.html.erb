@@ -1,0 +1,28 @@
+<div class="table-container">
+  <div class="table-row">
+    <div class="col-md-12">
+      <h1 class="text-center">
+        Users list:
+      </h1>
+    </div>
+    <div id="no-more-tables">
+      <table class="col-md-12 table-bordered table-striped table-condensed cf">
+        <thead class="cf">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @users.each do |user| %>
+            <tr>
+              <td data-title="Name"><%= user.name %></td>
+              <td data-title="Email"><%= user.email %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

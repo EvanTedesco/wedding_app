@@ -120,6 +120,9 @@ img.desaturate {
   }
 }
 
+.radio {
+  padding-left: 225px !important;
+}
 
 .date#rsvp {
   padding-bottom: 50px;
@@ -150,6 +153,7 @@ input[type="radio"] {
   -ms-appearance: checkbox;
   -o-appearance: checkbox;
   text-align: center;
+
 }
 
 input[type="text"], input[type="email"] {
