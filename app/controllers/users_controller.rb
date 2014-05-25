@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(secure_params)
     if @user.save
       flash[:created] = "#{@user.name} has been sent an invitation"
-      render :new
+      redirect_to new_user_path
     else
       render :new
     end

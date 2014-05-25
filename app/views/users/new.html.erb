@@ -1,11 +1,1 @@
-<%= flash[:created] %>
-
-<%= form_for @user do |f| %>
-    <%= f.text_field :name, placeholder: 'Name' %>
-    <%= f.email_field :email, placeholder: 'Email' %>
-    <%= f.password_field :password, placeholder: 'Password' %><br>
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
-    <%= f.submit 'Create user' %>
-
-<% end %>
+<%= render 'user_creation_form' %>
