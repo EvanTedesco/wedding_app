@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(secure_params)
     if @user.save
-
-      redirect_to root_path
+      flash[:created] = "#{@user.name} has been sent an invitation"
+      render :new
     else
       render :new
     end
@@ -20,6 +20,6 @@ class UsersController < ApplicationController
 
   private
   def secure_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :name)
   end
 end
