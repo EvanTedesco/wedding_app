@@ -197,6 +197,7 @@ input[type='submit'] {
   margin: 10px auto;
   color: #4BACC6;
   text-align: center;
+  max-width: 229px;
 }
 
 #table-wrapper {
@@ -251,19 +252,18 @@ input[type='submit'] {
   background-image: url('http://www.anewdayproductions.net/video%20production%20samples/Background.jpg');
   background-repeat:repeat;
   .col-md-12 {
-    margin-right: 300px;
+    margin-right: 25%;
     float: right;
     background: white;
     min-height: 0px ;
   }
   #no-more-tables table {
     width:25% ;
+    min-width:300px;
   }
 }
 
 .users-container {
   display: inline-flex;
-  max-width: 250px;
-  margin-bottom: 100px;
-  margin-left: 300px ;
+  margin-left: 25% ;
 }

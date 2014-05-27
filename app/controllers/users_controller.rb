@@ -21,6 +21,6 @@ class UsersController < ApplicationController
 
   private
   def secure_params
-    params.require(:user).permit(:email, :password, :name)
+    params.require(:user).permit(:email, :password, :name, :max_guests)
   end
 end
