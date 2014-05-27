@@ -4,7 +4,6 @@ class CreateRsvps < ActiveRecord::Migration
       t.integer :user_id
       t.index :user_id
       t.boolean :attending
-      t.integer :max_guests
       t.integer :number_of_guests
       t.string :comments
       t.string :meal_preference

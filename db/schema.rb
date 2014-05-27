@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20140520232247) do
   create_table "rsvps", force: true do |t|
     t.integer "user_id"
     t.boolean "attending"
-    t.integer "max_guests"
     t.integer "number_of_guests"
     t.string  "comments"
     t.string  "meal_preference"
@@ -32,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140520232247) do
     t.string  "email"
     t.string  "password_digest"
     t.boolean "admin"
+    t.integer "max_guests"
   end
 
 end

@@ -26,6 +26,7 @@ feature 'Admin options'do
     fill_in 'user[name]', with: 'new user'
     fill_in 'user[email]', with: 'jeff@example.com'
     fill_in 'user[password]', with: 'password'
+    fill_in 'user[max_guests]', with: 1
     click_on 'Create user'
     expect(page).to have_content 'new user has been sent an invitation'
 
