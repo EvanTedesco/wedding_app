@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'Rsvp manager' do
 
   before do
+    DatabaseCleaner.clean
     @admin_password = 'admin'
     @admin_user = create_admin(@admin_password)
     @user_password = 'password'

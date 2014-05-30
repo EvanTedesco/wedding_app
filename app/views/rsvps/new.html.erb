@@ -10,35 +10,39 @@
 
 
 
-    <%= form_for @rsvp do |f| %>
-        <div id="attending">
-          *Will you be attending?
-        </div>
+  <%= form_for @rsvp do |f| %>
+      <div id="attending">
+        *Will you be attending?
+      </div>
 
-        <div class="radio">
-          <label>
-            <%= f.radio_button :attending, true %>
-            Accept with Pleasure
-          </label>
-        </div>
+      <div class="radio">
+        <label>
+          <%= f.radio_button :attending, true %>
+          Accept with Pleasure
+        </label>
+      </div>
 
-        <div class="radio">
-          <label>
-            <%= f.radio_button :attending, false %>
-            Decline with Regret
-          </label>
+      <div class="radio">
+        <label>
+          <%= f.radio_button :attending, false %>
+          Decline with Regret
+        </label>
+      </div>
 
-        </div>
+      <div class="number-of-guests">
+        <%= f.label :number_of_guests %>
+        <%= f.number_field :number_of_guests, min: 0 %>
+      </div>
 
-        <div class="comments">
-          Comments or Questions?
-        </div>
-        <%= f.text_area :comments, class: 'form-control' %>
-        <div class="rsvp-submit">
-          <%= f.submit 'submit' %>
-        </div>
-    <% end %>
-  </div>
+      <div class="comments">
+        Comments or Questions?
+      </div>
+      <%= f.text_area :comments, class: 'form-control' %>
+      <div class="rsvp-submit">
+        <%= f.submit 'submit' %>
+      </div>
+  <% end %>
+</div>
 </div>
 
 <div class="quote-bar">After all these years, I see that I was mistaken about Eve in the beginning;

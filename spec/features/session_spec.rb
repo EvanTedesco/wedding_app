@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'user can login ' do
   before do
+    DatabaseCleaner.clean
     @admin_password = 'admin'
     @admin_user = create_admin(@admin_password)
     @user_password = 'password'
