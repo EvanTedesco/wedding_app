@@ -17,6 +17,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
+    fill_in 'rsvp[number_of_guests]', with:1
     click_button 'submit'
     click_on 'RSVP'
     expect(page).to have_content 'A RSVP already exists for you'

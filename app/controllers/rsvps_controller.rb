@@ -22,6 +22,7 @@ class RsvpsController < ApplicationController
     @rsvp = Rsvp.new(
         attending: params[:rsvp][:attending],
         comments: params[:rsvp][:comments],
+        number_of_guests: params[:rsvp][:number_of_guests],
         user: current_user)
 
     if @rsvp.save && @rsvp[:attending] == true

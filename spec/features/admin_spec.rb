@@ -31,4 +31,20 @@ feature 'Admin options'do
     expect(page).to have_content 'new user has been sent an invitation'
 
   end
+
+  scenario 'An admin can add food choices' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_password
+    click_button 'Login'
+    click_on 'Admin'
+    click_on 'Menu options'
+    click_on 'Add food item'
+    fill_in 'food_name', with: 'Steak'
+    fill_in 'food_description', with: 'Savory steak is savory'
+    click_on 'Add food'
+    expect(page).to have_content 'Steak'
+    expect(page).to have_content 'Menu Options'
+
+  end
 end

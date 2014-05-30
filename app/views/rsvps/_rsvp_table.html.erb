@@ -23,8 +23,12 @@
               <td data-title="Name"><%= rsvp.user.name %></td>
               <td data-title="Email"><%= rsvp.user.email %></td>
               <td data-title="Attending?"><%= rsvp.attending ? 'Yes' : 'No' %></td>
+              <td data-title="Number_of_guests"><%= rsvp.number_of_guests%></td>
             </tr>
         <% end %>
+        <tr>
+          <td>Total Guests: <%= total_guests %></td>
+        </tr>
         </tbody>
       </table>
     </div>

@@ -3,11 +3,25 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user
+  helper_method :current_user, :total_guests
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
+  def total_guests
+    @rsvps = Rsvp.all
+    guest_count = 0
+    @rsvps.each do |rsvp|
+      if rsvp.attending
+        guest_count += 1
+        guest_count += rsvp.number_of_guests
+      end
+    end
+    guest_count
+  end
+
+
 
 private
   def confirm_logged_in

@@ -1,0 +1,7 @@
+<h1>Menu Options</h1>
+<%= link_to 'Add food item', new_food_path %>
+<% @foods.each do |food| %>
+    <%= food.name %>
+    <%= food.description %>
+
+<% end %>
