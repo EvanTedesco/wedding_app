@@ -1,0 +1,35 @@
+<div class=".table-responsive">
+  <div class="table-container">
+    <div class="table-row">
+      <div class="col-md-12">
+        <h1 class="text-center">
+          Menu Items:
+        </h1>
+      </div>
+      <div id="no-more-tables">
+        <table class="col-md-12 table-bordered table-striped table-condensed cf">
+          <thead class="cf">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @foods.each do |food| %>
+              <tr>
+                <td data-title="Name"><%= food.name %></td>
+                <td data-title="Description"><%= food.description %></td>
+              </tr>
+          <% end %>
+          <tr>
+          </tr>
+          </tbody>
+        </table>
+        <div class="btn">
+          <%= link_to 'Add food item', new_food_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -46,7 +46,7 @@ feature 'Admin options' do
     fill_in 'food_description', with: 'Savory steak is savory'
     click_on 'Add food'
     expect(page).to have_content 'Steak'
-    expect(page).to have_content 'Menu Options'
+    expect(page).to have_content 'Menu Items:'
     click_on 'Logout'
     click_on 'Login'
     fill_in 'user[email]', with: @user.email
