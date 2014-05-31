@@ -24,6 +24,11 @@ class ApplicationController < ActionController::Base
 
 
 private
+  def confirm_admin
+    redirect_to '/' unless session[:admin]
+
+  end
+
   def confirm_logged_in
     redirect_to '/' unless session[:user_id]
   end
