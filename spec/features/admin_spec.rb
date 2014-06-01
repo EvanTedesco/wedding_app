@@ -57,4 +57,39 @@ feature 'Admin options' do
     visit '/foods'
     expect(page).to have_no_content 'Menu Options'
   end
+
+  scenario 'Admin can delete menu item' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_password
+    click_button 'Login'
+    click_on 'Admin'
+    click_on 'Menu options'
+    click_on 'Add food item'
+    fill_in 'food_name', with: 'Steak'
+    fill_in 'food_description', with: 'Savory steak is savory'
+    click_on 'Add food'
+    click_on 'Edit Steak'
+    expect(page).to have_content 'Edit: Steak'
+  end
+
+  scenario 'Admin can update menu items' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_password
+    click_button 'Login'
+    click_on 'Admin'
+    click_on 'Menu options'
+    click_on 'Add food item'
+    fill_in 'food_name', with: 'Steak'
+    fill_in 'food_description', with: 'Savory steak is savory'
+    click_on 'Add food'
+    click_on 'Edit Steak'
+    fill_in 'food_name', with: 'Skirt steak'
+    fill_in 'food_description', with: 'Savory skirt steak is savory'
+    click_on 'Edit'
+    expect(page).to have_content 'Savory skirt steak is savory'
+    expect(page).to have_no_content 'Steak'
+
+  end
 end

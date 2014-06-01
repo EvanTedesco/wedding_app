@@ -20,6 +20,7 @@
               <tr>
                 <td data-title="Name"><%= food.name %></td>
                 <td data-title="Description"><%= food.description %></td>
+                <td data-title="Edit-food"><%= link_to "Edit #{food.name}", edit_food_path(food)  %></td>
               </tr>
           <% end %>
           <tr>

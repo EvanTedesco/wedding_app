@@ -170,6 +170,7 @@ input[type="radio"] {
 
 input[type="text"], input[type="email"] {
   margin-top: 25px;
+  border-radius: 4px;
 }
 
 input[type='submit'] {
@@ -263,4 +264,17 @@ input[type='submit'] {
 .users-container {
   display: inline-flex;
   margin-left: 25% ;
+}
+
+.edit-food-container {
+  max-width: 960px;
+  min-height: 195px;
+  margin: auto;
+  padding-bottom: 20px;
+
+  label {
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+
 }

@@ -21,4 +21,20 @@ class FoodsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @food = Food.destroy(params[:id])
+    redirect_to foods_path
+  end
+
+  def edit
+    @food = Food.find(params[:id])
+  end
+
+  def update
+    @food = Food.find(params[:id])
+    @food.update name: params[:food][:name], description: params[:food][:description]
+    redirect_to foods_path
+  end
+
 end
