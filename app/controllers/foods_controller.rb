@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new name: params[:food][:name], description: params[:food][:description]
+    @food = Food.new(secure_params)
     if @food.save
       redirect_to foods_path
 
@@ -33,8 +33,12 @@ class FoodsController < ApplicationController
 
   def update
     @food = Food.find(params[:id])
-    @food.update name: params[:food][:name], description: params[:food][:description]
+    @food.update(secure_params)
     redirect_to foods_path
+  end
+
+  def secure_params
+    params.require(:food).permit(:name,:description)
   end
 
 end

@@ -2,7 +2,6 @@ class AdminsController < ApplicationController
 
   before_action :confirm_admin
   def index
-
   end
 
   def confirm_admin

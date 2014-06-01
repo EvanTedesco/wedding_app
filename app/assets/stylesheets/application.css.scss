@@ -243,16 +243,19 @@ input[type='submit'] {
 
 .users-fullscreen-bg {
   padding-top: 130px;
-  height:100%;
   padding-bottom: 10%;
   background-size: cover;
   background-image: url('http://www.anewdayproductions.net/video%20production%20samples/Background.jpg');
   background-repeat:repeat;
+  display:block;
+  overflow:auto;
   .col-md-12 {
     margin-right: 25%;
     float: right;
     background: white;
     min-height: 0px ;
+    height:100%;
+
   }
   #no-more-tables table {
     width:25% ;
