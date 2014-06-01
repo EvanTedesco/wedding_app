@@ -32,6 +32,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
+    fill_in 'rsvp[number_of_guests]', with:1
     click_button 'submit'
     expect(page).to have_content "Let's Party Down!"
     click_on 'RSVP'
@@ -48,7 +49,9 @@ feature 'Rsvp manager' do
     click_on 'RSVP'
     choose 'rsvp_attending_true'
     fill_in 'rsvp[number_of_guests]', with:5
-    expect(page).to have_content ''
+    click_on 'submit'
+    expect(page).to have_content "You're invited to come celebrate with us! "
+    expect(page).to have_no_content "Let's Party Down!"
 
   end
 

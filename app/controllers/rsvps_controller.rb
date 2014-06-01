@@ -25,12 +25,9 @@ class RsvpsController < ApplicationController
         number_of_guests: params[:rsvp][:number_of_guests],
         user: current_user)
 
-    if @rsvp.save && @rsvp[:attending] == true
-      flash[:partial] = 'dance'
-      redirect_to root_path
 
-    elsif @rsvp.save && @rsvp[:attending] == false
-      flash[:partial] = 'cry'
+    if @rsvp.save
+      flash[:partial] =  @rsvp[:attending] ? "dance" : "cry"
       redirect_to root_path
     else
       render :new
