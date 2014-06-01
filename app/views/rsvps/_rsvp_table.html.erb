@@ -16,7 +16,12 @@
           <th class="numeric"># of guests</th>
         </tr>
         </thead>
-
+        <tfoot>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total Guests: <%= total_guests %></td>
+        </tfoot>
         <tbody>
         <% @rsvp.each do |rsvp| %>
             <tr>
@@ -26,10 +31,10 @@
               <td data-title="Number_of_guests"><%= rsvp.number_of_guests%></td>
             </tr>
         <% end %>
-        <tr>
-          <td>Total Guests: <%= total_guests %></td>
-        </tr>
+
         </tbody>
+
+
       </table>
     </div>
   </div>

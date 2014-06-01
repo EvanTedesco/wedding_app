@@ -36,14 +36,15 @@ header {
   font-size: 13pt;
   padding-top: 37px;
   clear: both;
+  a {
+    color: #4BACC6 ;
+    padding: 15px;
+    font-family: 'Open Sans';
+  }
 
 }
 
-a {
-  color: #4BACC6 !important;
-  padding: 15px;
-  font-family: 'Open Sans';
-}
+
 
 #content-wrapper {
   width: 100%;
@@ -218,9 +219,7 @@ input[type='submit'] {
   font-size: 30px;
 }
 
-#login-button {
-  float: none;
-}
+
 
 @media (max-width: 780px) {
 
@@ -242,7 +241,7 @@ input[type='submit'] {
 
 
 
-.fullscreen_bg {
+.users-fullscreen-bg {
   padding-top: 130px;
   height:100%;
   padding-bottom: 10%;
@@ -276,5 +275,23 @@ input[type='submit'] {
     padding-right: 10px;
     padding-top: 10px;
   }
+  .btn-mini {
+    color:white;
+  }
 
+}
+
+.fullscreen-bg {
+  min-height: 100%;
+  padding-top: 5%;
+  padding-bottom: 20%;
+  background-size: cover;
+  background-image: url('http://www.anewdayproductions.net/video%20production%20samples/Background.jpg');
+  background-repeat:repeat;
+  display:block;
+  overflow:auto;
+  table {
+    background: white;
+    min-height: 0px ;
+  }
 }

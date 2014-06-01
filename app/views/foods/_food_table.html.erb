@@ -12,6 +12,8 @@
           <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
           </thead>
 
@@ -21,6 +23,7 @@
                 <td data-title="Name"><%= food.name %></td>
                 <td data-title="Description"><%= food.description %></td>
                 <td data-title="Edit-food"><%= link_to "Edit #{food.name}", edit_food_path(food)  %></td>
+                <td data-title="Edit-food" ><%= link_to "Delete", food_path(food), method:'Delete', class: "btn btn-danger btn-mini" %></td>
               </tr>
           <% end %>
           <tr>
@@ -28,7 +31,7 @@
           </tbody>
         </table>
         <div class="btn">
-          <%= link_to 'Add food item', new_food_path %>
+          <%= link_to 'Add food item', new_food_path, class: "btn btn-info btn-mini" %>
         </div>
       </div>
     </div>

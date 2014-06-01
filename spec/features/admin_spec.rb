@@ -92,4 +92,21 @@ feature 'Admin options' do
     expect(page).to have_no_content 'Steak'
 
   end
+
+    scenario 'Admin can update menu items' do
+      visit '/sessions/new'
+      fill_in 'user[email]', with: @admin_user.email
+      fill_in 'user[password]', with: @admin_password
+      click_button 'Login'
+      click_on 'Admin'
+      click_on 'Menu options'
+      click_on 'Add food item'
+      fill_in 'food_name', with: 'Steak'
+      fill_in 'food_description', with: 'Savory steak is savory'
+      click_on 'Add food'
+      click_on 'Delete'
+      expect(page).to have_no_content 'Steak'
+
+  end
 end
+
