@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :rsvps
   resources :admins
   resources :foods
+  get 'password_resets' => 'password_resets#new'
+  put 'password_resets' => 'password_resets#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

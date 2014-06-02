@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.boolean :admin
       t.integer :max_guests
-      t.integer :food_id
+      t.string :auth_token
 
     end
   end

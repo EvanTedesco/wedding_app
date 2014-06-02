@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140601231157) do
     t.string  "password_digest"
     t.boolean "admin"
     t.integer "max_guests"
-    t.integer "food_id"
+    t.string  "auth_token"
   end
 
 end

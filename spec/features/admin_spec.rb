@@ -27,7 +27,6 @@ feature 'Admin options' do
     click_on 'Create user'
     fill_in 'user[name]', with: 'new user'
     fill_in 'user[email]', with: 'jeff@example.com'
-    fill_in 'user[password]', with: 'password'
     fill_in 'user[max_guests]', with: 1
     click_on 'Create user'
     expect(page).to have_content 'new user has been sent an invitation'
@@ -93,7 +92,7 @@ feature 'Admin options' do
 
   end
 
-    scenario 'Admin can update menu items' do
+    scenario 'Admin can delete menu items' do
       visit '/sessions/new'
       fill_in 'user[email]', with: @admin_user.email
       fill_in 'user[password]', with: @admin_password

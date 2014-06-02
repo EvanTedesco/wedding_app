@@ -1,0 +1,23 @@
+<h1>Set password for <%= @user.email %></h1>
+<div class="error">
+  <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |message| %>
+          <ul>
+            <li><%= message %></li>
+          </ul>
+      <% end %>
+  <% end %>
+</div>
+
+<%= form_for @user, :as => :user, :url => password_resets_path, :method => :put do |f| %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.hidden_field :email %>
+
+    <%= f.submit 'Submit' %>
+
+<% end %>

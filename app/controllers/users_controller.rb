@@ -8,7 +8,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(secure_params)
+    password = 'password'
+    password_confirmation = 'password'
+    auth_token = SecureRandom.urlsafe_base64
+    @user = User.new(secure_params.merge({password: password, password_confirmation: password_confirmation, auth_token: auth_token}))
     if @user.save
       UserMailer.welcome_email(@user).deliver
       flash[:created] = "#{@user.name} has been sent an invitation"
@@ -19,8 +22,10 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   private
   def secure_params
-    params.require(:user).permit(:email, :password, :name, :max_guests)
+    params.require(:user).permit(:email, :name, :max_guests)
   end
 end
