@@ -1,4 +1,5 @@
 <header>
+  <%= link_to 'Home', root_path %>
   <% if session[:user_id] == nil %>
       <%= link_to 'Login', new_session_path %>
   <% else %>
@@ -8,6 +9,5 @@
           <%= link_to 'Admin', admins_path %>
       <% end %>
   <% end %>
-  <%= link_to 'Home', root_path %>
 
 </header>

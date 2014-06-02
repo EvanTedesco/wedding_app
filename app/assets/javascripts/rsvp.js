@@ -5,9 +5,14 @@ var hideGuestsAndSetupEvents = function hideGuestsAndSetupEvents() {
             accept = $('#rsvp_attending_true'),
             decline = $('#rsvp_attending_false');
 
-        numberOfGuests.hide()
-        userMeal.hide()
-        accept.change(function () {
+        numberOfGuests.hide();
+        userMeal.hide();
+
+        accept.click(function () {
+            if (accept.is(":checked")) {
+            console.log("decline was changed");
+            }
+            ;
             numberOfGuests.show({
                 duration: 400,
                 easing: 'linear'
@@ -18,7 +23,15 @@ var hideGuestsAndSetupEvents = function hideGuestsAndSetupEvents() {
                 })
         });
 
-        decline.change(function () {
+//        if(accept.is(":checked")) {
+//            showGuestOptions();
+//        }
+
+        decline.click(function () {
+            if (decline.is(":checked")) {
+                console.log("decline was checked");
+            }
+            ;
             numberOfGuests.hide({
                 duration: 400,
                 easing: 'linear'
@@ -29,6 +42,7 @@ var hideGuestsAndSetupEvents = function hideGuestsAndSetupEvents() {
                 })
         });
 
+        // extract showDeclineOptions, then call showDeclineOptions()
 
         numberOfGuests.find('input').on('keyup mouseup', function () {
             var inputNumber = $(this).val();
