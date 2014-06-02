@@ -34,6 +34,16 @@
         <%= f.number_field :number_of_guests %>
       </div>
 
+        <%= f.fields_for :meal_choice do |meal| %>
+      <div class="user-meal-choice">
+        <%= meal.label "Food choice for #{current_user.name}" %>
+        <%= meal.collection_select(:food_id, @foods,:id, :name, :include_blank => true) %>
+      </div>
+      <% end %>
+
+      <!--fields_for :guests do |guest|-->
+
+      <!--end-->
 
 
       <div class="comments">

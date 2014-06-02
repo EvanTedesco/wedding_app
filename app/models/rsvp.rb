@@ -6,6 +6,8 @@ class Rsvp < ActiveRecord::Base
 
 
   belongs_to :user
+  has_one :meal_choice
+  accepts_nested_attributes_for :meal_choice
 
   def attending?
     attending

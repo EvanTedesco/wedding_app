@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
 
   has_one :rsvp
+  has_one :food, through: :rsvp
 
   def admin?
     admin

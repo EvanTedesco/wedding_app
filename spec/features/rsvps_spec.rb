@@ -8,6 +8,7 @@ feature 'Rsvp manager' do
     @admin_user = create_admin(@admin_password)
     @user_password = 'password'
     @user = create_user(@user_password)
+    create_food
   end
 
   scenario 'A user can only RSVP once'do
@@ -55,15 +56,16 @@ feature 'Rsvp manager' do
 
   end
 
-  #
-  #scenario 'A user can make a meal choice' do
-  #  visit '/sessions/new'
-  #  fill_in 'user[email]', with: @user.email
-  #  fill_in 'user[password]', with: @user_password
-  #  click_button 'Login'
-  #  click_on 'RSVP'
-  #  choose 'rsvp_attending_true'
-  #  fill_in 'User[rsvps][meal_choice]', with:'steak'
-  #  click_button 'submit'
-  #end
+  scenario 'A user can make a meal choice' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user_password
+    click_button 'Login'
+    click_on 'RSVP'
+    choose 'rsvp_attending_true'
+    page.select 'Steak', :from => 'rsvp_meal_choice_attributes_food_id'
+    click_button 'submit'
+    expect(page).to have_content "You're invited to come celebrate with us! "
+    expect(page).to have_no_content "Let's Party Down!"
+  end
 end
