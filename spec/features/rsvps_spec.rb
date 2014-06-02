@@ -51,9 +51,7 @@ feature 'Rsvp manager' do
     choose 'rsvp_attending_true'
     fill_in 'rsvp[number_of_guests]', with:5
     click_on 'submit'
-    expect(page).to have_content "You're invited to come celebrate with us! "
-    expect(page).to have_no_content "Let's Party Down!"
-
+    expect(page).to have_content 'Number of guests must be less than or equal to 1'
   end
 
   scenario 'A user can make a meal choice' do

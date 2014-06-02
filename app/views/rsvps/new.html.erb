@@ -7,12 +7,19 @@
       so that we can accommodate you. </p>
   </div>
 
-
-
-
   <%= form_for @rsvp do |f| %>
       <div id="attending">
         *Will you be attending?
+      </div>
+
+      <div class="error">
+        <% if @rsvp.errors.any? %>
+            <% @rsvp.errors.full_messages.each do |message| %>
+                <ul>
+                  <li><%= message %></li>
+                </ul>
+            <% end %>
+        <% end %>
       </div>
 
       <div class="radio">
@@ -34,11 +41,11 @@
         <%= f.number_field :number_of_guests %>
       </div>
 
-        <%= f.fields_for :meal_choice do |meal| %>
-      <div class="user-meal-choice">
-        <%= meal.label "Food choice for #{current_user.name}" %>
-        <%= meal.collection_select(:food_id, @foods,:id, :name, :include_blank => true) %>
-      </div>
+      <%= f.fields_for :meal_choice do |meal| %>
+          <div class="user-meal-choice">
+            <%= meal.label "Food choice for #{current_user.name}" %>
+            <%= meal.collection_select(:food_id, @foods, :id, :name, :include_blank => true) %>
+          </div>
       <% end %>
 
       <!--fields_for :guests do |guest|-->
