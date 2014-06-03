@@ -1,42 +1,42 @@
 <div class=".table-responsive">
-<div class="table-container">
-  <div class="table-row">
-    <div class="col-md-12">
-      <h1 class="text-center">
-        RSVP list:
-      </h1>
-    </div>
-    <div id="no-more-tables">
-      <table class="col-md-12 table-bordered table-striped table-condensed cf">
-        <thead class="cf">
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Attending?</th>
-          <th class="numeric"># of guests</th>
-        </tr>
-        </thead>
-        <tfoot>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>Total Guests: <%= total_guests %></td>
-        </tfoot>
-        <tbody>
-        <% @rsvp.each do |rsvp| %>
-            <tr>
-              <td data-title="Name"><%= rsvp.user.name %></td>
-              <td data-title="Email"><%= rsvp.user.email %></td>
-              <td data-title="Attending?"><%= rsvp.attending ? 'Yes' : 'No' %></td>
-              <td data-title="Number_of_guests"><%= rsvp.number_of_guests%></td>
-            </tr>
-        <% end %>
+  <div class="table-container">
+    <div class="table-row">
+      <div class="col-md-12">
+        <h1 class="text-center">
+          RSVP list:
+        </h1>
+      </div>
+      <div id="no-more-tables">
+        <table class="col-md-12 table-bordered table-striped table-condensed cf">
+          <thead class="cf">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th class="numeric"># of guests</th>
+          </tr>
+          </thead>
+          <tfoot>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total Guests: <%= total_guests %></td>
+          </tfoot>
+          <tbody>
+          <% @rsvp.each do |rsvp| %>
+              <% if rsvp.attending %>
+                  <tr>
+                    <td data-title="Name"><%= rsvp.user.name %></td>
+                    <td data-title="Email"><%= rsvp.user.email %></td>
+                    <td data-title="Number_of_guests"><%= rsvp.number_of_guests %></td>
+                  </tr>
+              <% end %>
+          <% end %>
 
-        </tbody>
+          </tbody>
 
 
-      </table>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 </div>
