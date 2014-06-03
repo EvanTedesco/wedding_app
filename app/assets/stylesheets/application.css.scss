@@ -25,6 +25,9 @@ caption {
   border-color: #ddd;
 }
 
+
+
+
 header {
   position: relative;
   top: 0px;
@@ -32,14 +35,21 @@ header {
   width: 100%;
   height: 90px;
   background-color: #f2f2f2;
-  opacity: .5;
+  opacity: 50%;
   font-size: 13pt;
-  padding-top: 37px;
   clear: both;
   a {
     color: #4BACC6 ;
-    padding: 15px;
+    padding: 30px;
+    height: 100%;
+    display: inline-block;
     font-family: 'Open Sans';
+  }
+  a:hover{
+    background-color: #f2f2f5;
+    text-decoration: none;
+    color: #4BACC6;
+    opacity: 100%;
   }
 
 }
@@ -78,9 +88,11 @@ body {
 
 .page-title {
   margin: auto;
-  font-size: 26pt;
+  font-size: 32pt;
   text-align: center;
   padding-top: 30px;
+  color: #999999;
+  opacity: 100%;
 
 
 }
@@ -90,12 +102,19 @@ body {
   font-size: 20pt;
   text-align: center;
   opacity: 70%;
+  color: #cccccc;
+  font-style: italic;
 }
 
 .location {
   margin: auto;
-  font-size: 15pt;
+  font-size: 16pt;
   text-align: center;
+  color: #cccccc;
+  opacity: 100%;
+  font-style: light;
+  margin-bottom: 20px;
+
 
 }
 
