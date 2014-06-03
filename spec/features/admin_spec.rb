@@ -13,8 +13,7 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_password
     click_button 'Login'
-    click_on 'Admin'
-    click_on 'All RSVPS'
+    click_on 'RSVPS'
     expect(page).to have_content 'RSVP list'
   end
 
@@ -23,8 +22,7 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_password
     click_button 'Login'
-    click_on 'Admin'
-    click_on 'Create user'
+    click_on 'Users'
     fill_in 'user[name]', with: 'new user'
     fill_in 'user[email]', with: 'jeff@example.com'
     fill_in 'user[max_guests]', with: 1
@@ -38,8 +36,7 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_password
     click_button 'Login'
-    click_on 'Admin'
-    click_on 'Menu options'
+    click_on 'Menu'
     click_on 'Add food item'
     fill_in 'food_name', with: 'Steak'
     fill_in 'food_description', with: 'Savory steak is savory'
@@ -62,8 +59,7 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_password
     click_button 'Login'
-    click_on 'Admin'
-    click_on 'Menu options'
+    click_on 'Menu'
     click_on 'Add food item'
     fill_in 'food_name', with: 'Steak'
     fill_in 'food_description', with: 'Savory steak is savory'
@@ -77,8 +73,7 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_password
     click_button 'Login'
-    click_on 'Admin'
-    click_on 'Menu options'
+    click_on 'Menu'
     click_on 'Add food item'
     fill_in 'food_name', with: 'Steak'
     fill_in 'food_description', with: 'Savory steak is savory'
@@ -97,8 +92,7 @@ feature 'Admin options' do
       fill_in 'user[email]', with: @admin_user.email
       fill_in 'user[password]', with: @admin_password
       click_button 'Login'
-      click_on 'Admin'
-      click_on 'Menu options'
+      click_on 'Menu'
       click_on 'Add food item'
       fill_in 'food_name', with: 'Steak'
       fill_in 'food_description', with: 'Savory steak is savory'

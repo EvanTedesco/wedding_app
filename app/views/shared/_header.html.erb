@@ -5,9 +5,9 @@
   <% else %>
       <%= link_to 'Logout', "/sessions/#{current_user.id}", method: :delete %>
       <%= link_to 'RSVP', new_rsvp_path %>
-      <% if session[:admin] == true %>
-          <%= link_to 'Admin', admins_path %>
-      <% end %>
   <% end %>
 
 </header>
+<% if session[:admin] == true %>
+    <%= render 'shared/admin_nav' %>
+<% end %>
