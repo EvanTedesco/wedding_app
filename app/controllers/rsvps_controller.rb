@@ -30,6 +30,8 @@ class RsvpsController < ApplicationController
         redirect_to root_path
       end
     else
+      @rsvp.build_meal_choice unless @rsvp.meal_choice
+      @foods = Food.all
       render :new
     end
   end
