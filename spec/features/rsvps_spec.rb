@@ -25,17 +25,24 @@ feature 'Rsvp manager' do
   end
 
 
-  scenario 'A gif is displayed depending on attending choice' do
+  scenario 'A gif is displayed when user is attending' do
 
     visit '/sessions/new'
-    fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user_password
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
     fill_in 'rsvp[number_of_guests]', with:1
     click_button 'submit'
     expect(page).to have_content "Let's Party Down!"
+  end
+
+  scenario 'A gif is displayed when user is not attending' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user_password
+    click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_false'
     click_button 'submit'
@@ -65,5 +72,18 @@ feature 'Rsvp manager' do
     click_button 'submit'
     expect(page).to have_content "You're invited to come celebrate with us! "
     expect(page).to have_no_content "Let's Party Down!"
+  end
+
+  scenario 'A user can create a guest with a meal choice' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user_password
+    click_button 'Login'
+    click_on 'RSVP'
+    choose 'rsvp_attending_true'
+    page.select 'Steak', :from => 'rsvp_meal_choice_attributes_food_id'
+    expect(page).to have_content 'Guest name'
+    expect(page).to have_content 'Guest meal choice'
+
   end
 end

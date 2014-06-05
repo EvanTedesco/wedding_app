@@ -3,4 +3,5 @@ class Food < ActiveRecord::Base
   validates :name, length:{ maximum:255}
 
   belongs_to :meal_choice
+  belongs_to :guest
 end
