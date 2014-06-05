@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates  :max_guests, numericality:  {only_integer: true, greater_than_or_equal_to: 0}
 
 
-  has_one :rsvp
+  has_one :rsvp, :dependent => :destroy
   has_one :food, through: :rsvp
 
   def admin?
