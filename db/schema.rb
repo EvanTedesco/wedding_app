@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604003246) do
+ActiveRecord::Schema.define(version: 20140601185026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,36 +23,22 @@ ActiveRecord::Schema.define(version: 20140604003246) do
 
   create_table "guests", force: true do |t|
     t.string  "name"
-    t.integer "rsvp_id"
+    t.integer "user_id"
     t.integer "food_id"
   end
 
-  create_table "meal_choices", force: true do |t|
-    t.integer  "rsvp_id"
-    t.integer  "food_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "meal_choices", ["food_id"], name: "index_meal_choices_on_food_id", using: :btree
-  add_index "meal_choices", ["rsvp_id"], name: "index_meal_choices_on_rsvp_id", using: :btree
-
-  create_table "rsvps", force: true do |t|
-    t.integer "user_id"
-    t.boolean "attending"
-    t.integer "number_of_guests"
-    t.string  "comments"
-    t.string  "meal_preference"
-  end
-
-  add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id", using: :btree
+  add_index "guests", ["user_id"], name: "index_guests_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string  "name"
     t.string  "email"
     t.string  "password_digest"
     t.boolean "admin"
+    t.boolean "attending"
     t.integer "max_guests"
+    t.integer "number_of_guests"
+    t.integer "food_id"
+    t.string  "comments"
     t.string  "auth_token"
   end
 

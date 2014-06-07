@@ -7,7 +7,7 @@
       so that we can accommodate you. </p>
   </div>
 
-  <%= form_for @rsvp do |f| %>
+  <%= form_for [:user, @rsvp] do |f| %>
     <div id="attending">
       *Will you be attending?
     </div>
@@ -42,23 +42,17 @@
         <%= f.number_field :number_of_guests %>
       </div>
 
-      <%= f.fields_for :meal_choice do |meal| %>
-        <div class="user-meal-choice">
-
-          <%= meal.label "Food choice for #{current_user.name}" %>
-          <%= meal.collection_select(:food_id, @foods, :id, :name) %>
-        </div>
-      <% end %>
-    </div>
-      <div class="row">
-        <%= f.fields_for :guests do |guest| %>
-          <%= guest.label :guest_name %>
-          <%= guest.text_field :name%>
-          <%= guest.label :guest_meal_choice %>
-          <%= guest.collection_select(:food_id, @foods, :id, :name) %>
-        <% end %>
+      <div class="user-meal-choice">
+        <%= f.label :user_food_id, "Food choice for #{current_user.name}" %>
+        <%= f.collection_select(:user_food_id, @foods, :id, :name) %>
       </div>
-
+    </div>
+    <div class="row">
+      <%= f.label :guest_name %>
+      <%= f.text_field :guest_name %>
+      <%= f.label :guest_food_id %>
+      <%= f.collection_select(:guest_food_id, @foods, :id, :name) %>
+    </div>
 
     <div class="comments">
       Comments or Questions?

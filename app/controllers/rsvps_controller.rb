@@ -5,40 +5,37 @@ class RsvpsController < ApplicationController
   end
 
   def index
-    @rsvp = Rsvp.all
+    @users = User.all
   end
 
   def new
+    @user = User.find params[:user_id]
     @rsvp = Rsvp.new
-    @rsvp.build_meal_choice
-    current_user.max_guests.times do
-      @rsvp.guests.build
-    end
 
     @foods = Food.all
-    unless session[:admin]
-      confirm_new_rsvp
-    end
+    #unless session[:admin]
+    #end
   end
 
   def create
+    @rsvp = Rsvp.new(secure_params.merge ({user_id: current_user.id}))
+    @rsvp.save_fields
 
-    @rsvp = current_user.build_rsvp(secure_params)
-
-    if @rsvp.save
-      flash[:partial] = @rsvp[:attending] ? "dance" : "cry"
+    if @rsvp.save_fields
+      #flash[:partial] = [@attributes][:attending] ? "dance" : "cry"
       redirect_to root_path
     else
-      @rsvp.build_meal_choice unless @rsvp.meal_choice
       @foods = Food.all
+
       render :new
     end
   end
 
 
-def secure_params
-  params.require(:rsvp).permit(:attending,:comments,:number_of_guests , meal_choice_attributes: [:food_id], guests_attributes: [:name, :food_id])
-end
+  def secure_params
+    params.require(:rsvp).permit(:attending, :number_of_guests, :guest_name,
+                                 :user_food_id, :guest_food_id, :comments, :user_id)
+  end
 
 
 end

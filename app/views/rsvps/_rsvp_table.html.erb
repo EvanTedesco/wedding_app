@@ -21,12 +21,12 @@
           <td>Total Guests: <%= total_guests %></td>
           </tfoot>
           <tbody>
-          <% @rsvp.each do |rsvp| %>
-              <% if rsvp.attending %>
+          <% @users.each do |user| %>
+              <% if user.attending %>
                   <tr>
-                    <td data-title="Name"><%= rsvp.user.name %></td>
-                    <td data-title="Email"><%= rsvp.user.email %></td>
-                    <td data-title="Number_of_guests"><%= rsvp.number_of_guests %></td>
+                    <td data-title="Name"><%= user.name %></td>
+                    <td data-title="Email"><%= user.email %></td>
+                    <td data-title="Number_of_guests"><%= user.number_of_guests %></td>
                   </tr>
               <% end %>
           <% end %>

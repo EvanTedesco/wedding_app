@@ -12,7 +12,7 @@ class PasswordResetsController < ApplicationController
     if @user.update_attributes(password: params[:user][:password].presence, password_confirmation: params[:user][:password_confirmation].presence)
       flash[:success] = "Password Successfully saved"
       session[:user_id] = @user[:id]
-      redirect_to '/rsvps/new'
+      redirect_to new_user_rsvp_path(@user)
     else
       render :new
     end

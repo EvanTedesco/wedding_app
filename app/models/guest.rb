@@ -1,5 +1,5 @@
 class Guest < ActiveRecord::Base
 
-  belongs_to :rsvp
+  belongs_to :users
   has_one :food
 end

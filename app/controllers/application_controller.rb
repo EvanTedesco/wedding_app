@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
   end
 
   def total_guests
-    @rsvps = Rsvp.all
+    @users = User.all
     guest_count = 0
-    @rsvps.each do |rsvp|
-      if rsvp.attending
+    @users.each do |user|
+      if user.attending
         guest_count += 1
-        guest_count += rsvp.number_of_guests
+        guest_count += user.number_of_guests
       end
     end
     guest_count
@@ -34,7 +34,7 @@ private
   end
 
   def confirm_new_rsvp
-    @current_rsvp = Rsvp.find_by user_id: current_user[:id]
+    @current_rsvp = User.find(current_user.id)
     if @current_rsvp
       @current_rsvp[:attending] != nil
       flash[:rsvp_error] = 'A RSVP already exists for you'

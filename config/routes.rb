@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   resources :sessions
-  resources :users
-  resources :rsvps
+  resources :users do
+    resources :rsvps
+  end
   resources :admins
   resources :foods
   get 'password_resets' => 'password_resets#new'
