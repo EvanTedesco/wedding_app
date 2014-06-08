@@ -35,8 +35,7 @@ private
 
   def confirm_new_rsvp
     @current_rsvp = User.find(current_user.id)
-    if @current_rsvp
-      @current_rsvp[:attending] != nil
+    if @current_rsvp[:attending] != nil
       flash[:rsvp_error] = 'A RSVP already exists for you'
       redirect_to '/'
     else

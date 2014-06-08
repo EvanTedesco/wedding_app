@@ -4,4 +4,4 @@ end
 
 def create_user(password)
   User.create!(email: 'bob@example.com', password: password, name:'Bob Smith', max_guests:1, admin: false)
-end
+end   
