@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :total_guests
+  helper_method :current_user, :total_guests, :build_guest_fields
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -21,7 +21,13 @@ class ApplicationController < ActionController::Base
     guest_count
   end
 
-
+  def build_guest_fields
+    counter = 0
+    until counter == current_user.max_guests do
+      @user.guests.build
+      counter += 1
+    end
+  end
 
 private
   def confirm_admin

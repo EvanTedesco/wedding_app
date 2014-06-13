@@ -14,11 +14,7 @@ class RsvpsController < ApplicationController
     @rsvp = Rsvp.new
     @foods = Food.all
 
-    counter = 0
-    until counter == current_user.max_guests do
-      @user.guests.build
-      counter += 1
-    end
+    build_guest_fields
 
     unless session[:admin]
       confirm_new_rsvp
