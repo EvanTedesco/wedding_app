@@ -3,6 +3,7 @@ class Rsvp
   include ActiveModel::Validations
   include ActiveModel::Conversion
 
+
   #attr_accessor :attending, :number_of_guests, :guest_name,
   #              :user_food_id, :guest_food_id, :comments, :attributes
 
@@ -16,11 +17,9 @@ class Rsvp
   #validates :attending, inclusion: [true, false]
 
   validate do
-    [user, guest].each do |object|
-      unless object.valid?
-        object.errors.each do |key, values|
-          errors[key] = values
-        end
+    unless user.valid?
+      user.errors.each do |key, values|
+        errors[key] = values
       end
     end
   end
@@ -37,41 +36,60 @@ class Rsvp
   def save_fields
     valid = self.valid?
     if valid
-      user.update_attributes!(attending: attending,
-                              number_of_guests: number_of_guests,
-                              food_id: user_food_id)
-      guest.save!
+      User.transaction do
+        user.update_attributes!(attending: attending,
+                                number_of_guests: number_of_guests,
+                                food_id: user_food_id)
+        guests.each do |guest|
+          Guest.create!(user_id: user.id, name: guest[0], food_id: guest[1])
+        end
+      end
     end
     valid
+  rescue
+    false
   end
 
   def user
     @user ||= User.find(@attributes[:user_id])
   end
 
-  def guest
-    @guest ||= Guest.new(user_id: user.id, name: guest_name,
-                         food_id: @attributes[:guest_food_id])
+  def guests
+    names = []
+    foods = []
+    guests = @attributes['guests'].to_a
+    guests.each do |guest|
+      names << guest[1]['name']
+      foods << guest[1]['food_id']
+    end
+    names.zip(foods)
+
   end
+
+  # def guest
+  #   @guest ||= Guest.new(user_id: user.id, name: guest_name,
+  #                        food_id: guest_food_id)
+  #
+  #
+  # end
+
 
   def attending
-    @attending ||= @attributes[:attending]
+    @attributes[:attending] == "true"
   end
 
-  def attending?
-    @attending
-  end
+  alias attending? attending
 
   def number_of_guests
     @number_of_guests ||= @attributes[:number_of_guests].to_i
   end
 
   def guest_food_id
-    @guest_food_id ||= @attributes[:guest_food_id]
+    @guest_food_id ||= @attributes[:guests][:food_id]
   end
 
   def guest_name
-    @guest_name ||= @attributes[:guest_name]
+    @guest_name ||= @attributes[:guests][:name]
   end
 
   def user_food_id
@@ -85,6 +103,17 @@ class Rsvp
 
   def guest_limit
     user.max_guests
+  end
+
+  def generate_fields(user)
+    finished = false
+    until finished
+      user.max_guests.times do
+        user.guests.build
+        finished = true
+        break
+      end
+    end
   end
 
 end

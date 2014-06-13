@@ -76,15 +76,22 @@ feature 'Rsvp manager' do
   end
 
   scenario 'A user can create a guest with a meal choice' do
+    user =   User.create!(email: 'bob2@example.com', password: 'password', name:'Bob Smith', max_guests:2, admin: false)
+
     visit '/sessions/new'
-    fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: 'password'
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
-    expect(page).to have_content 'Guest name'
-    expect(page).to have_content 'Guest food'
+    fill_in 'guest_0_name', with: 'Guest1'
+    page.select 'Steak', :from => 'guest_0_food_id'
+    fill_in 'guest_1_name', with: 'Guest2'
+    page.select 'Steak', :from => 'guest_1_food_id'
 
+    click_on 'submit'
+    expect(Guest.all.length).to eq(2)
   end
+
 end
