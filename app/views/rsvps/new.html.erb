@@ -53,7 +53,8 @@
       <div class="row">
         <%= f.fields_for :guests do |guest| %>
           <%= guest.label :guest_name %>
-          <%= guest.text_field :name%>
+          <%= guest.text_field :name%><br>
+          <br>
           <%= guest.label :guest_meal_choice %>
           <%= guest.collection_select(:food_id, @foods, :id, :name) %>
         <% end %>

@@ -22,13 +22,15 @@
           </tfoot>
           <tbody>
           <% @rsvp.each do |rsvp| %>
+            <row>
               <% if rsvp.attending %>
-                  <tr>
-                    <td data-title="Name"><%= rsvp.user.name %></td>
-                    <td data-title="Email"><%= rsvp.user.email %></td>
-                    <td data-title="Number_of_guests"><%= rsvp.number_of_guests %></td>
-                  </tr>
+                <tr>
+                  <td data-title="Name"><%= rsvp.user.name %></td>
+                  <td data-title="Email"><%= rsvp.user.email %></td>
+                  <td data-title="Number_of_guests"><%= rsvp.number_of_guests %></td>
+                </tr>
               <% end %>
+            </row>
           <% end %>
 
           </tbody>
