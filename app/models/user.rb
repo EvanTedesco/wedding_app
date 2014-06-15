@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   has_many :guests
   has_one :food
-  accepts_nested_attributes_for :guests
 
   def admin?
     admin

@@ -2,31 +2,33 @@ window.RSVPManager = {
 
   initialize: function () {
     if ($('#rsvp-container').length > 0) {
+      $("input[id='rsvp_attending_false']").prop('checked', false);
       var $accept = $('#rsvp_attending_true'),
-        $decline = $('#rsvp_attending_false');
+        $decline = $('#rsvp_attending_false'),
+        guestNumberInput = $('#rsvp_number_of_guests'),
+        guestTransition = {
+          duration: 400,
+          easing: 'linear'
+        };
 
 
-      $('#rsvp_number_of_guests').change(function () {
+      guestNumberInput.change(function () {
         var inputNumber = $(this).val();
-        $(".guest-options").children().slice(0, inputNumber).show();
-        $(".guest-options").children().slice(inputNumber).hide();
+        $(".guest-options").children().slice(0, inputNumber).show(guestTransition);
+        $(".guest-options").children().slice(inputNumber).hide(guestTransition);
       });
 
       var acceptButtonWasClicked = function (event) {
         if ($(event.target).is(":checked")) {
-          $('.accept-options').show({
-            duration: 400,
-            easing: 'linear'
-          });
+          $('.accept-options').show(guestTransition);
         }
       };
 
       var declineButtonWasClicked = function (event) {
         if ($(event.target).is(":checked")) {
-          $('.accept-options').hide({
-            duration: 400,
-            easing: 'linear'
-          });
+          $('.accept-options').hide(guestTransition);
+          $('.guest').hide(guestTransition);
+          $(guestNumberInput).val(0);
         }
       };
 
