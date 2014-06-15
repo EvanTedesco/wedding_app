@@ -10,8 +10,6 @@ window.RSVPManager = {
         var inputNumber = $(this).val();
         $(".guest-options").children().slice(0, inputNumber).show();
         $(".guest-options").children().slice(inputNumber).hide();
-
-        console.log(inputNumber);
       });
 
       var acceptButtonWasClicked = function (event) {
