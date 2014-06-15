@@ -62,7 +62,8 @@ feature 'Rsvp manager' do
   end
 
   scenario 'A user can create a guest with a meal choice' do
-    user =   User.create!(email: 'bob2@example.com', password: 'password', name:'Bob Smith', max_guests:2, admin: false)
+    user =   User.create!(email: 'bob2@example.com', password: 'password',
+                          name:'Bob Smith', max_guests:3, admin: false)
 
     visit '/sessions/new'
     fill_in 'user[email]', with: user.email

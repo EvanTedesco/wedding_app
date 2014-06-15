@@ -15,4 +15,6 @@ describe "Rsvp" do
     rsvp = Rsvp.new(user_id: user.id, number_of_guests: 3, attending: "false")
     expect(rsvp).to have(0).errors_on(:number_of_guests)
   end
+
+
 end

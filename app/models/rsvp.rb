@@ -58,7 +58,10 @@ class Rsvp
       names << guest[1]['name']
       foods << guest[1]['food_id']
     end
-    names.zip(foods)
+    guest_info = names.zip(foods)
+    guest_info.delete_if do |guest|
+      guest[0].empty?
+    end
   end
 
   def attending
