@@ -83,7 +83,7 @@ class Rsvp
    @attributes[:user_food_id]
   end
 
-  def comments
+  def comments  
   @attributes[:comments]
   end
 

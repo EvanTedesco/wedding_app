@@ -5,6 +5,15 @@ window.RSVPManager = {
       var $accept = $('#rsvp_attending_true'),
         $decline = $('#rsvp_attending_false');
 
+
+      $('#rsvp_number_of_guests').change(function () {
+        var inputNumber = $(this).val();
+        $(".guest-options").children().slice(0, inputNumber).show();
+        $(".guest-options").children().slice(inputNumber).hide();
+
+        console.log(inputNumber);
+      });
+
       var acceptButtonWasClicked = function (event) {
         if ($(event.target).is(":checked")) {
           $('.accept-options').show({
@@ -27,6 +36,7 @@ window.RSVPManager = {
       $decline.click(declineButtonWasClicked);
       if (!$accept.is(':checked')) {
         $('.accept-options').hide();
+        $('.guest').hide();
       }
     }
   }

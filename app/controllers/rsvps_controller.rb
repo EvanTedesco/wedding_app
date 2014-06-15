@@ -10,7 +10,7 @@ class RsvpsController < ApplicationController
   end
 
   def new
-    @user = User.find params[:user_id]
+    @user = User.find current_user.id
     @rsvp = Rsvp.new
     @foods = Food.all
 

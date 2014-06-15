@@ -47,16 +47,18 @@
         <%= f.collection_select(:user_food_id, @foods, :id, :name) %>
       </div>
     </div>
-
-    <% @user.guests.each_with_index do |guest, index| %>
-      <div class="row">
-        <%= label_tag :guest_name %>
-        <%= text_field "guest[#{index}]", :name %><br>
-        <%= label_tag :guest_meal_choice %>
-        <%= collection_select("guest[#{index}]", :food_id, @foods, :id, :name) %>
-      </div>
-      <br>
-    <% end %>
+    <div class="guest-options">
+      <% @user.guests.each_with_index do |guest, index| %>
+        <div class="guest">
+          <%= label_tag :guest_name %>
+          <%= text_field "guest[#{index}]", :name %>
+          <br>
+          <%= label_tag :guest_meal_choice %>
+          <%= collection_select("guest[#{index}]", :food_id, @foods, :id, :name) %>
+        </div>
+        <br>
+      <% end %>
+    </div>
 
 
     <div class="comments">
