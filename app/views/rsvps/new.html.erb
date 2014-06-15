@@ -39,7 +39,7 @@
     <div class="accept-options">
       <div class="number-of-guests">
         <%= f.label :number_of_guests %>
-        <%= f.number_field :number_of_guests %>
+        <%= f.select :number_of_guests, (0..current_user.max_guests) %>
       </div>
 
       <div class="user-meal-choice">
@@ -47,6 +47,7 @@
         <%= f.collection_select(:user_food_id, @foods, :id, :name) %>
       </div>
     </div>
+
     <div class="guest-options">
       <% @user.guests.each_with_index do |guest, index| %>
         <div class="guest">
@@ -56,8 +57,8 @@
           <%= label_tag :guest_meal_choice %>
           <%= collection_select("guest[#{index}]", :food_id, @foods, :id, :name) %>
         </div>
-        <br>
-      <% end %>
+    <% end %>
+      <br>
     </div>
 
 
