@@ -39,7 +39,7 @@
     <div class="accept-options">
       <div class="number-of-guests">
         <%= f.label :number_of_guests %>
-        <%= f.number_field :number_of_guests %>
+        <%= f.select :number_of_guests, (0..current_user.max_guests) %>
       </div>
 
       <%= f.fields_for :meal_choice do |meal| %>
@@ -50,15 +50,21 @@
         </div>
       <% end %>
     </div>
-      <div class="row">
+    <div class="guest-options">
         <%= f.fields_for :guests do |guest| %>
-          <%= guest.label :guest_name %>
-          <%= guest.text_field :name%><br>
+        <div class="guest">
+
+        <%= guest.label :guest_name %>
+          <%= guest.text_field :name %>
+          <br>
           <br>
           <%= guest.label :guest_meal_choice %>
           <%= guest.collection_select(:food_id, @foods, :id, :name) %>
-        <% end %>
-      </div>
+          <br>
+        </div>
+
+    <% end %>
+    </div>
 
 
     <div class="comments">

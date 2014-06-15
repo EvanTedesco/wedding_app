@@ -23,6 +23,8 @@ class ApplicationController < ActionController::Base
 
 
 
+
+
 private
   def confirm_admin
     redirect_to '/' unless session[:admin]

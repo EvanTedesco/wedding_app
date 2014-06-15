@@ -18,7 +18,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
-    fill_in 'rsvp[number_of_guests]', with:1
+    select '1', from:'rsvp_number_of_guests'
     click_button 'submit'
     click_on 'RSVP'
     expect(page).to have_content 'A RSVP already exists for you'
@@ -33,7 +33,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
-    fill_in 'rsvp[number_of_guests]', with:1
+    select '1', from:'rsvp_number_of_guests'
     click_button 'submit'
     expect(page).to have_content "Let's Party Down!"
   end
@@ -49,17 +49,7 @@ feature 'Rsvp manager' do
     expect(page).to have_content "Whack Attack!"
   end
 
-  scenario 'A user cannot RSVP with more guests than allowed' do
-    visit '/sessions/new'
-    fill_in 'user[email]', with: @user.email
-    fill_in 'user[password]', with: @user_password
-    click_button 'Login'
-    click_on 'RSVP'
-    choose 'rsvp_attending_true'
-    fill_in 'rsvp[number_of_guests]', with:5
-    click_on 'submit'
-    expect(page).to have_content 'Number of guests must be less than or equal to 1'
-  end
+
 
   scenario 'A user can make a meal choice' do
     visit '/sessions/new'
@@ -70,8 +60,7 @@ feature 'Rsvp manager' do
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_meal_choice_attributes_food_id'
     click_button 'submit'
-    expect(page).to have_content "You're invited to come celebrate with us! "
-    expect(page).to have_no_content "Let's Party Down!"
+    expect(page).to have_content "Let's Party Down!"
   end
 
   scenario 'A user can create a guest with a meal choice' do
@@ -86,4 +75,5 @@ feature 'Rsvp manager' do
     expect(page).to have_content 'Guest meal choice'
 
   end
+
 end
