@@ -3,10 +3,7 @@ require 'spec_helper'
 feature 'password select' do
 before do
    DatabaseCleaner.clean
-   @admin_password = 'admin'
-   @admin_user = create_admin(@admin_password)
-   @user_password = 'password'
-   @user = create_user(@user_password)
+   @admin_user = create_admin
 end
 
 scenario 'It sends user an email to set their password' do
@@ -15,7 +12,7 @@ scenario 'It sends user an email to set their password' do
 
    visit '/sessions/new'
    fill_in 'user[email]', with: @admin_user.email
-   fill_in 'user[password]', with: @admin_password
+   fill_in 'user[password]', with: @admin_user.password
    click_button 'Login'
    click_on 'Users'
    fill_in 'user[name]', with: 'new user'

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe UserMailer do
 before do
    DatabaseCleaner.clean
-   @user = create_user('password')
+   @user = create_user
 
 end
 

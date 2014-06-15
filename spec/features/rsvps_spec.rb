@@ -4,17 +4,15 @@ feature 'Rsvp manager' do
 
   before do
     DatabaseCleaner.clean
-    @admin_password = 'password'
-    @admin_user = create_admin(@admin_password)
-    @user_password = 'password'
-    @user = create_user(@user_password)
+    @admin_user = create_admin
+    @user = create_user
     create_food
   end
 
   scenario 'A user can only RSVP once' do
     visit '/sessions/new'
     fill_in 'user[email]', with: @user.email
-    fill_in 'user[password]', with: @user_password
+    fill_in 'user[password]', with: @user.password
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
@@ -29,7 +27,7 @@ feature 'Rsvp manager' do
 
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
@@ -42,7 +40,7 @@ feature 'Rsvp manager' do
   scenario 'A gif is displayed when user is not attending' do
     visit '/sessions/new'
     fill_in 'user[email]', with: @user.email
-    fill_in 'user[password]', with: @user_password
+    fill_in 'user[password]', with: @user.password
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_false'
@@ -53,7 +51,7 @@ feature 'Rsvp manager' do
   scenario 'A user can make a meal choice' do
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'

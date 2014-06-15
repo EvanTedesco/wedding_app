@@ -2,16 +2,14 @@ require 'spec_helper'
 
 feature 'Admin options' do
   before do
-    @admin_password = 'admin'
-    @admin_user = create_admin(@admin_password)
-    @user_password = 'password'
-    @user = create_user(@user_password)
+    @admin_user = create_admin
+    @user = create_user
   end
 
   scenario 'Admin can view all RSVPS' do
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'RSVPS'
     expect(page).to have_content 'RSVP list'
@@ -20,7 +18,7 @@ feature 'Admin options' do
   scenario 'An admin can create users' do
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'Users'
     fill_in 'user[name]', with: 'new user'
@@ -34,7 +32,7 @@ feature 'Admin options' do
   scenario 'Only an admin can add food choices' do
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'Menu'
     click_on 'Add food item'
@@ -46,7 +44,7 @@ feature 'Admin options' do
     click_on 'Logout'
     click_on 'Login'
     fill_in 'user[email]', with: @user.email
-    fill_in 'user[password]', with: @user_password
+    fill_in 'user[password]', with: @user.password
     click_button 'Login'
     visit '/foods/new'
     expect(page).to have_no_content 'Add a food item'
@@ -57,7 +55,7 @@ feature 'Admin options' do
   scenario 'Admin can delete menu item' do
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'Menu'
     click_on 'Add food item'
@@ -71,7 +69,7 @@ feature 'Admin options' do
   scenario 'Admin can update menu items' do
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_password
+    fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'Menu'
     click_on 'Add food item'
@@ -90,7 +88,7 @@ feature 'Admin options' do
     scenario 'Admin can delete menu items' do
       visit '/sessions/new'
       fill_in 'user[email]', with: @admin_user.email
-      fill_in 'user[password]', with: @admin_password
+      fill_in 'user[password]', with: @admin_user.password
       click_button 'Login'
       click_on 'Menu'
       click_on 'Add food item'

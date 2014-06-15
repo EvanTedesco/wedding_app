@@ -68,25 +68,24 @@ class Rsvp
   alias attending? attending
 
   def number_of_guests
-  @attributes[:number_of_guests].to_i
+    @attributes[:number_of_guests].to_i
   end
 
   def guest_food_id
-  @attributes[:guests][:food_id]
+    @attributes[:guests][:food_id]
   end
 
   def guest_name
-   @attributes[:guests][:name]
+    @attributes[:guests][:name]
   end
 
   def user_food_id
-   @attributes[:user_food_id]
+    @attributes[:user_food_id]
   end
 
-  def comments  
-  @attributes[:comments]
+  def comments
+    @attributes[:comments]
   end
-
 
   def guest_limit
     user.max_guests
