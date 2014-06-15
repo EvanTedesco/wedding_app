@@ -5,7 +5,7 @@ feature 'Rsvp manager' do
   before do
     DatabaseCleaner.clean
     @admin_user = create_admin
-    @user = create_user
+    @user = create_user(max_guests:3)
     create_food
   end
 
@@ -62,12 +62,10 @@ feature 'Rsvp manager' do
   end
 
   scenario 'A user can create a guest with a meal choice' do
-    user =   User.create!(email: 'bob2@example.com', password: 'password',
-                          name:'Bob Smith', max_guests:3, admin: false)
 
     visit '/sessions/new'
-    fill_in 'user[email]', with: user.email
-    fill_in 'user[password]', with: 'password'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user.password
     click_button 'Login'
     click_on 'RSVP'
     choose 'rsvp_attending_true'
@@ -79,6 +77,27 @@ feature 'Rsvp manager' do
 
     click_on 'submit'
     expect(Guest.all.length).to eq(2)
+  end
+
+  scenario 'Guests of a user are not saved if user is not attending' do
+
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user.password
+    click_button 'Login'
+    click_on 'RSVP'
+    choose 'rsvp_attending_true'
+    page.select 'Steak', :from => 'rsvp_user_food_id'
+    fill_in 'guest_0_name', with: 'Guest1'
+    page.select 'Steak', :from => 'guest_0_food_id'
+    fill_in 'guest_1_name', with: 'Guest2'
+    page.select 'Steak', :from => 'guest_1_food_id'
+    choose 'rsvp_attending_false'
+    click_on 'submit'
+
+    expect(Guest.all.length).to eq(0)
+
+
   end
 
 end

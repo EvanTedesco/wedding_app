@@ -36,8 +36,10 @@ class Rsvp
         user.update_attributes!(attending: attending,
                                 number_of_guests: number_of_guests,
                                 food_id: user_food_id)
-        guests.each do |guest|
-          Guest.create!(user_id: user.id, name: guest[0], food_id: guest[1])
+        if user.attending
+          guests.each do |guest|
+            Guest.create!(user_id: user.id, name: guest[0], food_id: guest[1])
+          end
         end
       end
     end
