@@ -20,6 +20,7 @@ group :test, :development do
   gem 'capybara', '~> 2.2.1'
   gem 'pry'
   gem 'launchy'
+  gem 'selenium-webdriver', '~> 2.42.0'
   gem 'database_cleaner', '~> 1.3.0'
 end
 

@@ -12,6 +12,10 @@ window.RSVPManager = {
         };
 
 
+      $('#new_rsvp').submit(function(){
+        $('input:hidden').val('');
+      });
+
       guestNumberInput.change(function () {
         var inputNumber = $(this).val();
         $(".guest-options").children().slice(0, inputNumber).show(guestTransition);
@@ -29,6 +33,7 @@ window.RSVPManager = {
           $('.accept-options').hide(guestTransition);
           $('.guest').hide(guestTransition);
           $(guestNumberInput).val(0);
+
         }
       };
 

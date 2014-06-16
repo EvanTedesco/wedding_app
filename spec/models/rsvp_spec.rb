@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe "Rsvp" do
+  before do
+    DatabaseCleaner.clean
+  end
+  
   subject { Rsvp.new }
   it_behaves_like "ActiveModel"
 

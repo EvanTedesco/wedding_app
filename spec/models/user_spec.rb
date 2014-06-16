@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe User do
+  before do
+    DatabaseCleaner.clean
+  end
+
 it 'Prevents duplicate emails from being created' do
    valid_user = User.create!(email: 'evan@example.com', password: 'password', name:'Evan Tedesco', max_guests:1, admin: true)
    invalid_user = User.create(email: 'evan@example.com', password: 'password', name:'Evan Tedesco', max_guests:1, admin: true)

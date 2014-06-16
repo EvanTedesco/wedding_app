@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Admin options' do
   before do
+    DatabaseCleaner.clean
     @admin_user = create_admin
     @user = create_user
   end

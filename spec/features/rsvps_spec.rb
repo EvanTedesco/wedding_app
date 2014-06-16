@@ -96,8 +96,27 @@ feature 'Rsvp manager' do
     click_on 'submit'
 
     expect(Guest.all.length).to eq(0)
+  end
 
+  scenario 'Guests are not saved if user changes mind', js:true do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user.password
+    click_button 'Login'
+    click_on 'RSVP'
+    choose 'rsvp_attending_true'
+    select '3', from:'rsvp_number_of_guests'
+    page.select 'Steak', :from => 'rsvp_user_food_id'
+    fill_in 'guest_0_name', with: 'Guest1'
+    page.select 'Steak', :from => 'guest_0_food_id'
+    fill_in 'guest_1_name', with: 'Guest2'
+    page.select 'Steak', :from => 'guest_1_food_id'
+    fill_in 'guest_2_name', with: 'Guest3'
+    page.select 'Steak', :from => 'guest_1_food_id'
+    select '2', from:'rsvp_number_of_guests'
+    click_on 'submit'
 
+    expect(Guest.all.length).to eq(2)
   end
 
 end
