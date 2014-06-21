@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :admins
   resources :foods
+  resources :stories, only: :index
   get 'password_resets' => 'password_resets#new'
   put 'password_resets' => 'password_resets#update'
 
