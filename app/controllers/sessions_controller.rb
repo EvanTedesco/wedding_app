@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
+
     @user = User.new
+
   end
 
   def create
@@ -12,7 +14,7 @@ class SessionsController < ApplicationController
         session[:admin] = true
       end
       flash[:success] = "Welcome #{@user[:name]}"
-      redirect_to root_path
+      redirect_to "#{session[:return_path]}"
     else
       @user = User.new
       flash[:login_failure] = 'Incorrect Email or Password'

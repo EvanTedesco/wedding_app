@@ -39,6 +39,16 @@ scenario 'Admin users can see admin options on homepage and non admins cannot'do
    click_button 'Login'
    expect(page).to have_no_content 'Admin'
 end
+  scenario 'A user is redirected to target page after logging in' do
+    visit '/'
+    click_on 'Our Story'
+    expect(page).to have_content 'You must be logged in to see this page'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_user.password
+    click_button 'Login'
+    expect(page).to have_content 'Our Storybook'
+
+  end
 end
 
 

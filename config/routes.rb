@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :rsvps
   end
+  get '/rsvps/new' => 'rsvps#new', as: :new_rsvp
+
   resources :admins
   resources :foods
   resources :stories, only: :index

@@ -1,15 +1,15 @@
 <header>
   <%= link_to 'Home', root_path %>
-  <% if session[:user_id] == nil %>
-      <%= link_to 'Login', new_session_path %>
-  <% else %>
-      <%= link_to 'Logout', "/sessions/#{current_user.id}", method: :delete %>
-      <%= link_to 'RSVP', new_user_rsvp_path(current_user) %>
-      <%= link_to 'Our Story', stories_path %>
+  <%= link_to 'Our Story', stories_path %>
+  <%= link_to 'RSVP', new_rsvp_path %>
 
+  <% if session[:user_id] == nil %>
+    <%= link_to 'Login', new_session_path %>
+<% else %>
+    <%= link_to 'Logout', "/sessions/#{current_user.id}", method: :delete %>
   <% end %>
 
 </header>
 <% if session[:admin] == true %>
-    <%= render 'shared/admin_nav' %>
+  <%= render 'shared/admin_nav' %>
 <% end %>

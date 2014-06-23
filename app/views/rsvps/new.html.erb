@@ -7,7 +7,7 @@
       so that we can accommodate you. </p>
   </div>
 
-  <%= form_for [:user, @rsvp] do |f| %>
+  <%= form_for [current_user, @rsvp] do |f| %>
     <div id="attending">
       *Will you be attending?
     </div>

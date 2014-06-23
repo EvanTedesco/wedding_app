@@ -119,4 +119,15 @@ feature 'Rsvp manager' do
     expect(Guest.all.length).to eq(2)
   end
 
+  scenario 'User cannot rsvp unless logged in' do
+    visit '/'
+    click_on 'RSVP'
+    expect(page).to have_content 'You must be logged in to see this page'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user.password
+    click_button 'Login'
+    click_on 'RSVP'
+
+  end
+
 end

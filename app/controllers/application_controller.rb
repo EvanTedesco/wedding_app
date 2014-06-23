@@ -36,7 +36,11 @@ private
   end
 
   def confirm_logged_in
-    redirect_to '/' unless session[:user_id]
+    unless session[:user_id]
+      redirect_to '/sessions/new'
+      flash[:login_failure] = 'You must be logged in to see this page'
+      session[:return_path] = request.original_url
+    end
   end
 
   def confirm_new_rsvp
