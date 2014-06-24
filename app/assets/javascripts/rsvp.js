@@ -13,13 +13,13 @@ window.RSVPManager = {
 
 
       $('#new_rsvp').submit(function(){
-        $('input:hidden').val('');
+        $('.guest:hidden').find("input").val('');
       });
 
       guestNumberInput.change(function () {
         var inputNumber = $(this).val();
-        $(".guest-options").children().slice(0, inputNumber).show(guestTransition);
-        $(".guest-options").children().slice(inputNumber).hide(guestTransition);
+        $(".guest-options").find(".guest").slice(0, inputNumber).show(guestTransition);
+        $(".guest-options").find(".guest").slice(inputNumber).hide(guestTransition);
       });
 
       var acceptButtonWasClicked = function (event) {
