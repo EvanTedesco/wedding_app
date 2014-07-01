@@ -4,21 +4,78 @@ describe "Rsvp" do
   before do
     DatabaseCleaner.clean
   end
-  
+
   subject { Rsvp.new }
   it_behaves_like "ActiveModel"
+  context "validations" do
+    context "when user is not attending" do
+      let(:user) { create_user(max_guests: 3) }
+      let(:rsvp_attributes) { {user: user, attending: "false"} }
 
-  it "is invalid if number of guests passed in is greater than the user's max guests" do
-    user = create_user(max_guests: 2)
-    rsvp = Rsvp.new(user_id: user.id, number_of_guests: "3", attending: "true")
-    expect(rsvp).to have_at_least(1).errors_on(:number_of_guests)
+      it "doesn't validate number of guests" do
+        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: 4))
+        expect(rsvp).to be_valid
+      end
+
+      it "doesn't validate positive number of guests" do
+        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: -1))
+        expect(rsvp).to be_valid
+      end
+
+      it "doesn't validate nummericality of guests" do
+        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: "Blue"))
+        expect(rsvp).to be_valid
+      end
+
+    end
+
+    context "when user is attending" do
+      let(:user) { create_user(max_guests: 3) }
+      let(:rsvp_attributes) { {user: user, attending: "true"} }
+
+      it "should validate number of guests" do
+        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: 4))
+        expect(rsvp).to be_invalid
+      end
+
+      it "should validate number of guests" do
+        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: 3))
+        expect(rsvp).to be_valid
+      end
+
+      it "should validate positive number of guests" do
+        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: -1))
+        expect(rsvp).to be_invalid
+      end
+
+      it "should validate nummericality of guests" do
+        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: "Blue"))
+        expect(rsvp).to be_invalid
+      end
+    end
+
+    it "should not allow wierd string value for attending" do
+      user = create_user
+      rsvp = Rsvp.new(user: user, attending:"maybe")
+      expect(rsvp).to be_invalid
+    end
+
+    it "should not allow nil value for attending" do
+      user = create_user
+      rsvp = Rsvp.new(user: user, attending: nil)
+      expect(rsvp).to be_invalid
+    end
+
+    it "should validate true value for attending" do
+      user = create_user
+      rsvp = Rsvp.new(user: user, attending: "true", number_of_guests: 0)
+      expect(rsvp).to be_valid
+    end
+
+    it "should validate false value for attending" do
+      user = create_user
+      rsvp = Rsvp.new(user: user, attending: "false")
+      expect(rsvp).to be_valid
+    end
   end
-
-  it "doesn't validate number of guests if they are not attending" do
-    user = create_user(max_guests: 2)
-    rsvp = Rsvp.new(user_id: user.id, number_of_guests: 3, attending: "false")
-    expect(rsvp).to have(0).errors_on(:number_of_guests)
-  end
-
-
 end

@@ -7,18 +7,10 @@ class Rsvp
             numericality: {
               only_integer: true,
               greater_than_or_equal_to: 0,
-              less_than_or_equal_to: :guest_limit},
+              less_than_or_equal_to: :guest_limit,
+            message: "Please select a valid number of guests" },
             if: :attending?
-  validates :user, presence: true
-  validates :attending, inclusion: [true, false]
-
-  validate do
-    unless user.valid?
-      user.errors.each do |key, values|
-        errors[key] = values
-      end
-    end
-  end
+  validates :attending, inclusion: {in: [true, false], message: "You must accept or decline"}
 
 
   def persisted?
@@ -49,7 +41,7 @@ class Rsvp
   end
 
   def user
-    @user ||= User.find(@attributes[:user_id])
+    @attributes[:user] ||= User.find(@attributes[:user_id])
   end
 
   def guests
@@ -66,14 +58,20 @@ class Rsvp
     end
   end
 
-  def attending
-    @attributes[:attending] == "true"
+  def attending?
+    attending
   end
 
-  alias attending? attending
+  def attending
+    if @attributes[:attending] == "true"
+      true
+    elsif @attributes[:attending] == "false"
+      false
+    end
+  end
 
   def number_of_guests
-    @attributes[:number_of_guests].to_i
+    @attributes[:number_of_guests]
   end
 
   def guest_food_id

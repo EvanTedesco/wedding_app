@@ -1,9 +1,7 @@
 class RsvpsController < ApplicationController
 
-  before_action do
-    confirm_logged_in
+  before_action :confirm_logged_in
 
-  end
 
   def index
     @users = User.all
