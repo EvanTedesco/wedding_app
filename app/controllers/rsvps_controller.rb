@@ -21,7 +21,6 @@ class RsvpsController < ApplicationController
 
   def create
     @rsvp = Rsvp.new(secure_params.merge ({user_id: current_user.id, guests: params[:guest]}))
-
     if @rsvp.save_fields
       flash[:partial] = current_user.reload.attending ? 'dance' : 'cry'
       redirect_to root_path

@@ -56,7 +56,7 @@ describe "Rsvp" do
 
     it "should not allow wierd string value for attending" do
       user = create_user
-      rsvp = Rsvp.new(user: user, attending:"maybe")
+      rsvp = Rsvp.new(user: user, attending: "maybe")
       expect(rsvp).to be_invalid
     end
 
@@ -81,9 +81,9 @@ describe "Rsvp" do
 
   context "attending" do
     it "should return true when attending is true" do
-        user = create_user
-        rsvp = Rsvp.new(user: user, attending: "true")
-        expect(rsvp.attending).to be_true
+      user = create_user
+      rsvp = Rsvp.new(user: user, attending: "true")
+      expect(rsvp.attending).to be_true
     end
 
     it "should return false when attending is false" do
@@ -97,8 +97,5 @@ describe "Rsvp" do
       rsvp = Rsvp.new(user: user, attending: "maybe")
       expect(rsvp.attending).to be_nil
     end
-
-
   end
-
 end
