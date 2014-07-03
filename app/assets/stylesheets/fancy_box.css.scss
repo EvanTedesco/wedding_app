@@ -1,0 +1,18 @@
+.fancybox-bg {
+  display: none;
+}
+
+#fancybox-wrap {
+  #fancybox-close{
+    background: transparent image-url('fancybox.png') -42px 0px no-repeat;
+  }
+  #fancybox-left-ico{
+    width: 29px;
+    background-position: -41px -30px;
+  }
+  #fancybox-right-ico{
+    width: 29px;
+    background-position: -41px -60px;
+    right: 0px
+  }
+}
