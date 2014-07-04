@@ -23,5 +23,15 @@ meals.each do |meal|
   Food.create(meal)
 end
 
+photos = [
+  {user_id: 1, url: "http://31.media.tumblr.com/ba7758a52675589e05dc931572be9688/tumblr_n7ygur3NV91st5lhmo1_1280.jpg"},
+  {user_id: 1, url: "http://33.media.tumblr.com/db092b1795916eb81a0a87f6d5473d0e/tumblr_n7yidlujvS1st5lhmo1_1280.jpg"},
+  {user_id: 1, url: "http://31.media.tumblr.com/d851e225242e4d90baada35ba4d996f5/tumblr_n7yif13ZKl1st5lhmo1_1280.jpg"},
+  {user_id: 1, url: "http://38.media.tumblr.com/4e9d8c075b15f5922682bfaa13a8125c/tumblr_n7yhezarqF1st5lhmo1_1280.jpg"},
+]
+photos.each do |photo|
+  Photo.create!(photo)
+end
+
 
 

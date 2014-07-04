@@ -47,8 +47,16 @@ end
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     expect(page).to have_content 'Our Storybook'
+    click_on 'Logout'
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_user.password
+    click_button 'Login'
+    expect(page).to have_content "You don't love someone for their looks"
 
   end
+
+
 end
 
 

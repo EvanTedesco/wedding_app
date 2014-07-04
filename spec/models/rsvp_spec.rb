@@ -98,4 +98,6 @@ describe "Rsvp" do
       expect(rsvp.attending).to be_nil
     end
   end
+
+  context
 end

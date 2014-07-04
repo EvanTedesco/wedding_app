@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         session[:admin] = true
       end
       flash[:success] = "Welcome #{@user[:name]}"
-      redirect_to "#{session[:return_path]}"
+      redirect_to session[:return_path] || root_path
     else
       @user = User.new
       flash[:login_failure] = 'Incorrect Email or Password'
@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:admin] = nil
+    session[:return_path] = nil
     redirect_to root_path
   end
 
