@@ -13,7 +13,7 @@ def create_user(attributes= {})
   defaults = {
     email: 'bob@example.com',
     password: 'password',
-    name: 'Bob Smith',
+    name: 'Bob',
     max_guests: 1,
     admin: false,
   }

@@ -17,6 +17,7 @@ feature 'Admin options' do
   end
 
   scenario 'An admin can create users' do
+    number_of_users = User.all.length
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
@@ -27,6 +28,22 @@ feature 'Admin options' do
     fill_in 'user[max_guests]', with: 1
     click_on 'Create user'
     expect(page).to have_content 'new user has been sent an invitation'
+    expect(User.all.length).to eq(number_of_users + 1)
+
+  end
+
+  scenario 'An admin can delete users' do
+
+    number_of_users = User.all.length
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_user.password
+    click_button 'Login'
+    click_on 'Users'
+    within("//tr[@id=#{@user.name}]") do
+      click_on "Delete"
+    end
+    expect(User.all.length).to eq (number_of_users - 1)
 
   end
 

@@ -55,8 +55,6 @@ end
     expect(page).to have_content "You don't love someone for their looks"
 
   end
-
-
 end
 
 
