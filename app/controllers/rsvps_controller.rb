@@ -32,6 +32,11 @@ class RsvpsController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @guests = Guest.where(user_id: params[:id])
+  end
+
 
   def secure_params
     params.require(:rsvp).permit(:attending, :number_of_guests,

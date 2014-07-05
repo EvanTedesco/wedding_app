@@ -22,6 +22,7 @@ end
 
 def create_guest(attributes = {})
   defaults = {
+    food_id: 1,
     name: 'Guest name',
   }
   Guest.create!(defaults.merge(attributes))

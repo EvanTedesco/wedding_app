@@ -1,0 +1,31 @@
+<div class=".table-responsive">
+  <div class="table-container">
+    <div class="table-row">
+      <div class="col-md-12">
+        <h1 class="text-center">
+          <%= "Guests for #{@user.name}" %>
+        </h1>
+      </div>
+      <div id="no-more-tables">
+        <table class="col-md-12 table-bordered table-striped table-condensed cf">
+          <thead class="cf">
+          <tr>
+            <th>Name</th>
+            <th>Food Choice</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @guests.each do |guest| %>
+              <tr>
+                <td data-title="Name"><%= guest.name %></td>
+                <td data-title="Guest_food"><%= guest.food.name %></td>
+              </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -29,6 +29,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+
 private
   def confirm_admin
     redirect_to '/' unless session[:admin]
@@ -52,4 +54,6 @@ private
       render :new
     end
   end
+
+
 end

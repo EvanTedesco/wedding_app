@@ -116,6 +116,23 @@ feature 'Admin options' do
       click_on 'Delete'
       expect(page).to have_no_content 'Steak'
 
+    end
+
+  scenario 'Admin user can see the guest names and food choice for a user' do
+    food = create_food
+    user = create_user(email:'Bobby@example.com', attending:true, number_of_guests: 1, max_guests: 2)
+    guest = create_guest(user_id: user.id, food_id: food.id)
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_user.password
+    click_button 'Login'
+    click_on 'RSVPS'
+    click_on user.name
+    expect(page).to have_content user.name
+    expect(page).to have_content guest.name
+    expect(page).to have_content food.name
+
+
   end
 end
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :rsvps
   end
   get '/rsvps/new' => 'rsvps#new', as: :new_rsvp
+  get '/rsvps/:id' => 'rsvps#show', as: :rsvp
 
   resources :admins
   resources :foods

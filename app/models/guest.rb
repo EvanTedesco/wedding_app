@@ -1,6 +1,7 @@
 class Guest < ActiveRecord::Base
 
   belongs_to :user
-  has_one :food
+
+  belongs_to :food
   accepts_nested_attributes_for :food
 end
