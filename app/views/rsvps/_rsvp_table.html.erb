@@ -20,9 +20,9 @@
           <% @users.each do |user| %>
               <% if user.attending %>
                   <tr>
-                    <td data-title="Name"><%= link_to user.name, rsvp_path(user) %></td>
+                    <td data-title="Name"><%= user.name %></td>
                     <td data-title="Email"><%= user.email %></td>
-                    <td data-title="Number_of_guests"><%= user.number_of_guests %></td>
+                    <td data-title="Number_of_guests"><%=link_to user.number_of_guests, rsvp_path(user) %></td>
                   </tr>
               <% end %>
           <% end %>

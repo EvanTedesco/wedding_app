@@ -127,7 +127,7 @@ feature 'Admin options' do
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'RSVPS'
-    click_on user.name
+    click_on user.number_of_guests
     expect(page).to have_content user.name
     expect(page).to have_content guest.name
     expect(page).to have_content food.name
