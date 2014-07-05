@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   get '/rsvps/new' => 'rsvps#new', as: :new_rsvp
   get '/rsvps/:id' => 'rsvps#show', as: :rsvp
-
+  resources :comments, only: :index
   resources :foods
   resources :stories, only: :index
   resources :photos, only: :index
