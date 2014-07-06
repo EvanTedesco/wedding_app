@@ -13,7 +13,7 @@ feature 'Admin options' do
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'RSVPS'
-    expect(page).to have_content 'RSVP list'
+    expect(page).to have_content 'RSVP List'
   end
 
   scenario 'An admin can create users' do

@@ -3,35 +3,32 @@
     <div class="table-row">
       <div class="col-md-12">
         <h1 class="text-center">
-          RSVP list:
+          RSVP List:
         </h1>
       </div>
       <div id="no-more-tables">
         <table class="col-md-12 table-bordered table-striped table-condensed cf">
           <thead class="cf">
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th class="numeric"># of guests</th>
-            </tr>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th class="numeric"># of guests</th>
+          </tr>
           </thead>
 
           <tbody>
           <% @users.each do |user| %>
-              <% if user.attending %>
-                  <tr>
-                    <td class="col-md-4" data-title="Name"><%= user.name %></td>
-                    <td class="col-md-4" data-title="Email"><%= user.email %></td>
-                    <td class="col-md-2" data-title="Number_of_guests"><%=link_to user.number_of_guests, rsvp_path(user) %></td>
-                  </tr>
-              <% end %>
+            <% if user.attending %>
+              <tr>
+                <td class="col-md-4" data-title="Name"><%= user.name %></td>
+                <td class="col-md-4" data-title="Email"><%= user.email %></td>
+                <td class="col-md-2" data-title="Number_of_guests"><%= link_to user.number_of_guests, rsvp_path(user) %></td>
+              </tr>
+            <% end %>
           <% end %>
 
           </tbody>
         </table>
-        <div class="total-guests">
-          Total Guests: <%= total_guests %>
-        </div>
       </div>
     </div>
   </div>
