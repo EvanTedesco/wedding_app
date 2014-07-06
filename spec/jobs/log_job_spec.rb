@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LogJob do
+describe EmailJob do
   before do
     DatabaseCleaner.clean
   end
@@ -9,7 +9,7 @@ describe LogJob do
 
     it "delivers an email" do
       expect {
-        LogJob.new.perform(user)
+        EmailJob.new.perform(user)
       }.to change{ ActionMailer::Base.deliveries.size }.by(1)
     end
   end
