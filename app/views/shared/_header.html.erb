@@ -3,6 +3,7 @@
   <%= link_to 'Our Story', stories_path %>
   <%= link_to 'RSVP', new_rsvp_path %>
   <%= link_to 'Photos', photos_path %>
+  <%= link_to 'Wedding Party', wedding_parties_path %>
 
   <% if session[:user_id] == nil %>
     <%= link_to 'Login', new_session_path %>

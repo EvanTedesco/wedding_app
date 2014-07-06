@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :stories, only: :index
   resources :photos, only: :index
+  resources :wedding_parties, only: :index
   get 'password_resets' => 'password_resets#new'
   put 'password_resets' => 'password_resets#update'
 
