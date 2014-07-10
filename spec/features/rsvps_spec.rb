@@ -34,7 +34,7 @@ feature 'Rsvp manager' do
     page.select 'Steak', :from => 'rsvp_user_food_id'
     select '1', from:'rsvp_number_of_guests'
     click_button 'submit'
-    expect(page).to have_content "Let's Party Down!"
+    expect(page).to have_content 'Let\'s Party Down!'
   end
 
   scenario 'A gif is displayed when user is not attending' do
@@ -45,7 +45,7 @@ feature 'Rsvp manager' do
     click_on 'RSVP'
     choose 'rsvp_attending_false'
     click_button 'submit'
-    expect(page).to have_content "Whack Attack!"
+    expect(page).to have_content 'Whack Attack!'
   end
 
   scenario 'A user can make a meal choice' do
@@ -57,8 +57,8 @@ feature 'Rsvp manager' do
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
     click_button 'submit'
-    expect(page).to have_no_content "You're invited to come celebrate with us! "
-    expect(page).to have_content "Let's Party Down!"
+    expect(page).to have_no_content 'You\'re invited to come celebrate with us!'
+    expect(page).to have_content 'Let\'s Party Down!'
   end
 
   scenario 'A user can create a guest with a meal choice' do
@@ -127,7 +127,5 @@ feature 'Rsvp manager' do
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
     click_on 'RSVP'
-
   end
-
 end
