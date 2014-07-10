@@ -14,6 +14,5 @@ feature 'user visit the wedding party index ' do
     click_on 'Wedding Party'
     expect(page).to have_content 'Groomsmen'
     expect(page).to have_content 'Bridesmaids'
-
   end
-  end
+end
