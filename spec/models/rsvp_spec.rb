@@ -55,7 +55,7 @@ describe 'Rsvp' do
       end
 
       it 'should validate nummericality of guests' do
-        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: "Blue"))
+        rsvp = Rsvp.new(rsvp_attributes.merge(number_of_guests: 'Blue'))
 
         expect(rsvp).to be_invalid
       end

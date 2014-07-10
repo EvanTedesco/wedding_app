@@ -21,7 +21,7 @@ describe UserMailer do
     end
 
     it 'has the proper subject' do
-      
+
       expect(message.subject).to eq 'Let\'s party!'
     end
   end
