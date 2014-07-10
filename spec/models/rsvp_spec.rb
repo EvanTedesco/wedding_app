@@ -80,20 +80,18 @@ describe "Rsvp" do
   end
 
   context "attending" do
+    let(:user) {create_user}
     it "should return true when attending is true" do
-      user = create_user
       rsvp = Rsvp.new(user: user, attending: "true")
       expect(rsvp.attending).to be_true
     end
 
     it "should return false when attending is false" do
-      user = create_user
       rsvp = Rsvp.new(user: user, attending: "false")
       expect(rsvp.attending).to be_false
     end
 
     it "should return nil when attending is maybe" do
-      user = create_user
       rsvp = Rsvp.new(user: user, attending: "maybe")
       expect(rsvp.attending).to be_nil
     end
