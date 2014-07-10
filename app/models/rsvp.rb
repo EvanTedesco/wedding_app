@@ -93,6 +93,4 @@ class Rsvp
   def guest_limit
     user.max_guests
   end
-
-
 end
