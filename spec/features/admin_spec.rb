@@ -41,7 +41,7 @@ feature 'Admin options' do
     click_button 'Login'
     click_on 'Users'
     within("//tr[@id=#{@user.name}]") do
-      click_on "Delete"
+      click_on 'Delete'
     end
     expect(User.all.length).to eq (number_of_users - 1)
 
