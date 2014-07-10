@@ -8,9 +8,6 @@ class User < ActiveRecord::Base
   has_many :guests
   has_one :food
 
-  def admin?
-    admin
-  end
 end
 
 
