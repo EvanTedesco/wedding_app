@@ -21,7 +21,7 @@ describe 'message when user is created' do
    end
 
    it 'has the proper subject' do
-     expect(message.subject).to eq "Let's party!"
+     expect(message.subject).to eq 'Let\'s party!'
    end
 end
 end
