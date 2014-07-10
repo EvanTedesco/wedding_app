@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def create
-
     @user = User.new(secure_params.merge(user_defaults))
     if @user.save
       EmailJob.new.async.perform(@user)
