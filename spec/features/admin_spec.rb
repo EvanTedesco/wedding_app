@@ -12,7 +12,7 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'RSVPS'
+    click_link 'RSVPS'
     expect(page).to have_content 'RSVP List'
   end
 
@@ -22,11 +22,11 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'Users'
+    click_link 'Users'
     fill_in 'user[name]', with: 'new user'
     fill_in 'user[email]', with: 'jeff@example.com'
     fill_in 'user[max_guests]', with: 1
-    click_on 'Create user'
+    click_button 'Create user'
     expect(page).to have_content 'new user has been sent an invitation'
     expect(User.all.length).to eq(number_of_users + 1)
 
@@ -39,9 +39,9 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'Users'
+    click_link 'Users'
     within("//tr[@id=#{@user.name}]") do
-      click_on 'Delete'
+      click_link 'Delete'
     end
     expect(User.all.length).to eq (number_of_users - 1)
 
@@ -52,15 +52,15 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'Menu'
-    click_on 'Add food item'
+    click_link 'Menu'
+    click_link 'Add food item'
     fill_in 'food_name', with: 'Steak'
     fill_in 'food_description', with: 'Savory steak is savory'
-    click_on 'Add food'
+    click_button 'Add food'
     expect(page).to have_content 'Steak'
     expect(page).to have_content 'Menu Items:'
-    click_on 'Logout'
-    click_on 'Login'
+    click_link 'Logout'
+    click_link 'Login'
     fill_in 'user[email]', with: @user.email
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
@@ -76,9 +76,9 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'Menu'
+    click_link 'Menu'
     expect(page).to have_content 'Menu Items:'
-    click_on 'Delete'
+    click_link 'Delete'
     expect(page).to have_no_content food.name
   end
 
@@ -88,11 +88,11 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'Menu'
-    click_on food.name
+    click_link 'Menu'
+    click_link food.name
     fill_in 'food_name', with: 'Skirt steak'
     fill_in 'food_description', with: 'Savory skirt steak is savory'
-    click_on 'Edit'
+    click_button 'Edit'
     expect(page).to have_content 'Savory skirt steak is savory'
     expect(page).to have_no_content food.name
 
@@ -106,8 +106,8 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'RSVPS'
-    click_on user.number_of_guests
+    click_link 'RSVPS'
+    click_link user.number_of_guests
     expect(page).to have_content user.name
     expect(page).to have_content guest.name
     expect(page).to have_content food.name
@@ -119,7 +119,7 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'Comments'
+    click_link 'Comments'
     expect(page).to have_content user.name
     expect(page).to have_content('I cant wait to party down!')
   end
@@ -130,7 +130,7 @@ feature 'Admin options' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'Comments'
+    click_link 'Comments'
     expect(page).to have_no_content user.name
   end
 end
