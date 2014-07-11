@@ -71,7 +71,7 @@ feature 'Admin options' do
   end
 
   scenario 'Admin can delete menu item' do
-    create_food
+    food = create_food
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
@@ -79,7 +79,7 @@ feature 'Admin options' do
     click_on 'Menu'
     expect(page).to have_content 'Menu Items:'
     click_on 'Delete'
-    expect(page).to have_no_content 'Edit: Steak'
+    expect(page).to have_no_content food.name
   end
 
   scenario 'Admin can update menu items' do
@@ -97,21 +97,6 @@ feature 'Admin options' do
     expect(page).to have_no_content food.name
 
   end
-
-    scenario 'Admin can delete menu items' do
-      visit '/sessions/new'
-      fill_in 'user[email]', with: @admin_user.email
-      fill_in 'user[password]', with: @admin_user.password
-      click_button 'Login'
-      click_on 'Menu'
-      click_on 'Add food item'
-      fill_in 'food_name', with: 'Steak'
-      fill_in 'food_description', with: 'Savory steak is savory'
-      click_on 'Add food'
-      click_on 'Delete'
-      expect(page).to have_no_content 'Steak'
-
-    end
 
   scenario 'Admin user can see the guest names and food choice for a user' do
     food = create_food
