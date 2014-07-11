@@ -7,19 +7,18 @@ feature 'password select' do
   end
 
   scenario 'It sends user an email to set their password' do
-
     emails_sent = ActionMailer::Base.deliveries.length
 
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'Users'
+    click_link 'Users'
     fill_in 'user[name]', with: 'new user'
     fill_in 'user[email]', with: 'jeff@example.com'
     fill_in 'user[max_guests]', with: 1
-    click_on 'Create user'
-    click_on 'Logout'
+    click_button 'Create user'
+    click_link 'Logout'
 
     expect(ActionMailer::Base.deliveries.length).to eq (emails_sent + 1)
 
@@ -29,12 +28,12 @@ feature 'password select' do
 
     visit result
 
-    click_on 'Submit'
+    click_button 'Submit'
     expect(page).to have_content 'Password can\'t be blank'
 
     fill_in 'user[password]', with: 'newpassword'
     fill_in 'user[password_confirmation]', with: 'newpassword'
-    click_on 'Submit'
+    click_button 'Submit'
     expect(page).to have_content 'You\'re invited'
   end
 end
