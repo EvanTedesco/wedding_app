@@ -14,11 +14,11 @@ feature 'Rsvp manager' do
     fill_in 'user[email]', with: @user.email
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
-    click_on 'RSVP'
+    click_link 'RSVP'
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
     click_button 'submit'
-    click_on 'RSVP'
+    click_link 'RSVP'
     expect(page).to have_content 'A RSVP already exists for you'
   end
 
@@ -29,7 +29,7 @@ feature 'Rsvp manager' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'RSVP'
+    click_link 'RSVP'
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
     select '1', from:'rsvp_number_of_guests'
@@ -42,7 +42,7 @@ feature 'Rsvp manager' do
     fill_in 'user[email]', with: @user.email
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
-    click_on 'RSVP'
+    click_link 'RSVP'
     choose 'rsvp_attending_false'
     click_button 'submit'
     expect(page).to have_content 'Whack Attack!'
@@ -53,7 +53,7 @@ feature 'Rsvp manager' do
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
-    click_on 'RSVP'
+    click_link 'RSVP'
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
     click_button 'submit'
@@ -67,7 +67,7 @@ feature 'Rsvp manager' do
     fill_in 'user[email]', with: @user.email
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
-    click_on 'RSVP'
+    click_link 'RSVP'
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
     fill_in 'guest_0_name', with: 'Guest1'
@@ -75,7 +75,7 @@ feature 'Rsvp manager' do
     fill_in 'guest_1_name', with: 'Guest2'
     page.select 'Steak', :from => 'guest_1_food_id'
 
-    click_on 'submit'
+    click_button 'submit'
     expect(Guest.all.length).to eq(2)
   end
 
@@ -85,7 +85,7 @@ feature 'Rsvp manager' do
     fill_in 'user[email]', with: @user.email
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
-    click_on 'RSVP'
+    click_link 'RSVP'
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
     fill_in 'guest_0_name', with: 'Guest1'
@@ -93,7 +93,7 @@ feature 'Rsvp manager' do
     fill_in 'guest_1_name', with: 'Guest2'
     page.select 'Steak', :from => 'guest_1_food_id'
     choose 'rsvp_attending_false'
-    click_on 'submit'
+    click_button 'submit'
 
     expect(Guest.all.length).to eq(0)
   end
@@ -103,7 +103,7 @@ feature 'Rsvp manager' do
     fill_in 'user[email]', with: @user.email
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
-    click_on 'RSVP'
+    click_link 'RSVP'
     choose 'rsvp_attending_true'
     select '3', from:'rsvp_number_of_guests'
     page.select 'Steak', :from => 'rsvp_user_food_id'
@@ -114,18 +114,18 @@ feature 'Rsvp manager' do
     fill_in 'guest_2_name', with: 'Guest3'
     page.select 'Steak', :from => 'guest_1_food_id'
     select '2', from:'rsvp_number_of_guests'
-    click_on 'submit'
+    click_button 'submit'
 
     expect(Guest.all.length).to eq(2)
   end
 
   scenario 'User cannot rsvp unless logged in' do
     visit '/'
-    click_on 'RSVP'
+    click_link 'RSVP'
     expect(page).to have_content 'You must be logged in to see this page'
     fill_in 'user[email]', with: @user.email
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
-    click_on 'RSVP'
+    click_link 'RSVP'
   end
 end
