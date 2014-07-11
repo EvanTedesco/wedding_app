@@ -1,3 +1,7 @@
-def create_food
-Food.create!(name: 'Steak', description: 'Savory')
+def create_food(attributes ={})
+  defaults = {
+    name: 'Steak',
+    description: 'Savory'
+  }
+Food.create!(defaults.merge!(attributes))
 end
