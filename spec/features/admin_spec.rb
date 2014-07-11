@@ -114,14 +114,13 @@ feature 'Admin options' do
   end
 
   scenario 'Admin can see a list of all comments and their associated users' do
-    create_user(email:'Bobby@example.com', attending:true, number_of_guests: 1,
-                       max_guests: 2, comments: 'I cant wait to party down!')
+    user = create_user(email:'Bobby@example.com',comments: 'I cant wait to party down!')
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'Comments'
-    expect(page).to have_content('Bob')
+    expect(page).to have_content user.name 
     expect(page).to have_content('I cant wait to party down!')
   end
 
