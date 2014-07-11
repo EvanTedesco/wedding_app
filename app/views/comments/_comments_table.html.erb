@@ -16,12 +16,12 @@
           </thead>
           <tbody>
           <% @users.each do |user| %>
-          <% if user.comments %>
-            <tr>
-              <td class="col-md-3" data-title="Name"><%= user.name %></td>
-              <td class="col-md-9" data-title="Email"><%= user.comments %></td>
-            </tr>
-          <% end %>
+            <% if user.comments && user.comments != '' %>
+              <tr>
+                <td class="col-md-3" data-title="Name"><%= user.name %></td>
+                <td class="col-md-9" data-title="Email"><%= user.comments  %></td>
+              </tr>
+            <% end %>
           <% end %>
           </tbody>
         </table>

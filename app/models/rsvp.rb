@@ -10,7 +10,10 @@ class Rsvp
               less_than_or_equal_to: :guest_limit,
             message: "Please select a valid number of guests" },
             if: :attending?
+
   validates :attending, inclusion: {in: [true, false], message: "You must accept or decline"}
+
+
 
 
   def persisted?

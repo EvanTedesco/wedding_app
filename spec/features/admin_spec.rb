@@ -120,13 +120,12 @@ feature 'Admin options' do
     fill_in 'user[password]', with: @admin_user.password
     click_button 'Login'
     click_on 'Comments'
-    expect(page).to have_content user.name 
+    expect(page).to have_content user.name
     expect(page).to have_content('I cant wait to party down!')
   end
 
   scenario 'Comments are not dispalyed if they are empty' do
-    user = create_user(email:'Bobby@example.com', attending:true, number_of_guests: 1,
-                max_guests: 2)
+    user = create_user(email:'Bobby@example.com', comments: "")
     visit '/sessions/new'
     fill_in 'user[email]', with: @admin_user.email
     fill_in 'user[password]', with: @admin_user.password
