@@ -19,7 +19,6 @@ class UsersController < ApplicationController
   end
 
 
-
 def destroy
   @user = User.destroy(params[:id])
   redirect_to new_user_path
@@ -32,8 +31,8 @@ end
 
   def user_defaults
     {
-      password: 'password',
-      password_confirmation: 'password',
+      password: ENV['PASSWORD'],
+      password_confirmation: ENV['PASSWORD'],
       auth_token: SecureRandom.urlsafe_base64
     }
   end
