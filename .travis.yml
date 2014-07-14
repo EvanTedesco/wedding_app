@@ -10,4 +10,6 @@
   - bundle exec rake db:migrate
   script:
   - bundle exec rake spec
-  bundler_args: --retry 3
+  bundler_args:
+  --retry 3
+  --without development debug
