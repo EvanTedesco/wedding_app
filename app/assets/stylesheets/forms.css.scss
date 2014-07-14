@@ -1,0 +1,244 @@
+//user creation
+
+label {
+  font-weight: 400;
+}
+.users-container {
+  display: inline-flex;
+  margin-left: 25% ;
+}
+.users-fullscreen-bg {
+  padding-top: 130px;
+  padding-bottom: 10%;
+  background-size: cover;
+  background-image: image-url('Background.jpg');
+  background-repeat:repeat;
+  display:block;
+  overflow:auto;
+  .col-md-12 {
+    margin-right: 25%;
+    float: right;
+    background: white;
+    min-height: 0px ;
+    height:100%;
+  }
+  #no-more-tables table {
+    width:25% ;
+    min-width:300px;
+  }
+}
+
+
+//RSVP Form
+
+.guest-options{
+  margin:auto;
+  text-align: center;
+  paddint-top: 15px;
+}
+
+.page-title {
+  margin: auto;
+  font-size: 32pt;
+  text-align: center;
+  padding-top: 30px;
+  color: #999999;
+  opacity: 100%;
+}
+
+.date {
+  margin: auto;
+  font-size: 20pt;
+  text-align: center;
+  opacity: 70%;
+  color: #cccccc;
+  font-style: italic;
+}
+
+.location {
+  margin: auto;
+  font-size: 16pt;
+  text-align: center;
+  color: #cccccc;
+  opacity: 100%;
+  font-style: light;
+  margin-bottom: 20px;
+
+
+}
+
+#rsvp-container {
+  width: 50%;
+  height: 100%;
+  border: 2px solid;
+  border-radius: 4%;
+  box-shadow: 5px 5px 2.5px #888888;
+  display: block;
+  position: relative;
+  margin: 30px auto;
+  padding: 30px
+}
+
+
+#rsvp-container .header p{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.rsvp-form {
+  border-top: 1px dashed black ;
+
+  form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+}
+
+.radio {
+  padding-left: 40% !important;
+}
+
+.date#rsvp {
+  padding-bottom: 50px;
+  padding-top: 35px;
+}
+
+.form {
+  padding: 100px;
+  display: inline-block;
+  text-align: left;
+  margin: auto;
+}
+
+p {
+  font-size: 30pt;
+}
+
+#attending, .number-of-guests, .user-meal-choice {
+  margin: auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+input[type="radio"] {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  -ms-appearance: checkbox;
+  -o-appearance: checkbox;
+  text-align: center;
+
+}
+
+input[type="text"], input[type="email"] {
+  margin-top: 25px;
+  border-radius: 4px;
+}
+
+input[type='submit'] {
+  padding: 5px 15px;
+  background: #4BACC6;
+  border: 0 none;
+  color: white;
+  float: right;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.rsvp-submit {
+  height: 30px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.comments {
+  margin-top: 30px;
+}
+
+.error {
+  margin: 10px auto;
+  color: #4BACC6;
+  text-align: center;
+  max-width: 229px;
+}
+
+#table-wrapper {
+  width: 960px;
+  margin:auto;
+}
+
+.gif {
+  margin: auto;
+  width: 960px;
+  text-align: center;
+}
+
+#message {
+  text-align:center;
+  font-size: 30px;
+}
+
+@media (max-width: 780px) {
+
+  #rsvp-container {
+    width: 100%;
+  }
+
+  .rsvp-form form {
+    width: 90%;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin-bottom: 100px;
+
+}
+
+//Menu
+.edit-food-container {
+  max-width: 960px;
+  min-height: 195px;
+  margin: auto;
+  padding-bottom: 20px;
+
+  label {
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+  .btn-mini {
+    color:white;
+  }
+}
+
+//general background for admin pages
+
+.fullscreen-bg {
+  min-height: 100%;
+  padding-top: 5%;
+  padding-bottom: 20%;
+  background-size: cover;
+  background-image: image-url('Background.jpg');
+  background-repeat:repeat;
+  display:block;
+  overflow:auto;
+  table {
+    background: white;
+    min-height: 0px ;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+header {
+  position: relative;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+  height: 90px;
+  background-color: #f2f2f2;
+  opacity: 50%;
+  font-size: 13pt;
+  clear: both;
+  a {
+    color: #4BACC6 ;
+    padding: 30px;
+    height: 100%;
+    display: inline-block;
+    font-family: 'Open Sans';
+  }
+  a:hover{
+    background-color: #f2f2f5;
+    text-decoration: none;
+    color: #4BACC6;
+    opacity: 100%;
+  }
+
+}
