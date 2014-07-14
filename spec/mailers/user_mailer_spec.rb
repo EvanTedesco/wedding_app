@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe UserMailer do
   before do
-    DatabaseCleaner.clean
     @user = create_user
   end
 
@@ -17,7 +16,7 @@ describe UserMailer do
 
     it 'goes to the proper user' do
 
-      expect(message.to).to eq ['bob@example.com']
+      expect(message.to).to eq [@user.email]
     end
 
     it 'has the proper subject' do

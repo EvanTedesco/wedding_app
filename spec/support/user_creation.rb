@@ -11,7 +11,7 @@ end
 
 def create_user(attributes= {})
   defaults = {
-    email: 'bob@example.com',
+    email: "bob#{rand(10000)}@example.com",
     password: 'password',
     name: 'Bob',
     max_guests: 1,

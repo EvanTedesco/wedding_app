@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  before do
-    DatabaseCleaner.clean
-  end
+
 
   context 'validations' do
 
