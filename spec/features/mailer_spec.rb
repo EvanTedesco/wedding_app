@@ -2,7 +2,6 @@ require 'spec_helper'
 
 feature 'password select' do
   before do
-    DatabaseCleaner.clean
     @admin_user = create_admin
   end
 

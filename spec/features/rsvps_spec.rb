@@ -3,7 +3,6 @@ require 'spec_helper'
 feature 'Rsvp manager' do
 
   before do
-    DatabaseCleaner.clean
     @admin_user = create_admin
     @user = create_user(max_guests:3)
     create_food

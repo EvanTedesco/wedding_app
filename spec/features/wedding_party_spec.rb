@@ -1,7 +1,6 @@
 require 'spec_helper'
 feature 'user visit the wedding party index ' do
   before do
-    DatabaseCleaner.clean
     @user = create_user
   end
 
