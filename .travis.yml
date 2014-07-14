@@ -1,13 +1,16 @@
-  language: ruby
-  rvm:
-  - 2.1.1
-  before_install:
-    - "export DISPLAY=:99.0"
-    - "sh -e /etc/init.d/xvfb start"
-  before_script:
-  - psql -c 'create database wedding_app_test;' -U postgres
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-  script:
-  - bundle exec rake spec
-  bundler_args: --retry 3
+language: ruby
+rvm:
+- 2.1.1
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+before_script:
+- psql -c 'create database wedding_app_test;' -U postgres
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+script:
+- bundle exec rake spec
+bundler_args: "--retry 3"
+env:
+  matrix:
+  - secure: PUdNt0u4U0R5e8Qgc1+LcpZNgC15WypVpFo6R19lnLCl2P7TbPPJM0TgNdAM0mEZT1r1Kp80tvJ1D+A008o6+WeVXIlgKvhLPbVjrS3LpmscYs/jk9211C0tBoX6w6sDrtjOWgKIrkM503gM8+UsrX2vaQaHSXca6sAdjttzzDc=
