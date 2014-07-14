@@ -27,12 +27,10 @@
               <div class="form-group">
                 <%= f.number_field :max_guests, placeholder: 'Guests', class: "form-control" %>
               </div>
-              <div class="checkbox">
                 <label>
                   <%= f.label :admin %>
                   <%= f.check_box :admin %>
                 </label>
-              </div>
               <%= f.submit 'Create user', class: "btn btn-lg btn-success btn-block" %>
             </fieldset>
             </form>
