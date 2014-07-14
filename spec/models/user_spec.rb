@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
-
   context 'validations' do
 
     it 'Prevents duplicate emails from being created' do

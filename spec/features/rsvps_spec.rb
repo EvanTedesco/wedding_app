@@ -114,6 +114,7 @@ feature 'Rsvp manager' do
     page.select 'Steak', :from => 'guest_1_food_id'
     select '2', from:'rsvp_number_of_guests'
     click_button 'submit'
+    sleep(5)
 
     expect(Guest.all.length).to eq(2)
   end
