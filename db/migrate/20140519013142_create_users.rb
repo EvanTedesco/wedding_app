@@ -11,7 +11,6 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :food_id
       t.string :comments
       t.string :auth_token
-
     end
   end
 end

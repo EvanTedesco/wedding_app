@@ -3,7 +3,6 @@ class CreateWeddingParty < ActiveRecord::Migration
     create_table :wedding_parties do |t|
       t.string :groomsmen
       t.string :bridesmaids
-
     end
   end
 end

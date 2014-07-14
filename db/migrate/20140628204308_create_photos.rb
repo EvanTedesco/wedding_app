@@ -4,7 +4,6 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :url
       t.index :user_id
       t.integer :user_id
-
     end
   end
 end
