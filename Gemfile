@@ -25,5 +25,6 @@ group :test, :development do
   gem 'launchy'
   gem 'selenium-webdriver', '~> 2.42.0'
   gem 'database_cleaner', '~> 1.3.0'
+  gem 'codeclimate-test-reporter', require: nil
 end
 
