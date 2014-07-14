@@ -12,8 +12,8 @@ gem 'sucker_punch', '~> 1.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'spring', group: :development
+gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'spring',        group: :development
 gem 'rails_12factor', '~> 0.0.2', group: :production
 
 
@@ -21,12 +21,9 @@ group :test, :development do
   gem 'dotenv-rails', '~> 0.11.1'
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.2.1'
-  gem 'selenium-webdriver', '~> 2.42.0'
-  gem 'database_cleaner', '~> 1.3.0'
-end
-
-group :debug do
   gem 'pry'
   gem 'launchy'
+  gem 'selenium-webdriver', '~> 2.42.0'
+  gem 'database_cleaner', '~> 1.3.0'
 end
 
