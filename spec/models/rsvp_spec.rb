@@ -125,20 +125,18 @@ describe 'Rsvp' do
     context 'when user is attending' do
       let!(:user) { create_user(max_guests: 3) }
       let(:rsvp_attributes) { {user: user, attending: "true", number_of_guests: 2} }
+      let(:guest_attributes) {{"0" => {"name" => "1", "food_id" => "1"},
+                               "1" => {"name" => "2", "food_id" => "2"}}}
+      let(:rsvp) {Rsvp.new(rsvp_attributes.merge(guests: guest_attributes))}
+
       it 'does not update attributes for user with invalid guest' do
         Guest.any_instance.stub(:valid?).and_return(false)
-        guest_attributes = {"0" => {"name" => "1", "food_id" => "1"},
-                            "1" => {"name" => "2", "food_id" => "2"}}
-        rsvp = Rsvp.new(rsvp_attributes.merge(guests: guest_attributes))
         rsvp.save_fields
 
         expect(user.reload.attending).to be_nil
       end
       it 'does not create guests for rsvps with invalid attributes' do
         User.any_instance.stub(:valid?).and_return(false)
-        guest_attributes = {"0" => {"name" => "1", "food_id" => "1"},
-                            "1" => {"name" => "2", "food_id" => "2"}}
-        rsvp = Rsvp.new(rsvp_attributes.merge(guests: guest_attributes))
         rsvp.save_fields
 
         expect(user.guests.count).to eq(0)
@@ -146,11 +144,7 @@ describe 'Rsvp' do
 
       it 'does create guests' do
         food = create_food
-        guest_attributes = {"0" => {"name" => "1", "food_id" => "#{food.id}"},
-                            "1" => {"name" => "2", "food_id" => "#{food.id}"}}
-        rsvp = Rsvp.new(rsvp_attributes.merge(guests: guest_attributes, user_food_id: food.id))
         rsvp.save_fields
-
 
         expect(rsvp).to be_valid
         expect(user.guests.count).to eq(2)
