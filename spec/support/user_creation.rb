@@ -15,6 +15,7 @@ def create_user(attributes= {})
     password: 'password',
     name: 'Bob',
     max_guests: 1,
+    food_id: 1,
     admin: false,
   }
   User.create!(defaults.merge(attributes))
