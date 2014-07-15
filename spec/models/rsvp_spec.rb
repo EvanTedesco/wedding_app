@@ -124,9 +124,9 @@ describe 'Rsvp' do
 
     context 'when user is attending' do
       let!(:user) { create_user(max_guests: 3) }
-      let(:rsvp_attributes) { {user: user, attending: "true", number_of_guests: 2} }
-      let(:guest_attributes) { {"0" => {"name" => "1", "food_id" => "1"},
-                                "1" => {"name" => "2", "food_id" => "2"}} }
+      let(:rsvp_attributes) { {user: user, attending: 'true', number_of_guests: 2} }
+      let(:guest_attributes) { {'0' => {'name' => '1', 'food_id' => '1'},
+                                '1' => {'name' => '2', 'food_id' => '2'}} }
       let(:rsvp) { Rsvp.new(rsvp_attributes.merge(guests: guest_attributes)) }
 
       it 'does not update attributes for user with invalid guest' do
@@ -153,9 +153,9 @@ describe 'Rsvp' do
 
     context 'when user is not attending' do
       let!(:user) { create_user(max_guests: 3) }
-      let(:rsvp_attributes) { {user: user, attending: "false"} }
-      let(:guest_attributes) { {"0" => {"name" => "1", "food_id" => "1"},
-                                "1" => {"name" => "2", "food_id" => "2"}} }
+      let(:rsvp_attributes) { {user: user, attending: 'false'} }
+      let(:guest_attributes) { {'0' => {'name' => '1', 'food_id' => '1'},
+                                '1' => {'name' => '2', 'food_id' => '2'}} }
       let(:rsvp) { Rsvp.new(rsvp_attributes.merge(guests: guest_attributes)) }
 
       it 'does not create guests' do
@@ -172,9 +172,9 @@ describe 'Rsvp' do
 
     context 'save_fields behaves as a predicate' do
       let!(:user) { create_user(max_guests: 3) }
-      let(:rsvp_attributes) { {user: user, attending: "true", number_of_guests: 2} }
-      let(:guest_attributes) { {"0" => {"name" => "1", "food_id" => "1"},
-                                "1" => {"name" => "2", "food_id" => "2"}} }
+      let(:rsvp_attributes) { {user: user, attending: 'true', number_of_guests: 2} }
+      let(:guest_attributes) { {'0' => {'name' => '1', 'food_id' => '1'},
+                                '1' => {'name' => '2', 'food_id' => '2'}} }
       let(:rsvp) { Rsvp.new(rsvp_attributes.merge(guests: guest_attributes)) }
 
       it 'returns true when transaction occurs' do
