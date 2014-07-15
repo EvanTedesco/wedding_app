@@ -46,10 +46,10 @@ class Rsvp
   end
 
   def attending
-    if @attributes[:attending] == "true"
-      true
-    elsif @attributes[:attending] == "false"
-      false
+    if @attributes[:attending].nil?
+      nil
+    else
+      @attributes[:attending] == "true"
     end
   end
 
@@ -63,7 +63,7 @@ class Rsvp
     guests = @attributes[:guests].to_a
     guests.reject { |guest| guest[1]['name'].empty? }.map do |guest|
       # guest => ["0", {"name"=>"Bob", "food_id"=>"1"}]
-      [guest[1]['name'],guest[1]['food_id']]
+      [guest[1]['name'], guest[1]['food_id']]
     end
     # [[guest_name, guest_food_id], ...]
   end

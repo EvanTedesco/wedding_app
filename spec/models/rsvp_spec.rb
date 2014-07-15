@@ -61,12 +61,6 @@ describe 'Rsvp' do
     context 'Attending formatting' do
       let(:user) { create_user }
 
-      it 'should not allow wierd string value for attending' do
-        rsvp = Rsvp.new(user: user, attending: 'maybe')
-
-        expect(rsvp).to be_invalid
-      end
-
       it 'should not allow nil value for attending' do
         rsvp = Rsvp.new(user: user, attending: nil)
 
@@ -105,7 +99,13 @@ describe 'Rsvp' do
     it 'should return nil when attending is maybe' do
       rsvp = Rsvp.new(user: user, attending: 'maybe')
 
-      expect(rsvp.attending).to be_nil
+      expect(rsvp.attending).to eq false
+    end
+
+    it 'should return nil when attending is nil' do
+      rsvp = Rsvp.new(user: user, attending: nil)
+
+      expect(rsvp.attending).to eq nil
     end
   end
 
