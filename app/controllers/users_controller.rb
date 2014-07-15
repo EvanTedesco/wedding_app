@@ -13,7 +13,6 @@ class UsersController < ApplicationController
       flash[:created] = "#{@user.name} has been sent an invitation"
       redirect_to new_user_path
     else
-      @users = User.all
       render :new
     end
   end
