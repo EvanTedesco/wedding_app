@@ -10,15 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def total_guests
-    @users = User.all
-    guest_count = 0
-    @users.each do |user|
-      if user.attending
-        guest_count += 1
-        guest_count += user.number_of_guests
-      end
-    end
-    guest_count
+    @attending_users = User.where(attending: true)
+    @attending_users.size + @attending_users.inject(0) {|acc, user| acc + user.number_of_guests}
   end
 
   def build_guest_fields
