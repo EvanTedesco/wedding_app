@@ -127,4 +127,14 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_link 'RSVP'
   end
+
+  scenario 'Guest is prompted with error if attending is not chosen' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user.password
+    click_button 'Login'
+    click_link 'RSVP'
+    click_button 'submit'
+    expect(page).to have_content'Attending You must accept or decline'
+  end
 end
