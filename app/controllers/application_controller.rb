@@ -22,10 +22,8 @@ class ApplicationController < ActionController::Base
   end
 
   def build_guest_fields
-    counter = 0
-    until counter == current_user.max_guests do
+    current_user.max_guests.times do
       @user.guests.build
-      counter += 1
     end
   end
 
