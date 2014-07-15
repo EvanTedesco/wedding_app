@@ -12,6 +12,6 @@
   <% end %>
 
 </header>
-<% if session[:admin] == true %>
+<% if current_user && current_user.admin? %>
   <%= render 'shared/admin_nav' %>
 <% end %>

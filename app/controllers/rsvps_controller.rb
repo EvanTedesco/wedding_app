@@ -14,7 +14,7 @@ class RsvpsController < ApplicationController
 
     build_guest_fields
 
-    unless session[:admin]
+    if !current_user.admin?
       confirm_new_rsvp
     end
   end

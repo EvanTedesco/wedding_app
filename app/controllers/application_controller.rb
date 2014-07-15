@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
 private
   def confirm_admin
-    redirect_to '/' unless session[:admin]
+    redirect_to '/' unless current_user.admin?
 
   end
 

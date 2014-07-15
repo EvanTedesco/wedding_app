@@ -8,9 +8,6 @@ class SessionsController < ApplicationController
     @user = User.find_by email: params[:user][:email]
     if @user.present? && @user.authenticate(params[:user][:password])
       session[:user_id] = @user[:id]
-      if @user.admin? == true
-        session[:admin] = true
-      end
       flash[:success] = "Welcome #{@user[:name]}"
       redirect_to session[:return_path] || root_path
     else
