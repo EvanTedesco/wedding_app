@@ -125,9 +125,9 @@ describe 'Rsvp' do
     context 'when user is attending' do
       let!(:user) { create_user(max_guests: 3) }
       let(:rsvp_attributes) { {user: user, attending: "true", number_of_guests: 2} }
-      let(:guest_attributes) {{"0" => {"name" => "1", "food_id" => "1"},
-                               "1" => {"name" => "2", "food_id" => "2"}}}
-      let(:rsvp) {Rsvp.new(rsvp_attributes.merge(guests: guest_attributes))}
+      let(:guest_attributes) { {"0" => {"name" => "1", "food_id" => "1"},
+                                "1" => {"name" => "2", "food_id" => "2"}} }
+      let(:rsvp) { Rsvp.new(rsvp_attributes.merge(guests: guest_attributes)) }
 
       it 'does not update attributes for user with invalid guest' do
         Guest.any_instance.stub(:valid?).and_return(false)
@@ -153,24 +153,34 @@ describe 'Rsvp' do
 
     context 'when user is not attending' do
       let!(:user) { create_user(max_guests: 3) }
-      let(:rsvp_attributes) { {user: user, attending: "false", number_of_guests: 2} }
-      let(:guest_attributes) {{"0" => {"name" => "1", "food_id" => "1"},
-                               "1" => {"name" => "2", "food_id" => "2"}}}
-      let(:rsvp) {Rsvp.new(rsvp_attributes.merge(guests: guest_attributes))}
+      let(:rsvp_attributes) { {user: user, attending: "false"} }
+      let(:guest_attributes) { {"0" => {"name" => "1", "food_id" => "1"},
+                                "1" => {"name" => "2", "food_id" => "2"}} }
+      let(:rsvp) { Rsvp.new(rsvp_attributes.merge(guests: guest_attributes)) }
 
       it 'does not create guests' do
         rsvp.save_fields
 
         expect(user.guests.count).to eq(0)
       end
-      it 'updates attributes' do 
+      it 'updates attributes' do
         rsvp.save_fields
 
         expect(user.attending).to eq(false)
       end
-      it 'updates attributes when guests are invalid'
     end
-    it 'returns true when transaction occurs'
-    it 'returns false if transaction does not occur'
+
+    context 'save_fields behaves as a predicate' do
+      let!(:user) { create_user(max_guests: 3) }
+      let(:rsvp_attributes) { {user: user, attending: "true", number_of_guests: 2} }
+      let(:guest_attributes) { {"0" => {"name" => "1", "food_id" => "1"},
+                                "1" => {"name" => "2", "food_id" => "2"}} }
+      let(:rsvp) { Rsvp.new(rsvp_attributes.merge(guests: guest_attributes)) }
+
+      it 'returns true when transaction occurs' do
+        expect(rsvp.save_fields).to eq(true)
+      end
+      it 'returns false if transaction does not occur'
+    end
   end
 end
