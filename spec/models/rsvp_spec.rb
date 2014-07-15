@@ -152,8 +152,17 @@ describe 'Rsvp' do
     end
 
     context 'when user is not attending' do
+      let!(:user) { create_user(max_guests: 3) }
+      let(:rsvp_attributes) { {user: user, attending: "false", number_of_guests: 2} }
+      let(:guest_attributes) {{"0" => {"name" => "1", "food_id" => "1"},
+                               "1" => {"name" => "2", "food_id" => "2"}}}
+      let(:rsvp) {Rsvp.new(rsvp_attributes.merge(guests: guest_attributes))}
 
-      it 'does not create guests'
+      it 'does not create guests' do
+        rsvp.save_fields
+
+        expect(user.guests.count).to eq(0)
+      end
       it 'updates attributes'
       it 'updates attributes when guests are invalid'
     end
