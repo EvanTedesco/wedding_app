@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  private
   def secure_params
     params.require(:user).permit(:email, :password)
   end
