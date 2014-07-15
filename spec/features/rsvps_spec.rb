@@ -137,6 +137,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_link 'RSVP'
     click_button 'Submit'
-    expect(page).to have_content'Attending You must accept or decline'
+    expect(page).to have_content'You must accept or decline'
+    expect(page).to have_no_content'Attending'
   end
 end

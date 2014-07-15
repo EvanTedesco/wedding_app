@@ -14,7 +14,7 @@
 
     <div class="error">
       <% if @rsvp.errors.any? %>
-        <% @rsvp.errors.full_messages.each do |message| %>
+        <% @rsvp.errors.each do |_, message| %>
           <ul>
             <li><%= message %></li>
           </ul>
