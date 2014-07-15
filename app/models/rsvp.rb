@@ -13,9 +13,6 @@ class Rsvp
 
   validates :attending, inclusion: {in: [true, false], message: "You must accept or decline"}
 
-
-
-
   def persisted?
     false
   end
@@ -42,6 +39,23 @@ class Rsvp
   rescue
     false
   end
+  def attending?
+    attending
+  end
+
+  def attending
+    if @attributes[:attending] == "true"
+      true
+    elsif @attributes[:attending] == "false"
+      false
+    end
+  end
+
+  def guest_limit
+    user.max_guests
+  end
+
+  private
 
   def user
     @attributes[:user] ||= User.find(@attributes[:user_id])
@@ -61,17 +75,7 @@ class Rsvp
     end
   end
 
-  def attending?
-    attending
-  end
 
-  def attending
-    if @attributes[:attending] == "true"
-      true
-    elsif @attributes[:attending] == "false"
-      false
-    end
-  end
 
   def number_of_guests
     @attributes[:number_of_guests]
@@ -91,9 +95,5 @@ class Rsvp
 
   def comments
     @attributes[:comments]
-  end
-
-  def guest_limit
-    user.max_guests
   end
 end

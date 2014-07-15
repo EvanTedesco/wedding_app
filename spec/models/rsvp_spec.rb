@@ -114,4 +114,6 @@ describe 'Rsvp' do
 
     expect(rsvp.guest_limit).to eq(3)
   end
+
+
 end

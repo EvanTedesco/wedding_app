@@ -115,8 +115,6 @@ feature 'Rsvp manager' do
     select '2', from:'rsvp_number_of_guests'
     sleep(10)
     click_button 'submit'
-
-
     expect(Guest.all.length).to eq(2)
   end
 
