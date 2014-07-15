@@ -135,6 +135,7 @@ describe 'Rsvp' do
 
         expect(user.reload.attending).to be_nil
       end
+
       it 'does not create guests for rsvps with invalid attributes' do
         User.any_instance.stub(:valid?).and_return(false)
         rsvp.save_fields
@@ -143,7 +144,6 @@ describe 'Rsvp' do
       end
 
       it 'does create guests' do
-        food = create_food
         rsvp.save_fields
 
         expect(rsvp).to be_valid
@@ -152,6 +152,7 @@ describe 'Rsvp' do
     end
 
     context 'when user is not attending' do
+
       it 'does not create guests'
       it 'updates attributes'
       it 'updates attributes when guests are invalid'
