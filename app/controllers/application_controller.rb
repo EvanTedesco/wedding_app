@@ -38,7 +38,7 @@ private
   end
 
   def confirm_logged_in
-    unless session[:user_id]
+    if !current_user
       redirect_to '/sessions/new'
       flash[:login_failure] = 'You must be logged in to see this page'
       session[:return_path] = request.original_url
