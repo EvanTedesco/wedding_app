@@ -2,7 +2,6 @@ class PasswordResetsController < ApplicationController
   def new
     token = params[:auth_token]
     @user = User.find_by_auth_token(token)
-
   end
 
   def update
@@ -17,5 +16,4 @@ class PasswordResetsController < ApplicationController
       render :new
     end
   end
-
 end
