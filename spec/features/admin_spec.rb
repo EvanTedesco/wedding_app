@@ -43,6 +43,19 @@ feature 'Admin options' do
       click_link 'Delete'
     end
     expect(User.all.length).to eq (number_of_users - 1)
+  end
+
+  scenario 'admin cannot create users with duplicate email' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_user.password
+    click_button 'Login'
+    click_link 'Users'
+    fill_in 'user[name]', with: @user.name
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[max_guests]', with: 1
+    click_button 'Create user'
+    expect(page).to have_content 'Email has already been taken'
 
   end
 
