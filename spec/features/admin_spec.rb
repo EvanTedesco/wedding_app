@@ -69,6 +69,19 @@ feature 'Admin options' do
     expect(page).to have_no_content 'Menu Options'
   end
 
+  scenario 'Admin cannot create an invalid food item' do
+    visit '/sessions/new'
+    fill_in 'user[email]', with: @admin_user.email
+    fill_in 'user[password]', with: @admin_user.password
+    click_button 'Login'
+    click_link 'Menu'
+    click_link 'Add food item'
+    fill_in 'food_name', with: 'Steak' * 60
+    fill_in 'food_description', with: 'Savory steak is savory'
+    click_button 'Add food'
+    expect(page).to have_no_content 'Menu items:'
+  end
+
   scenario 'Admin can delete menu item' do
     food = create_food
     visit '/sessions/new'
