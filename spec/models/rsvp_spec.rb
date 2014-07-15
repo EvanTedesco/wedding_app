@@ -89,6 +89,7 @@ describe 'Rsvp' do
 
   context 'attending' do
     let(:user) { create_user }
+    
     it 'should return true when attending is true' do
       rsvp = Rsvp.new(user: user, attending: 'true')
 
