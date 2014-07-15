@@ -25,9 +25,6 @@ class RsvpsController < ApplicationController
       flash[:partial] = current_user.reload.attending ? 'dance' : 'cry'
       redirect_to root_path
     else
-      @foods = Food.all
-      @user = current_user
-
       render :new
     end
   end
