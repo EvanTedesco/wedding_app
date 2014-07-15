@@ -5,7 +5,7 @@ feature 'Rsvp manager' do
   before do
     @admin_user = create_admin
     @user = create_user(max_guests:3)
-    create_food
+    @food = create_food
   end
 
   scenario 'A user can only RSVP once' do
@@ -15,7 +15,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_link 'RSVP'
     choose 'rsvp_attending_true'
-    page.select 'Steak', :from => 'rsvp_user_food_id'
+    page.select @food.name, :from => 'rsvp_user_food_id'
     click_button 'Submit'
     click_link 'RSVP'
     expect(page).to have_content 'A RSVP already exists for you'
@@ -30,7 +30,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_link 'RSVP'
     choose 'rsvp_attending_true'
-    page.select 'Steak', :from => 'rsvp_user_food_id'
+    page.select @food.name, :from => 'rsvp_user_food_id'
     select '1', from:'rsvp_number_of_guests'
     click_button 'Submit'
     expect(page).to have_content 'Let\'s Party Down!'
@@ -54,7 +54,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_link 'RSVP'
     choose 'rsvp_attending_true'
-    page.select 'Steak', :from => 'rsvp_user_food_id'
+    page.select @food.name, :from => 'rsvp_user_food_id'
     click_button 'Submit'
     expect(page).to have_no_content 'You\'re invited to come celebrate with us!'
     expect(page).to have_content 'Let\'s Party Down!'
@@ -68,14 +68,16 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_link 'RSVP'
     choose 'rsvp_attending_true'
-    page.select 'Steak', :from => 'rsvp_user_food_id'
+    page.select @food.name, :from => 'rsvp_user_food_id'
     fill_in 'guest_0_name', with: 'Guest1'
-    page.select 'Steak', :from => 'guest_0_food_id'
+    page.select @food.name, :from => 'guest_0_food_id'
     fill_in 'guest_1_name', with: 'Guest2'
-    page.select 'Steak', :from => 'guest_1_food_id'
+    page.select @food.name, :from => 'guest_1_food_id'
 
     click_button 'Submit'
     expect(Guest.all.length).to eq(2)
+    expect(Guest.last.name).to eq('Guest2')
+    expect(Guest.last.food_id).to eq(@food.id)
   end
 
   scenario 'Guests of a user are not saved if user is not attending' do
@@ -86,11 +88,11 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_link 'RSVP'
     choose 'rsvp_attending_true'
-    page.select 'Steak', :from => 'rsvp_user_food_id'
+    page.select @food.name, :from => 'rsvp_user_food_id'
     fill_in 'guest_0_name', with: 'Guest1'
-    page.select 'Steak', :from => 'guest_0_food_id'
+    page.select @food.name, :from => 'guest_0_food_id'
     fill_in 'guest_1_name', with: 'Guest2'
-    page.select 'Steak', :from => 'guest_1_food_id'
+    page.select @food.name, :from => 'guest_1_food_id'
     choose 'rsvp_attending_false'
     click_button 'Submit'
 
@@ -105,13 +107,13 @@ feature 'Rsvp manager' do
     click_link 'RSVP'
     choose 'rsvp_attending_true'
     select '3', from:'rsvp_number_of_guests'
-    page.select 'Steak', :from => 'rsvp_user_food_id'
+    page.select @food.name, :from => 'rsvp_user_food_id'
     fill_in 'guest_0_name', with: 'Guest1'
-    page.select 'Steak', :from => 'guest_0_food_id'
+    page.select @food.name, :from => 'guest_0_food_id'
     fill_in 'guest_1_name', with: 'Guest2'
-    page.select 'Steak', :from => 'guest_1_food_id'
+    page.select @food.name, :from => 'guest_1_food_id'
     fill_in 'guest_2_name', with: 'Guest3'
-    page.select 'Steak', :from => 'guest_1_food_id'
+    page.select @food.name, :from => 'guest_1_food_id'
     select '2', from:'rsvp_number_of_guests'
     sleep(2)
     click_button 'Submit'
