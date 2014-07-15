@@ -240,6 +240,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver (~> 2.42.0)
+  simplecov
   spring
   sucker_punch (~> 1.0)
   travis (~> 1.6.14)

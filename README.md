@@ -1,5 +1,6 @@
-== README
 
+== README
+[![Code Climate](https://codeclimate.com/github/EvanTedesco/wedding_app.png)](https://codeclimate.com/github/EvanTedesco/wedding_app)
 This App will be an open source tool to manage wedding RSVPs
 
 
