@@ -16,7 +16,7 @@ feature 'Rsvp manager' do
     click_link 'RSVP'
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
-    click_button 'submit'
+    click_button 'Submit'
     click_link 'RSVP'
     expect(page).to have_content 'A RSVP already exists for you'
   end
@@ -32,7 +32,7 @@ feature 'Rsvp manager' do
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
     select '1', from:'rsvp_number_of_guests'
-    click_button 'submit'
+    click_button 'Submit'
     expect(page).to have_content 'Let\'s Party Down!'
   end
 
@@ -43,7 +43,7 @@ feature 'Rsvp manager' do
     click_button 'Login'
     click_link 'RSVP'
     choose 'rsvp_attending_false'
-    click_button 'submit'
+    click_button 'Submit'
     expect(page).to have_content 'Whack Attack!'
   end
 
@@ -55,7 +55,7 @@ feature 'Rsvp manager' do
     click_link 'RSVP'
     choose 'rsvp_attending_true'
     page.select 'Steak', :from => 'rsvp_user_food_id'
-    click_button 'submit'
+    click_button 'Submit'
     expect(page).to have_no_content 'You\'re invited to come celebrate with us!'
     expect(page).to have_content 'Let\'s Party Down!'
   end
@@ -74,7 +74,7 @@ feature 'Rsvp manager' do
     fill_in 'guest_1_name', with: 'Guest2'
     page.select 'Steak', :from => 'guest_1_food_id'
 
-    click_button 'submit'
+    click_button 'Submit'
     expect(Guest.all.length).to eq(2)
   end
 
@@ -92,7 +92,7 @@ feature 'Rsvp manager' do
     fill_in 'guest_1_name', with: 'Guest2'
     page.select 'Steak', :from => 'guest_1_food_id'
     choose 'rsvp_attending_false'
-    click_button 'submit'
+    click_button 'Submit'
 
     expect(Guest.all.length).to eq(0)
   end
@@ -114,7 +114,7 @@ feature 'Rsvp manager' do
     page.select 'Steak', :from => 'guest_1_food_id'
     select '2', from:'rsvp_number_of_guests'
     sleep(2)
-    click_button 'submit'
+    click_button 'Submit'
     expect(Guest.all.length).to eq(2)
   end
 
@@ -134,7 +134,7 @@ feature 'Rsvp manager' do
     fill_in 'user[password]', with: @user.password
     click_button 'Login'
     click_link 'RSVP'
-    click_button 'submit'
+    click_button 'Submit'
     expect(page).to have_content'Attending You must accept or decline'
   end
 end
