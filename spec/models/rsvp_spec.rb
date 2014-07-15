@@ -109,13 +109,6 @@ describe 'Rsvp' do
     end
   end
 
-  it 'determines the number of guests correctly' do
-    user = create_user(max_guests: 3)
-    rsvp = Rsvp.new(user: user, attending: 'true')
-
-    expect(rsvp.guest_limit).to eq(3)
-  end
-
   context 'save fields' do
     it 'does not save invalid rsvp' do
       rsvp = Rsvp.new({attending: 'true'})

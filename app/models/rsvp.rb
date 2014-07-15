@@ -7,8 +7,8 @@ class Rsvp
             numericality: {
               only_integer: true,
               greater_than_or_equal_to: 0,
-              less_than_or_equal_to: :guest_limit,
-            message: "Please select a valid number of guests" },
+              less_than_or_equal_to: ->(rsvp) { rsvp.user.max_guests },
+              message: "Please select a valid number of guests"},
             if: :attending?
 
   validates :attending, inclusion: {in: [true, false], message: "You must accept or decline"}
@@ -40,6 +40,7 @@ class Rsvp
   rescue
     false
   end
+
   def attending?
     attending
   end
@@ -52,16 +53,12 @@ class Rsvp
     end
   end
 
-  def guest_limit
-    user.max_guests
-  end
-
-  private
 
   def user
     @attributes[:user] ||= User.find(@attributes[:user_id])
   end
 
+  private
   def guests
     names = []
     foods = []
@@ -75,7 +72,6 @@ class Rsvp
       guest[0].empty?
     end
   end
-
 
 
   def number_of_guests
