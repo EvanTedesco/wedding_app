@@ -180,7 +180,11 @@ describe 'Rsvp' do
       it 'returns true when transaction occurs' do
         expect(rsvp.save_fields).to eq(true)
       end
-      it 'returns false if transaction does not occur'
+      it 'returns false if transaction does not occur' do
+        Guest.any_instance.stub(:valid?).and_return(false)
+
+        expect(rsvp.save_fields).to eq(false)
+      end
     end
   end
 end
