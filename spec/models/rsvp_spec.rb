@@ -163,7 +163,11 @@ describe 'Rsvp' do
 
         expect(user.guests.count).to eq(0)
       end
-      it 'updates attributes'
+      it 'updates attributes' do 
+        rsvp.save_fields
+
+        expect(user.attending).to eq(false)
+      end
       it 'updates attributes when guests are invalid'
     end
     it 'returns true when transaction occurs'
