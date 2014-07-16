@@ -73,14 +73,6 @@ class Rsvp
     @attributes[:number_of_guests]
   end
 
-  def guest_food_id
-    @attributes[:guests][:food_id]
-  end
-
-  def guest_name
-    @attributes[:guests][:name]
-  end
-
   def user_food_id
     @attributes[:user_food_id]
   end
