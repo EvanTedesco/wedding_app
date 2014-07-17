@@ -16,15 +16,14 @@
             <th>Delete</th>
           </tr>
           </thead>
-
           <tbody>
           <% @foods.each do |food| %>
-              <tr>
-                <td data-title="Name"><%= food.name %></td>
-                <td data-title="Description"><%= food.description %></td>
-                <td data-title="Edit-food"><%= link_to "Edit #{food.name}", edit_food_path(food)  %></td>
-                <td data-title="Edit-food" ><%= link_to "Delete", food_path(food), method:'Delete', class: "btn btn-danger btn-mini" %></td>
-              </tr>
+            <tr>
+              <td data-title="Name"><%= food.name %></td>
+              <td data-title="Description"><%= food.description %></td>
+              <td data-title="Edit-food"><%= link_to "Edit #{food.name}", edit_food_path(food) %></td>
+              <td data-title="Edit-food"><%= link_to "Delete", food_path(food), method: 'Delete', class: "btn btn-danger btn-mini" %></td>
+            </tr>
           <% end %>
           <tr>
           </tr>

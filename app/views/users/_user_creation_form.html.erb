@@ -7,33 +7,33 @@
       <div class="panel-body">
         <div class="error">
           <% if flash[:created] %>
-              <%= flash[:created] %>
+            <%= flash[:created] %>
           <% end %>
           <% if @user.errors.any? %>
-              <% @user.errors.full_messages.each do |message| %>
-                    <%= message %><br>
-              <% end %>
+            <% @user.errors.full_messages.each do |message| %>
+              <%= message %>
+              <br>
+            <% end %>
           <% end %>
         </div>
         <%= form_for @user, :url => {:action => 'create'} do |f| %>
-            <fieldset>
-              <div class="form-group">
-                <%= f.text_field :name, placeholder: 'Name', class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.email_field :email, placeholder: 'Email', class: "form-control" %>
-              </div>
-
-              <div class="form-group">
-                <%= f.number_field :max_guests, placeholder: 'Guests', class: "form-control" %>
-              </div>
-                <label>
-                  <%= f.label :admin %>
-                  <%= f.check_box :admin %>
-                </label>
-              <%= f.submit 'Create user', class: "btn btn-lg btn-success btn-block" %>
-            </fieldset>
-            </form>
+          <fieldset>
+            <div class="form-group">
+              <%= f.text_field :name, placeholder: 'Name', class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.email_field :email, placeholder: 'Email', class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.number_field :max_guests, placeholder: 'Guests', class: "form-control" %>
+            </div>
+            <label>
+              <%= f.label :admin %>
+              <%= f.check_box :admin %>
+            </label>
+            <%= f.submit 'Create user', class: "btn btn-lg btn-success btn-block" %>
+          </fieldset>
+          </form>
         <% end %>
       </div>
     </div>

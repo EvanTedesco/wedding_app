@@ -57,11 +57,9 @@
           <%= label_tag :guest_meal_choice %>
           <%= collection_select("guest[#{index}]", :food_id, @foods, :id, :name) %>
         </div>
-    <% end %>
+      <% end %>
       <br>
     </div>
-
-
     <div class="comments">
       Comments or Questions?
     </div>
@@ -71,7 +69,6 @@
     </div>
   <% end %>
 </div>
-
 <div class="quote-bar">After all these years, I see that I was mistaken about Eve in the beginning;
   it is better to live outside the Garden with her than inside it without her.” ~ Mark Twain
 </div>

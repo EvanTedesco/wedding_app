@@ -7,7 +7,6 @@
       <div class='list-group gallery'>
         <% @photos.each do |photo| %>
           <% if photo.groomsmen %>
-
             <div class='col-md-5 col-xs-6 col-md-2 col-lg-2'>
               <a class="thumbnail fancybox" rel="lightbox" href="<%= photo.groomsmen %>">
                 <img class="img-responsive" alt="" src="<%= photo.groomsmen %>"/>
@@ -18,7 +17,6 @@
       </div>
     </div>
   </div>
-
   <div class="container">
     <div class="row">
       <div class="wedding-party-label">
@@ -27,7 +25,6 @@
       <div class='list-group gallery'>
         <% @photos.each do |photo| %>
           <% if photo.bridesmaids %>
-
             <div class='col-md-5 col-xs-6 col-md-2 col-lg-2'>
               <a class="thumbnail fancybox" rel="lightbox2" href="<%= photo.bridesmaids %>">
                 <img class="img-responsive" alt="" src="<%= photo.bridesmaids %>"/>
@@ -40,5 +37,4 @@
   </div>
 </div>
 <div class="quote-bar">"For small creatures such as we the vastness is bearable only through love." ~ Carl Sagan
-
 </div>

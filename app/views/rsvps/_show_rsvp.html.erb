@@ -14,15 +14,13 @@
             <th>Food Choice</th>
           </tr>
           </thead>
-
           <tbody>
           <% @guests.each do |guest| %>
-              <tr>
-                <td data-title="Name"><%= guest.name %></td>
-                <td data-title="Guest_food"><%= guest.food.name %></td>
-              </tr>
-            <% end %>
-
+            <tr>
+              <td data-title="Name"><%= guest.name %></td>
+              <td data-title="Guest_food"><%= guest.food.name %></td>
+            </tr>
+          <% end %>
           </tbody>
         </table>
       </div>
