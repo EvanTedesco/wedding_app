@@ -16,7 +16,6 @@ class FoodsController < ApplicationController
     @food = Food.new(secure_params)
     if @food.save
       redirect_to foods_path
-
     else
       render :new
     end
@@ -40,5 +39,4 @@ class FoodsController < ApplicationController
   def secure_params
     params.require(:food).permit(:name,:description)
   end
-
 end

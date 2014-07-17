@@ -20,12 +20,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-
 private
   def confirm_admin
     redirect_to '/' unless current_user.admin?
-
   end
 
   def confirm_logged_in
@@ -44,6 +41,4 @@ private
       render :new
     end
   end
-
-
 end

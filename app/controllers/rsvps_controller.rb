@@ -11,9 +11,7 @@ class RsvpsController < ApplicationController
     @user = User.find current_user.id
     @rsvp = Rsvp.new
     @foods = Food.all
-
     build_guest_fields
-
     if !current_user.admin?
       confirm_new_rsvp
     end
