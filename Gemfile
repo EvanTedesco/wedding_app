@@ -12,6 +12,7 @@ group :test, :development do
   gem 'codeclimate-test-reporter', require: nil
 end
 
+gem 'expedia'
 gem 'rails', '4.1.0'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
