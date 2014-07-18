@@ -26,13 +26,14 @@ feature 'password select' do
     result = @doc.xpath("//html//body//p//a//@href")[0].value
 
     visit result
-
     click_button 'Submit'
+
     expect(page).to have_content 'Password can\'t be blank'
 
     fill_in 'user[password]', with: 'newpassword'
     fill_in 'user[password_confirmation]', with: 'newpassword'
     click_button 'Submit'
+
     expect(page).to have_content 'You\'re invited'
   end
 end

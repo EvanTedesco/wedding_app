@@ -1,4 +1,4 @@
-require 'spec_helper'
+ require 'spec_helper'
 feature 'user visit the wedding party index ' do
   scenario 'A logged in user can visit the Wedding Party page' do
     @user = create_user
