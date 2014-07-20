@@ -21,11 +21,11 @@ $ bin/rake db:create
 
 $ bin/rake db:migrate
 
+$ bin/rake db:seed
+
+
 
 To run the test suite run the following from the command line:
 $ rspec
 
 =======
-app
-===
->>>>>>> 42dd60fecd6acf1ae4a2094aaae18dd3cfbafad1
