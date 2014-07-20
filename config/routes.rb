@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   resources :reservations
   get 'password_resets' => 'password_resets#new'
   put 'password_resets' => 'password_resets#update'
-
 end
