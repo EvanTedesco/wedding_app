@@ -14,6 +14,7 @@
 //= require fancybox
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-datepicker
 //= require_tree .
 
 $(document).ready(function(){
@@ -22,3 +23,6 @@ $(document).ready(function(){
     closeEffect: "none"
   });
 });
+$(document).ready(function(){
+  $('[data-behaviour~=datepicker]').datepicker();
+})

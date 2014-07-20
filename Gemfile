@@ -11,7 +11,7 @@ group :test, :development do
   gem 'simplecov'
   gem 'codeclimate-test-reporter', require: nil
 end
-
+gem 'bootstrap-datepicker-rails'
 gem 'expedia'
 gem 'rails', '4.1.0'
 gem 'pg'

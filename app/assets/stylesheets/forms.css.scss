@@ -229,6 +229,21 @@ input[type='submit'] {
     background: white;
     min-height: 0px ;
   }
+
+}
+.reservation {
+  max-width: 338px;
+  margin: auto;
+  .form-group{
+    float: right;
+    span{
+      padding-left: 5px;
+    }
+
+  }
+  .reservation-number{
+    margin-right: 24px;
+  }
 }
 
 
