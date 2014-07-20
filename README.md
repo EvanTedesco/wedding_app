@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/EvanTedesco/wedding_app.png)](https://codeclimate.com/github/EvanTedesco/wedding_app)
 [![Test Coverage](https://codeclimate.com/github/EvanTedesco/wedding_app/coverage.png)](https://codeclimate.com/github/EvanTedesco/wedding_app)
 
-This App will be an open source tool to manage wedding RSVPs
+This App will be an open source tool to manage wedding RSVPs,
 
 
 Ruby version = 2.1.1p76
