@@ -6,7 +6,7 @@ feature 'Rsvp manager' do
       @admin_user = create_admin
       @user = create_user(max_guests: 3)
       @food = create_food
-      visit '/sessions/new'
+      visit new_session_path
       fill_in 'user[email]', with: @user.email
       fill_in 'user[password]', with: @user.password
       click_button 'Login'
@@ -82,21 +82,21 @@ feature 'Rsvp manager' do
     end
 
     scenario 'Guests are not saved if user changes mind', js: true do
+        choose 'rsvp_attending_true'
+        select '3', from: 'rsvp_number_of_guests'
+        page.select @food.name, :from => 'rsvp_user_food_id'
+        fill_in 'guest_0_name', with: 'Guest1'
+        page.select @food.name, :from => 'guest_0_food_id'
+        fill_in 'guest_1_name', with: 'Guest2'
+        page.select @food.name, :from => 'guest_1_food_id'
+        fill_in 'guest_2_name', with: 'Guest3'
+        page.select @food.name, :from => 'guest_1_food_id'
+        select '2', from: 'rsvp_number_of_guests'
+        sleep(2)
+        click_button 'Submit'
 
-      choose 'rsvp_attending_true'
-      select '3', from: 'rsvp_number_of_guests'
-      page.select @food.name, :from => 'rsvp_user_food_id'
-      fill_in 'guest_0_name', with: 'Guest1'
-      page.select @food.name, :from => 'guest_0_food_id'
-      fill_in 'guest_1_name', with: 'Guest2'
-      page.select @food.name, :from => 'guest_1_food_id'
-      fill_in 'guest_2_name', with: 'Guest3'
-      page.select @food.name, :from => 'guest_1_food_id'
-      select '2', from: 'rsvp_number_of_guests'
-      sleep(2)
-      click_button 'Submit'
+        expect(Guest.all.length).to eq(2)
 
-      expect(Guest.all.length).to eq(2)
     end
 
     scenario 'Guest is prompted with error if attending is not chosen' do

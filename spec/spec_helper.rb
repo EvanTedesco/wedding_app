@@ -8,6 +8,8 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'database_cleaner'
 require 'sucker_punch/testing/inline'
+require 'vcr'
+
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
@@ -34,5 +36,14 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  VCR.configure do |c|
+    c.cassette_library_dir='spec/vcr_cassettes'
+    c.filter_sensitive_data("<EAN_KEY>") { ENV['EAN_KEY'] }
+    c.filter_sensitive_data("<EAN_SHARED_SECRET>") { ENV['EAN_SHARED_SECRET'] }
+    c.hook_into :webmock
+    c.ignore_localhost = true
+    c.ignore_hosts 'codeclimate.com'
   end
 end

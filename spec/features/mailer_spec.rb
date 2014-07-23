@@ -18,7 +18,6 @@ feature 'password select' do
     fill_in 'user[max_guests]', with: 1
     click_button 'Create user'
     click_link 'Logout'
-
     expect(ActionMailer::Base.deliveries.length).to eq (emails_sent + 1)
 
     email_message = ActionMailer::Base.deliveries.last.body.raw_source

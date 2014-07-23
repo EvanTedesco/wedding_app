@@ -6,5 +6,4 @@ class UserMailer < ActionMailer::Base
     @url  = "http://www.evanandcrystaltedesco.com/password_resets?auth_token=#{@user.auth_token}"
     mail(to: @user.email, subject: "Let's party!")
   end
-
 end
