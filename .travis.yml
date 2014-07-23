@@ -12,8 +12,7 @@ script:
 - bundle exec rake spec
 bundler_args: "--retry 3"
 env:
-  matrix:
-  - secure: PUdNt0u4U0R5e8Qgc1+LcpZNgC15WypVpFo6R19lnLCl2P7TbPPJM0TgNdAM0mEZT1r1Kp80tvJ1D+A008o6+WeVXIlgKvhLPbVjrS3LpmscYs/jk9211C0tBoX6w6sDrtjOWgKIrkM503gM8+UsrX2vaQaHSXca6sAdjttzzDc=
-  - secure: Py7IqFIUzbtCqmsW4qfuOF8qM7V7HcR3BlysYsmnKaunw/bSuF8jnszwtSG80YBC5JfBYiTFCYi9BCBTK9UADpV7ke3+kkdzjVock8EjCdI2Q1RisYh/VbPTxTF+0IgrnH+v7YQNwYKROuWgCF1TIWTEZHOQY2GjO/tTWi0dXh8=
-  - secure: qL7t9FUIfi/xnniI4w81E4rNC8ucutjNmxrGx3KSymsKB5jwK61P54KUs5wZHT95QYXqbAldpX7/uYAkAGoVrje/uys6iytZrtrUEsMmD0j1Kj5/jT4rvXUMtfUmnM0uXGdRfPYeGW6hm/qu7UEI21FMwpcTQ8Pss+0HgvCZ3Ko=
-  - secure: Y05b/hNYzXWLu02w/AKxdHTXP9Vk7FIL8L0Wd1rWyaGD4haAQn4+gKW8WzHw+0RnmWhjh0l+qjVekqcBy/FczLvu8dbZxBK0vmyRe6Q4cqfBhfZvinwTkXqHz0pb0QI5Dpk/BLWD4XyT/37Qcs5MPQ9mqLC4P31Sv8qM99gjJWE=
+  global:
+  - secure: TJ9kcocOREHHTybe/2PY/Ux0UhFNZz42++cFWbbJN8/HvMqizWYNAj5xxss0g6WvjCKDbxp3vA7dk9LqArs6BT+ovGNCjS9srq+707MzyQfUlYLmmjRDfNnU9iH9q99f7pC+X5LT2g88VaxIlkjVGfIxqqrscoRxBbJBrT7YK9E=
+  - secure: QxhF6i4DnjKeA/PZ9UhHwb+PUREwN7jl7PSH5wd+FM2v/dmIwZ1mef1FyqHQpmPwP4mNGJPUNGYnSxmKosy8ms2/DRDEiROGyi+iLnmnarpTOzqB3S+iJulOjM9tbCiUTpJgkBgjumPVMe5aOMYwRaZm6/jM5e4Yofu1Xjp5U4Y=
+  - secure: kljkdPqJcmOape+3gDyi0yME9YM9gWAtWj0tTSw5iZQ1xAkdnF7vqDl050YycZ3dgjeuk369rOCfRsHbwINA2UHzmR4fq8mJAyDqj5bxNwRUCv3xLIOe8ELbxAGj8ezCuwDMLAFYs++bc0enrREo9u5TC6+AFiy5W4v2iy2Kdtc=
