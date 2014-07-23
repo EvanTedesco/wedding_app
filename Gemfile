@@ -12,6 +12,7 @@ group :test, :development do
   gem 'vcr'
   gem 'timecop'
   gem 'webmock'
+  
   gem 'codeclimate-test-reporter', require: nil
 end
 gem 'bootstrap-datepicker-rails'
