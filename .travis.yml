@@ -14,3 +14,5 @@ bundler_args: "--retry 3"
 env:
   matrix:
   - secure: PUdNt0u4U0R5e8Qgc1+LcpZNgC15WypVpFo6R19lnLCl2P7TbPPJM0TgNdAM0mEZT1r1Kp80tvJ1D+A008o6+WeVXIlgKvhLPbVjrS3LpmscYs/jk9211C0tBoX6w6sDrtjOWgKIrkM503gM8+UsrX2vaQaHSXca6sAdjttzzDc=
+  - secure: Py7IqFIUzbtCqmsW4qfuOF8qM7V7HcR3BlysYsmnKaunw/bSuF8jnszwtSG80YBC5JfBYiTFCYi9BCBTK9UADpV7ke3+kkdzjVock8EjCdI2Q1RisYh/VbPTxTF+0IgrnH+v7YQNwYKROuWgCF1TIWTEZHOQY2GjO/tTWi0dXh8=
+  - secure: qL7t9FUIfi/xnniI4w81E4rNC8ucutjNmxrGx3KSymsKB5jwK61P54KUs5wZHT95QYXqbAldpX7/uYAkAGoVrje/uys6iytZrtrUEsMmD0j1Kj5/jT4rvXUMtfUmnM0uXGdRfPYeGW6hm/qu7UEI21FMwpcTQ8Pss+0HgvCZ3Ko=

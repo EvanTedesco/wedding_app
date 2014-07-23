@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://dev.api.ean.com/ean-services/rs/hotel/v3/list?RoomGroup=%26room6=12,5,12&_type=json&apiKey=<EAN_KEY>&arrivalDate=&cid=55505&currencyCode=USD&departureDate=&destinationString=puntarenas&locale=en_US&minorRev=26&propertyName=Doubletree&sig=52dce30cf10fb04165841c82cf388afb
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Mashery-Responder:
+      - prod-p-worker-lax-03.mashery.com
+      Date:
+      - Wed, 23 Jul 2014 05:09:05 GMT
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept-Encoding
+      Server:
+      - EAN
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '821'
+    body:
+      encoding: UTF-8
+      string: '{"HotelListResponse":{"customerSessionId":"0ABAAAB1-2C13-9914-7612-9ED9EF904093","numberOfRoomsRequested":0,"moreResultsAvailable":false,"HotelList":{"@size":"1","@activePropertyCount":"1","HotelSummary":{"@order":"0","hotelId":193964,"name":"Doubletree
+        By Hilton Central Pacific - All Inclusive","address1":"El Roble","city":"Puntarenas","postalCode":5400,"countryCode":"CR","airportCode":"SJO","propertyCategory":6,"hotelRating":3.5,"confidenceRating":52,"amenityMask":5709825,"tripAdvisorRating":3.5,"tripAdvisorReviewCount":1222,"tripAdvisorRatingUrl":"http:\/\/www.tripadvisor.com\/img\/cdsi\/img2\/ratings\/traveler\/3.5-12345-4.gif","locationDescription":"On
+        the beach","shortDescription":"&lt;p&gt;&lt;b&gt;Property Location&lt;\/b&gt;
+        &lt;br \/&gt;When you stay at Doubletree By Hilton Central Pacific - All Inclusive
+        in Puntarenas, you&apos;ll be on the beach and within the vicinity of Caldera
+        Port. This","highRate":248.0077,"lowRate":198.0054,"rateCurrencyCode":"USD","latitude":9.96872,"longitude":-84.73878,"proximityDistance":4.1838536,"proximityUnit":"MI","hotelInDestination":true,"thumbNailUrl":"\/hotels\/1000000\/700000\/692400\/692315\/692315_151_t.jpg","deepLink":"http:\/\/travel.ian.com\/index.jsp?pageName=hotAvail&amp;cid=55505&amp;hotelID=193964&amp;mode=2&amp;numberOfRooms=1&amp;room-0-adult-total=2&amp;showInfo=true&amp;locale=en_US&amp;currencyCode=USD"}}}}'
+    http_version: 
+  recorded_at: Fri, 11 Jul 2014 21:53:58 GMT
+recorded_with: VCR 2.9.2
