@@ -9,7 +9,8 @@
           <% if photo.groomsmen %>
             <div class='col-md-5 col-xs-6 col-md-2 col-lg-2'>
               <a class="thumbnail fancybox" rel="lightbox" href="<%= photo.groomsmen %>">
-                <img class="img-responsive" alt="" src="<%= photo.groomsmen %>"/>
+                <!--<img class="img-responsive" alt="" src="<%= photo.groomsmen %>"/>-->
+                <%= image_tag photo.groomsmen, class: 'img-responsive', height: '216', width: '155' %>
               </a>
             </div>
           <% end %>
@@ -27,7 +28,7 @@
           <% if photo.bridesmaids %>
             <div class='col-md-5 col-xs-6 col-md-2 col-lg-2'>
               <a class="thumbnail fancybox" rel="lightbox2" href="<%= photo.bridesmaids %>">
-                <img class="img-responsive" alt="" src="<%= photo.bridesmaids %>"/>
+                <%= image_tag photo.bridesmaids, class: 'img-responsive', height: '216', width: '155' %>
               </a>
             </div>
           <% end %>
