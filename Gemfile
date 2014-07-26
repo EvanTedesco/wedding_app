@@ -10,10 +10,13 @@ group :test, :development do
   gem 'simplecov'
   gem 'vcr'
   gem 'timecop'
-  gem 'webmock'
-
   gem 'codeclimate-test-reporter', require: nil
 end
+
+group :test do
+  gem 'webmock'
+end
+
 gem 'bootstrap-datepicker-rails'
 gem 'expedia'
 gem 'rails', '4.1.0'
@@ -28,8 +31,8 @@ gem 'fancybox-rails', '~> 0.2.1'
 gem 'sucker_punch', '~> 1.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'spring', group: :development
 gem 'rails_12factor', '~> 0.0.2', group: :production
 
 
