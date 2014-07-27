@@ -4,7 +4,8 @@ class ReservationsController < ApplicationController
                                               :destinationString => 'puntarenas',
                                               :arrivalDate => params[:arrival_date],
                                               :departureDate => params[:departure_date],
-                                              :RoomGroup =>"&room6=12,5,12"}).body
+                                              :include_details => true,
+                                              :room1 => '2'}).body
 
   end
 end
