@@ -13,7 +13,13 @@ feature 'The deets' do
         click_button 'Login'
         click_link 'The Deets'
         click_link 'Check hotel pricing and availability'
+
         expect(page).to have_content 'Enter reservation details below'
+
+        fill_in 'arrival_date', with: '6/12/2015'
+        fill_in 'departure_date', with: '6/15/2015'
+        click_on 'Get pricing'
+
       end
     end
   end
