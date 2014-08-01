@@ -1,9 +1,5 @@
 class ReservationsController < ApplicationController
   def new
-
-  end
-
-  def create
     number_of_rooms = params[:number_of_rooms]
     room_key = "room#{number_of_rooms}".to_sym
     @reservation =Expedia::Api.new.get_availability({
@@ -15,7 +11,11 @@ class ReservationsController < ApplicationController
                                                       :includeDetails => 'true',
                                                       :options => 'ROOM_AMENITIES,ROOM_TYPES',
                                                       :minorRev => 24
-                                                    })
+                                                    }).body
+  end
+
+  def create
+
     redirect_to new_reservation_path
   end
 
