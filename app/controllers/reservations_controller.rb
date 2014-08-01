@@ -13,10 +13,4 @@ class ReservationsController < ApplicationController
                                                       :minorRev => 24
                                                     }).body
   end
-
-  def create
-
-    redirect_to new_reservation_path
-  end
-
 end
