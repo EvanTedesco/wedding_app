@@ -20,6 +20,8 @@ feature 'The deets' do
         fill_in 'departure_date', with: '6/15/2015'
         click_on 'Get pricing'
 
+        expect(page).to have_content 'Available rooms'
+
       end
     end
   end

@@ -6,7 +6,7 @@
         <h3 class="panel-title">Enter reservation details below</h3>
       </div>
       <div class="panel-body">
-        <%= form_tag("/reservations/new", method: "get") do %>
+        <%= form_tag("/reservations", method: "get") do %>
           <div class="form-group">
             <%= label_tag :arrival_date %>
             <input type="text form-group" data-behaviour='datepicker' name="arrival_date"><span class="glyphicon glyphicon-calendar"></span>

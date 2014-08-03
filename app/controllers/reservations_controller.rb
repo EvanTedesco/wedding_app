@@ -11,6 +11,11 @@ class ReservationsController < ApplicationController
                                                       :includeDetails => 'true',
                                                       :options => 'ROOM_AMENITIES,ROOM_TYPES',
                                                       :minorRev => 24
-                                                    }).body
+
+                                                    })
+  end
+
+  def index
+
   end
 end
