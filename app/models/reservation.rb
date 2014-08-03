@@ -3,20 +3,11 @@ class Reservation
     @request = request
   end
 
-  def get_descriptions
-    descriptions = []
+  def get_room_info
+    info = {}
     @request["HotelRoomAvailabilityResponse"]["HotelRoomResponse"].each do |room|
-      descriptions << room["rateDescription"]
+      info[room["rateDescription"]] = {average_rate: room["RateInfos"]["RateInfo"]["ChargeableRateInfo"]["@averageRate"]}
     end
-    descriptions
-  end
-
-
-  def get_avg_per_night
-    averages = []
-    @request["HotelRoomAvailabilityResponse"]["HotelRoomResponse"].each do |room|
-      averages << room["RateInfos"]["RateInfo"]["ChargeableRateInfo"]["@averageRate"]
-    end
-    averages
+    info
   end
 end
