@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   def index
     number_of_rooms = params[:number_of_rooms]
     room_key = "room#{number_of_rooms}".to_sym
-    Expedia::Api.new.get_availability({
+    @reservation = Expedia::Api.new.get_availability({
                                         :hotelId => 193964,
                                         :SupplierType => 'E',
                                         :arrivalDate => params[:arrival_date],
@@ -16,6 +16,5 @@ class ReservationsController < ApplicationController
                                         :minorRev => 24
 
                                       }).body
-
   end
 end

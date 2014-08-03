@@ -30,6 +30,7 @@ describe Reservation do
                                                 "1 Queen jt ste gndvw N/S",
                                                 "One King Bed, Smoking",
                                                 "Junior Suite, One King Bed, Non-Smoking"])
+      expect(Reservation.new(request).get_avg_per_night).to eq(["198.0", "198.0", "198.0", "198.0", "198.0", "228.0", "228.0", "228.0", "228.0", "228.0", "228.0", "228.0", "249.0"])
       end
     end
   end
