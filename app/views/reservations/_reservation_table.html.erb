@@ -1,0 +1,29 @@
+<div class=".table-responsive">
+  <div class="table-container">
+    <div class="table-row">
+      <div class="col-md-12">
+        <h2 class="text-center">
+          <%= @room[0]  %>
+        </h2>
+      </div>
+      <div id="no-more-tables">
+        <table class="col-md-12 table-bordered table-striped table-condensed cf">
+          <thead class="cf">
+          <tr>
+            <th>Average per night</th>
+            <th>Total cost</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-title="Average-rate"><%= @room[1][:average_rate]%></td>
+              <td data-title="Total-cost"><%= @room[1][:total_cost]%></td>
+            </tr>
+          <tr>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
