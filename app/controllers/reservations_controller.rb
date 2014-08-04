@@ -12,9 +12,9 @@ class ReservationsController < ApplicationController
                                         :departureDate => params[:departure_date],
                                         room_key => params[:number_of_adults],
                                         :includeDetails => 'true',
+                                        :includeRoomImages => 'true',
                                         :options => 'ROOM_AMENITIES,ROOM_TYPES',
                                         :minorRev => 24
-
                                       }).body
   end
 end
