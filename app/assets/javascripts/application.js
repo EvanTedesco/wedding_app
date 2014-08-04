@@ -25,4 +25,4 @@ $(document).ready(function(){
 });
 $(document).ready(function(){
   $('[data-behaviour~=datepicker]').datepicker();
-})
+});
