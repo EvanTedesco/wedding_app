@@ -9,11 +9,11 @@
         <%= form_tag("/reservations", method: "get") do %>
           <div class="form-group">
             <%= label_tag :arrival_date %>
-            <input type="text form-group" data-behaviour='datepicker' name="arrival_date"><span class="glyphicon glyphicon-calendar"></span>
+            <input type="text form-group" data-behaviour='datepicker' name="arrival_date"><span class="glyphicon glyphicon-calendar" data-behaviour="datepicker"></span>
           </div>
           <div class="form-group">
             <%= label_tag :departure_date %>
-            <input type="text form-group" data-behaviour='datepicker' name="departure_date"><span class="glyphicon glyphicon-calendar"></span>
+            <input type="text form-group" data-behaviour='datepicker' name="departure_date"><span class="glyphicon glyphicon-calendar" data-behaviour="datepicker"></span>
           </div>
           <div class="form-group reservation-number">
             <%= label_tag :number_of_rooms %>
