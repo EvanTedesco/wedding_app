@@ -15,7 +15,6 @@ describe Reservation do
                                                       :includeRoomImages => 'true',
                                                       :options => 'ROOM_AMENITIES,ROOM_TYPES',
                                                       :minorRev => 24
-
                                                     }).body
 
         expect(Reservation.new(request).get_room_info["Two Doubles"]).to eq({
@@ -28,7 +27,6 @@ describe Reservation do
                                                                               :rate_key=>"9a257344-c6a8-4f9b-bd1d-3ab51d92c1c9",
                                                                               :rate_code=>545532}
                                                                          )
-
       end
     end
   end
