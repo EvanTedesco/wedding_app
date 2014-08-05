@@ -8,7 +8,7 @@ class Reservation
     @request["HotelRoomAvailabilityResponse"]["HotelRoomResponse"].each do |room|
 
       info[room["rateDescription"]] = {
-        average_rate: room["RateInfos"]["RateInfo"]["ChargeableRateInfo"]["@averageRate"],
+        average_rate: get_average_rate(room),
         total_cost: room["RateInfos"]["RateInfo"]["ChargeableRateInfo"]["@total"],
         room_type_code: room["RoomType"]["@roomCode"],
         description: room["RoomType"]["descriptionLong"],
@@ -26,5 +26,9 @@ class Reservation
       amenity["amenity"]
     end
     amenities
+  end
+
+  def get_average_rate(room)
+    room["RateInfos"]["RateInfo"]["ChargeableRateInfo"]["@averageRate"]
   end
 end
