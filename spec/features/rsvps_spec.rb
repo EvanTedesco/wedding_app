@@ -3,7 +3,6 @@ require 'spec_helper'
 feature 'Rsvp manager' do
   context 'The user logs in' do
     before do
-      @admin_user = create_admin
       @food = create_food
       @user = create_and_login_user(max_guests: 3)
       click_link 'RSVP'

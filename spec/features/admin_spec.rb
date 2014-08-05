@@ -2,12 +2,8 @@ require 'spec_helper'
 
 feature 'Admin options' do
   before do
-    @admin_user = create_admin
     @user = create_user
-    visit '/sessions/new'
-    fill_in 'user[email]', with: @admin_user.email
-    fill_in 'user[password]', with: @admin_user.password
-    click_button 'Login'
+    @admin = create_and_login_admin
   end
 
   scenario 'Admin can view all RSVPS' do
