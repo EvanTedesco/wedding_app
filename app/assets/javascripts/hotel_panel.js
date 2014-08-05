@@ -1,7 +1,7 @@
 $(document).on('click', '.reservation-panels .panel div.clickable', function () {
   var $this = $(this),
     panelClosed = isClosed($this);
-  
+
   closePanels();
   if(panelClosed){
     panelOpen($this);
