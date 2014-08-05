@@ -21,8 +21,14 @@ feature 'The deets' do
         click_on 'Get pricing'
 
         expect(page).to have_content 'Available rooms'
-
       end
     end
+  end
+
+  scenario 'non-users cannot visit deets page' do 
+    visit '/'
+    click_link 'The Deets'
+
+    expect(page).to have_content'You must be logged in to see this page'
   end
 end
