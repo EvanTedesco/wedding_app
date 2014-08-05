@@ -1,7 +1,7 @@
 window.RSVPManager = {
 
   initialize: function () {
-    if ($('#rsvp-container').length > 0) {
+    if ($('.rsvp-container').length > 0) {
       $("input[id='rsvp_attending_false']").prop('checked', false);
       var $accept = $('#rsvp_attending_true'),
         $decline = $('#rsvp_attending_false'),

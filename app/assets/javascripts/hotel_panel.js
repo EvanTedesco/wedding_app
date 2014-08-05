@@ -12,14 +12,12 @@ function panelClose($this) {
   $this.parents('.panel').find('.panel-body').slideUp();
   $this.addClass('panel-collapsed');
   $this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
-  console.log('Closed');
 }
 
 function panelOpen($this) {
   $this.parents('.panel').find('.panel-body').slideDown();
   $this.removeClass('panel-collapsed');
   $this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
-  console.log('Opened');
 }
 
 function isClosed ($this) {

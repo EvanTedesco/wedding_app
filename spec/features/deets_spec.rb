@@ -12,7 +12,7 @@ feature 'The deets' do
         fill_in 'user[password]', with: user.password
         click_button 'Login'
         click_link 'The Deets'
-        click_link 'Check hotel pricing and availability'
+        click_link 'here'
 
         expect(page).to have_content 'Enter reservation details below'
 
