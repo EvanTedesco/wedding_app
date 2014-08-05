@@ -9,15 +9,23 @@ $(document).on('click', '.reservation-panels .panel div.clickable', function () 
 });
 
 function panelClose($this) {
-  $this.parents('.panel').find('.panel-body').slideUp();
+  getBody($this).slideUp();
   $this.addClass('panel-collapsed');
-  $this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+  getIcon($this).removeClass('glyphicon-minus').addClass('glyphicon-plus');
 }
 
 function panelOpen($this) {
-  $this.parents('.panel').find('.panel-body').slideDown();
+  getBody($this).slideDown();
   $this.removeClass('panel-collapsed');
-  $this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+  getIcon($this).removeClass('glyphicon-plus').addClass('glyphicon-minus');
+}
+
+function getBody($header) {
+   return $header.parents('.panel').find('.panel-body')
+}
+
+function getIcon($header) {
+  return $header.find('i');
 }
 
 function isClosed ($this) {
