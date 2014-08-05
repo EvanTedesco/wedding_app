@@ -64,10 +64,7 @@ feature 'Admin options' do
     expect(page).to have_content 'Menu Items:'
 
     click_link 'Logout'
-    click_link 'Login'
-    fill_in 'user[email]', with: @user.email
-    fill_in 'user[password]', with: @user.password
-    click_button 'Login'
+    create_and_login_user
     visit '/foods/new'
 
     expect(page).to have_no_content 'Add a food item'

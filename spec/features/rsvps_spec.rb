@@ -4,12 +4,8 @@ feature 'Rsvp manager' do
   context 'The user logs in' do
     before do
       @admin_user = create_admin
-      @user = create_user(max_guests: 3)
       @food = create_food
-      visit new_session_path
-      fill_in 'user[email]', with: @user.email
-      fill_in 'user[password]', with: @user.password
-      click_button 'Login'
+      @user = create_and_login_user(max_guests: 3)
       click_link 'RSVP'
     end
 

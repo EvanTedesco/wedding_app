@@ -23,7 +23,7 @@ end
 scenario 'User cannot login with incorrect password' do
 
    visit '/sessions/new'
-   fill_in 'user[email]', with: @admin_user.email
+   fill_in 'user[email]', with: @user.email
    fill_in 'user[password]', with: 'wrong password'
    click_button 'Login'
 
@@ -40,10 +40,7 @@ scenario 'Admin users can see admin options on homepage and non admins cannot'do
    expect(page).to have_content 'Admin'
 
    click_link 'Logout'
-   click_link 'Login'
-   fill_in 'user[email]', with: @user.email
-   fill_in 'user[password]', with: @user.password
-   click_button 'Login'
+   create_and_login_user
 
   expect(page).to have_no_content 'Admin'
 end

@@ -5,12 +5,7 @@ feature 'The deets' do
     new_time = '2014-07-11T21:53:58Z'
     Timecop.freeze(new_time) do
       VCR.use_cassette('features/deets') do
-        user = create_user
-
-        visit '/sessions/new'
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
-        click_button 'Login'
+        create_and_login_user
         click_link 'The Deets'
         click_link 'here'
 
@@ -25,7 +20,7 @@ feature 'The deets' do
     end
   end
 
-  scenario 'non-users cannot visit deets page' do 
+  scenario 'non-users cannot visit deets page' do
     visit '/'
     click_link 'The Deets'
 
