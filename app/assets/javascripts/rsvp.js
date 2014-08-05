@@ -11,7 +11,6 @@ window.RSVPManager = {
           easing: 'linear'
         };
 
-
       $('#new_rsvp').submit(function(){
         $('.guest:hidden').find("input").val('');
       });
@@ -45,7 +44,6 @@ window.RSVPManager = {
       }
     }
   }
-
 };
 
 $(document).ready(RSVPManager.initialize);

@@ -31,7 +31,3 @@ function closePanels() {
 }
 
 $(closePanels);
-
-/*  one open at a time
- * icon shows minus or plus depending on container being open or closed
- * transition = slideUp/slideDown*/

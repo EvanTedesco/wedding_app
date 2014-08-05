@@ -35,9 +35,9 @@ feature 'Rsvp manager' do
     end
 
     scenario 'A gif is displayed when user is not attending' do
-
       choose 'rsvp_attending_false'
       click_button 'Submit'
+
       expect(page).to have_content 'Whack Attack!'
     end
 
@@ -52,8 +52,6 @@ feature 'Rsvp manager' do
     end
 
     scenario 'A user can create a guest with a meal choice' do
-
-
       choose 'rsvp_attending_true'
       page.select @food.name, :from => 'rsvp_user_food_id'
       fill_in 'guest_0_name', with: 'Guest1'
@@ -96,13 +94,12 @@ feature 'Rsvp manager' do
         click_button 'Submit'
 
         expect(Guest.all.length).to eq(2)
-
     end
 
     scenario 'Guest is prompted with error if attending is not chosen' do
-
       click_button 'Submit'
       expect(page).to have_content 'You must accept or decline'
+
       expect(page).to have_no_content 'Attending'
     end
   end

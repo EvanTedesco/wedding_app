@@ -1,5 +1,3 @@
-
-
 @media only screen and (max-width: 800px) {
 
   /* Force table to not be like tables anymore */
@@ -54,20 +52,21 @@
   }
 }
 
-.btn{
-  outline:0;
-  border:none;
-  border-top:none;
-  border-bottom:none;
-  border-left:none;
-  border-right:none;
+.btn {
+  outline: 0;
+  border: none;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
 
-  &:focus{
-    outline:0;
-    -webkit-outline:0;
-    -moz-outline:0;
+  &:focus {
+    outline: 0;
+    -webkit-outline: 0;
+    -moz-outline: 0;
   }
 }
+
 .total-guests {
   text-align: center;
   clear: both;
@@ -89,6 +88,7 @@ td {
   box-shadow: 5px 5px 2.5px #888888 !important;
 
 }
+
 caption {
   height: 38px;
   margin-top: auto;
