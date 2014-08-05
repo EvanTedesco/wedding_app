@@ -1,4 +1,4 @@
-$(document).on('click', '.reservation-panels .panel div.clickable', function (e) {
+$(document).on('click', '.reservation-panels .panel div.clickable', function () {
   var $this = $(this),
     panelClosed = isClosed($this);
   
